@@ -3,10 +3,10 @@ import { useState, useEffect, useRef, useCallback } from "react";
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 const HERO_SLIDES = [
-  { bg: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80", tag: "Roads Construction", title: "BUILDING", accent: "KENYA'S", sub: "ROADS", desc: "World-class highway and rural road construction across Kenya's most challenging terrains." },
-  { bg: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600&q=80", tag: "Building Construction", title: "RAISING", accent: "BOLD", sub: "STRUCTURES", desc: "From residential homes to commercial complexes — built with precision and pride." },
-  { bg: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80", tag: "Water Works", title: "BRINGING", accent: "WATER", sub: "TO LIFE", desc: "Boreholes, dams, water pans and pipelines transforming arid communities." },
-  { bg: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80", tag: "Electrical Works", title: "POWERING", accent: "THE", sub: "FUTURE", desc: "Solar systems, substations and smart electrical infrastructure for modern Kenya." },
+  { bg: "/images/hero2.jpeg", tag: "Building Construction", title: "BUILDING", accent: "KENYA'S", sub: "FUTURE", desc: "From residential homes to commercial complexes — built with precision and pride." },
+  { bg: "/images/hero3.jpg", tag: "Building Construction", title: "RAISING", accent: "BOLD", sub: "STRUCTURES", desc: "From residential homes to commercial complexes — built with precision and pride." },
+  { bg: "/images/hero4.jpg", tag: "Water Works", title: "BRINGING", accent: "WATER", sub: "TO LIFE", desc: "Boreholes, dams, water pans and pipelines transforming arid communities." },
+  { bg: "/images/hero5.jpg", tag: "Road Works", title: "BUILDING", accent: "KENYA'S", sub: "ROADS", desc: "World-class highway and rural road construction across Kenya's most challenging terrains." },
 ];
 
 const SERVICES = [
@@ -45,99 +45,99 @@ const QUICK_REPLIES = [
 // ─── LOCAL AI BRAIN — No API needed ──────────────────────────────────────────
 const KB = [
   {
-    patterns: ["hello","hi","hey","habari","jambo","hujambo","salaam","good morning","good afternoon","good evening","howdy","sup","hiya"],
+    patterns: ["hello", "hi", "hey", "habari", "jambo", "hujambo", "salaam", "good morning", "good afternoon", "good evening", "howdy", "sup", "hiya"],
     response: () => `Habari! 👋 Welcome to **Abeera Enterprises Limited**!\n\nI'm **ARIA**, your AI assistant. I'm here to help with:\n• 🛣️ Roads & civil works\n• 🏗️ Building construction\n• 💧 Water works & boreholes\n• ⚙️ Mechanical works\n• ⚡ Electrical & solar\n\nWhat can I help you with today?`,
   },
   {
-    patterns: ["who are you","what are you","your name","introduce yourself","tell me about yourself","aria"],
+    patterns: ["who are you", "what are you", "your name", "introduce yourself", "tell me about yourself", "aria"],
     response: () => `I'm **ARIA** — Abeera Responsive Intelligence Assistant 🤖\n\nI'm the official AI for **Abeera Enterprises Limited**, a premier Kenyan construction company. Ask me about our services, projects, pricing, company info, and more!`,
   },
   {
-    patterns: ["about company","about abeera","who is abeera","what is abeera","tell me about the company","company info","company details","about you"],
+    patterns: ["about company", "about abeera", "who is abeera", "what is abeera", "tell me about the company", "company info", "company details", "about you"],
     response: () => `**Abeera Enterprises Limited** — a premier Kenyan construction & engineering company. 🏢\n\n📋 **Company No:** PVT-BEUXP26A\n📅 **Founded:** 5th June 2023\n📍 **Office:** P.O. Box 227, Mandera, Kenya\n🏙️ **Location:** Bula Janhuria Street, Nairobi North\n\nWe specialise in roads, buildings, water works, mechanical & electrical engineering — especially in arid regions of Kenya.\n\n– ARIA, Abeera AI 🏗️`,
   },
   {
-    patterns: ["registration","company number","pvt","registered","certificate","incorporation","cr12"],
+    patterns: ["registration", "company number", "pvt", "registered", "certificate", "incorporation", "cr12"],
     response: () => `**Official Registration Details:** 📜\n\n• **Company:** Abeera Enterprises Limited\n• **Company Number:** PVT-BEUXP26A\n• **Date:** 5th June 2023\n• **Act:** Companies Act, 2015\n• **Regulator:** Business Registration Service, Kenya\n• **Ref:** OS-ERFDG9Z2\n\nFully compliant & legally registered. ✅`,
   },
   {
-    patterns: ["directors","owners","shareholders","who owns","founder","leadership","management","abdinur","fatuma"],
+    patterns: ["directors", "owners", "shareholders", "who owns", "founder", "leadership", "management", "abdinur", "fatuma"],
     response: () => `Abeera Enterprises is led by two experienced directors: 👥\n\n**1. Abdinur Issack Abdi**\n• Director & Co-Founder | 300 shares (30%)\n\n**2. Fatuma Abdi Jirow**\n• Director & Managing Shareholder | 700 shares (70%)\n\nBoth bring deep regional expertise and a passion for community development. 🌍`,
   },
   {
-    patterns: ["shares","share capital","capital","equity","ownership structure"],
+    patterns: ["shares", "share capital", "capital", "equity", "ownership structure"],
     response: () => `**Share Structure:** 📊\n\n• **Nominal Capital:** KES 100,000\n• **Total Shares:** 1,000 ordinary @ KES 100 each\n• Fatuma Abdi Jirow — 700 shares (70%)\n• Abdinur Issack Abdi — 300 shares (30%)`,
   },
   {
-    patterns: ["contact","phone","call","telephone","reach you","get in touch","number","email","address","location","where are you","find you","office"],
+    patterns: ["contact", "phone", "call", "telephone", "reach you", "get in touch", "number", "email", "address", "location", "where are you", "find you", "office"],
     response: () => `**Contact Abeera Enterprises:** 📞\n\n📱 **Phone:** +254 722 819 305\n✉️ **Email:** abeeraeenterprise@gmail.com\n📍 **Office:** Bula Janhuria Street, Nairobi North\n📮 **Postal:** P.O. Box 227, Mandera, Kenya\n\n⏰ Mon–Sat: 7AM–6PM | Sunday: Emergencies only\n\nWe'd love to hear from you! 🤝`,
   },
   {
-    patterns: ["road","roads","highway","tarmac","tarmacking","murram","culvert","bridge","drainage","pavement","asphalt","grading","road rehabilitation","road construction","earthwork"],
+    patterns: ["road", "roads", "highway", "tarmac", "tarmacking", "murram", "culvert", "bridge", "drainage", "pavement", "asphalt", "grading", "road rehabilitation", "road construction", "earthwork"],
     response: () => `**Roads Construction** — our flagship service! 🛣️\n\nWe deliver:\n• Highway & trunk road construction\n• Road rehabilitation & upgrading\n• Murram/gravel road construction\n• Tarmacking & asphalt paving\n• Bridges & culvert installation\n• Drainage systems & channels\n• Road maintenance contracts\n\nExperience across **Mandera, Wajir, Garissa** and Nairobi region.\n\n📞 **+254 722 819 305** for a quote!`,
   },
   {
-    patterns: ["building","house","housing","residential","commercial","office","school","hospital","warehouse","renovation","storey","apartment","structure"],
+    patterns: ["building", "house", "housing", "residential", "commercial", "office", "school", "hospital", "warehouse", "renovation", "storey", "apartment", "structure"],
     response: () => `**Building Construction** — we build dreams! 🏗️\n\nOur services:\n• Residential houses & apartments\n• Commercial buildings & offices\n• Schools, hospitals & clinics\n• Warehouses & industrial buildings\n• Government & institutional facilities\n• Renovations & interior fit-outs\n\nAll buildings comply with the **Kenya Building Code** and are supervised by qualified engineers.\n\n📞 **+254 722 819 305**`,
   },
   {
-    patterns: ["water","dam","pan","pipeline","water pan","irrigation","water supply","water tank","water treatment","water works","water project"],
+    patterns: ["water", "dam", "pan", "pipeline", "water pan", "irrigation", "water supply", "water tank", "water treatment", "water works", "water project"],
     response: () => `**Water Works** — bringing water to life! 💧\n\nWe specialise in:\n• Water pans for livestock & irrigation\n• Dam construction (earth & masonry)\n• Pipeline systems (distribution & supply)\n• Water treatment plants\n• Irrigation schemes\n• Water storage tanks\n• Community water supply projects\n• Solar-powered pumping systems\n\nExtensive experience in **ASAL regions** (Mandera, Wajir, Garissa, Marsabit).\n\n📞 **+254 722 819 305**`,
   },
   {
-    patterns: ["borehole","drill","drilling","groundwater","well"],
+    patterns: ["borehole", "drill", "drilling", "groundwater", "well"],
     response: () => `**Borehole Drilling Services** 🔩\n\n• Deep borehole drilling (50–300m+)\n• Hydrogeological surveys & siting\n• Borehole casing & development\n• Pump installation (submersible & solar)\n• Water quality testing\n• Borehole rehabilitation\n• Yield testing & documentation\n\nWe use **modern rotary drilling rigs** with proven results in Mandera, Wajir & Marsabit.\n\n📞 **+254 722 819 305** for a drilling assessment!`,
   },
   {
-    patterns: ["mechanical","generator","pump","hvac","air conditioning","plant","machinery","equipment","engine","motor","compressor"],
+    patterns: ["mechanical", "generator", "pump", "hvac", "air conditioning", "plant", "machinery", "equipment", "engine", "motor", "compressor"],
     response: () => `**Mechanical Works** — engineering excellence! ⚙️\n\nOur services:\n• Industrial plant installation\n• Generator installation & commissioning\n• Pumping systems (water, fuel, chemical)\n• HVAC systems\n• Industrial machinery installation\n• Mechanical maintenance contracts\n• Pipework & plumbing\n• Equipment repair & overhauling\n\n📞 **+254 722 819 305**`,
   },
   {
-    patterns: ["electrical","solar","power","electricity","wiring","panel","substation","transformer","street light","backup power","inverter","renewable","pv","lighting"],
+    patterns: ["electrical", "solar", "power", "electricity", "wiring", "panel", "substation", "transformer", "street light", "backup power", "inverter", "renewable", "pv", "lighting"],
     response: () => `**Electrical Works** — powering the future! ⚡\n\nOur services:\n• Power installation & wiring\n• **Solar PV systems** (residential & commercial)\n• Street & security lighting\n• Industrial electrical installations\n• Transformer & substation works\n• Backup power & UPS systems\n• Rural electrification projects\n• Smart building automation\n\nExpert in both **grid-connected & off-grid solar** — perfect for remote areas.\n\n📞 **+254 722 819 305**`,
   },
   {
-    patterns: ["quote","quotation","price","cost","how much","pricing","estimate","budget","rates","charges","fee","tender","bid"],
+    patterns: ["quote", "quotation", "price", "cost", "how much", "pricing", "estimate", "budget", "rates", "charges", "fee", "tender", "bid"],
     response: () => `We provide **free project quotations!** 📋\n\n**How to get a quote:**\n1️⃣ Contact us with project details\n2️⃣ We do a site visit or virtual assessment\n3️⃣ We prepare a detailed BOQ within **3–5 working days**\n\n📞 **+254 722 819 305**\n✉️ abeeraeenterprise@gmail.com\n\nFactors affecting cost: project size, location, materials, timeline.\n\nWe're competitive, transparent and fair! 💪`,
   },
   {
-    patterns: ["project","portfolio","past work","previous work","completed","experience","examples","achievements"],
+    patterns: ["project", "portfolio", "past work", "previous work", "completed", "experience", "examples", "achievements"],
     response: () => `**Recent Projects Showcase:** 🏆\n\n🛣️ Mandera Road Rehabilitation — **KES 45M** (2024)\n💧 Community Borehole Project — **KES 12M** (2024)\n🏗️ Affordable Housing Complex — **KES 28M** (2023)\n⚡ Solar Street Lighting (200 lights) — **KES 8M** (2024)\n💧 Water Pan, Wajir — **KES 18M** (2023)\n🏗️ Industrial Warehouse 5,000sqm — **KES 35M** (2023)\n\n**Total: KES 150M+ across 6 counties** 📍`,
   },
   {
-    patterns: ["services","what do you do","what do you offer","your work","offerings","capabilities","specialise","specialize"],
+    patterns: ["services", "what do you do", "what do you offer", "your work", "offerings", "capabilities", "specialise", "specialize"],
     response: () => `**Abeera Enterprises** — 5 core service lines: 🏗️\n\n1️⃣ 🛣️ **Roads Construction** — highways, murram, bridges\n2️⃣ 🏗️ **Building Construction** — residential, commercial, institutional\n3️⃣ 💧 **Water Works** — boreholes, dams, pans, pipelines\n4️⃣ ⚙️ **Mechanical Works** — plant, generators, HVAC\n5️⃣ ⚡ **Electrical Works** — solar, wiring, substations\n\nAll delivered by **qualified engineers** across Kenya.\n\nWhich service interests you?`,
   },
   {
-    patterns: ["mandera","wajir","garissa","nairobi","kenya","counties","where do you work","coverage","area","region","operate","asal","northern kenya"],
+    patterns: ["mandera", "wajir", "garissa", "nairobi", "kenya", "counties", "where do you work", "coverage", "area", "region", "operate", "asal", "northern kenya"],
     response: () => `We operate **across Kenya!** 🌍\n\n**Primary regions:**\n• Mandera County (home base)\n• Wajir County\n• Garissa County\n• Marsabit County\n• Nairobi & environs\n• Other counties on project basis\n\nWe have **special expertise in ASAL regions** — challenging terrains that require our experience and dedication. 💪`,
   },
   {
-    patterns: ["timeline","how long","duration","deadline","when","time frame","completion","delivery","schedule"],
+    patterns: ["timeline", "how long", "duration", "deadline", "when", "time frame", "completion", "delivery", "schedule"],
     response: () => `**Project Timelines** — we deliver on time! ⏱️\n\n• **Small projects** (borehole, small building): 2–8 weeks\n• **Medium projects** (road section, medium build): 2–6 months\n• **Large projects** (major roads, dams, complexes): 6–24 months\n\nWe provide:\n✅ Detailed Gantt charts\n✅ Weekly progress reports\n✅ Milestone-based billing\n\n📞 **+254 722 819 305** for your specific timeline!`,
   },
   {
-    patterns: ["quality","standard","certified","warranty","guarantee","workmanship","materials","specification"],
+    patterns: ["quality", "standard", "certified", "warranty", "guarantee", "workmanship", "materials", "specification"],
     response: () => `Quality is non-negotiable at **Abeera Enterprises!** 🏆\n\n✅ Kenya Building Code compliance\n✅ Certified, tested materials only\n✅ Licensed engineers on every project\n✅ Regular quality inspections\n✅ Defects liability period on all works\n✅ ISO-aligned quality management\n\nOur team: Registered Civil Engineers, Water Engineers, Certified Electricians, Licensed Mechanical Engineers.\n\nWe don't cut corners. Ever. 💪`,
   },
   {
-    patterns: ["job","career","employment","vacancy","hire","work for","internship","cv","resume","apply","recruitment"],
+    patterns: ["job", "career", "employment", "vacancy", "hire", "work for", "internship", "cv", "resume", "apply", "recruitment"],
     response: () => `Interested in joining **Abeera Enterprises?** 💼\n\nWe hire:\n• Civil & Structural Engineers\n• Water & Environmental Engineers\n• Electrical & Mechanical Engineers\n• Project Managers & Site Supervisors\n• Quantity Surveyors\n• Skilled artisans & labourers\n\n📧 Send CV to: **abeeraeenterprise@gmail.com**\n📞 Call: **+254 722 819 305**\n\nWe prioritise **local talent** from the communities we serve! 🌍`,
   },
   {
-    patterns: ["partner","partnership","subcontract","joint venture","collaborate","jv","supplier","vendor"],
+    patterns: ["partner", "partnership", "subcontract", "joint venture", "collaborate", "jv", "supplier", "vendor"],
     response: () => `We welcome **partnerships!** 🤝\n\nOpen to:\n• Joint Ventures (JV) on large projects\n• Subcontracting arrangements\n• Supplier partnerships\n• NGO & donor project collaboration\n• Government framework contracts\n\nExperience with County Governments, national agencies, international NGOs & private developers.\n\n📞 **+254 722 819 305** | ✉️ abeeraeenterprise@gmail.com`,
   },
   {
-    patterns: ["complaint","problem","issue","concern","unhappy","disappointed","bad","poor","wrong","delay"],
+    patterns: ["complaint", "problem", "issue", "concern", "unhappy", "disappointed", "bad", "poor", "wrong", "delay"],
     response: () => `We're sorry to hear you have a concern. 😔 We take all feedback seriously.\n\nPlease contact our management directly:\n\n📞 **+254 722 819 305**\n✉️ **abeeraeenterprise@gmail.com**\n\nOr write to: The Directors, Abeera Enterprises Limited, P.O. Box 227, Mandera, Kenya.\n\nWe resolve issues **promptly and professionally.** 🤝`,
   },
   {
-    patterns: ["habari","jambo","asante","karibu","huduma","ujenzi","barabara","maji","umeme","kampuni"],
+    patterns: ["habari", "jambo", "asante", "karibu", "huduma", "ujenzi", "barabara", "maji", "umeme", "kampuni"],
     response: () => `Karibu sana! 🇰🇪\n\n**Abeera Enterprises** inatoa:\n🛣️ Ujenzi wa Barabara\n🏗️ Ujenzi wa Majengo\n💧 Kazi za Maji (visima, mabwawa)\n⚙️ Kazi za Mitambo\n⚡ Kazi za Umeme na Sola\n\n📞 **+254 722 819 305**\n✉️ abeeraeenterprise@gmail.com\n\nTuko tayari kukusaidia! 💪`,
   },
   {
-    patterns: ["thank","thanks","okay","ok","great","perfect","awesome","bye","goodbye","noted","understood"],
+    patterns: ["thank", "thanks", "okay", "ok", "great", "perfect", "awesome", "bye", "goodbye", "noted", "understood"],
     response: () => {
       const r = [
         `You're welcome! 😊 Feel free to reach out anytime.\n📞 **+254 722 819 305** | **Abeera Enterprises — Building Kenya's Future!** 🏗️`,
@@ -309,7 +309,7 @@ function Navbar({ page, setPage }: { page: string; setPage: (p: string) => void 
 
 // ─── PARTICLES ────────────────────────────────────────────────────────────────
 function Particles() {
-  const [pts, setPts] = useState<{id:number;left:number;delay:number;dur:number;size:number;op:number}[]>([]);
+  const [pts, setPts] = useState<{ id: number; left: number; delay: number; dur: number; size: number; op: number }[]>([]);
   useEffect(() => {
     setPts(Array.from({ length: 18 }, (_, i) => ({
       id: i, left: Math.random() * 100, delay: Math.random() * 12,
@@ -760,8 +760,8 @@ function Chatbot() {
               <div style={{ display: "flex", alignItems: "flex-end", gap: 7 }}>
                 <div style={{ width: 28, height: 28, borderRadius: "50%", background: "linear-gradient(135deg,#C8102E,#8B0000)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, flexShrink: 0 }}>🤖</div>
                 <div style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "4px 16px 16px 16px", padding: "11px 15px", display: "flex", gap: 5, alignItems: "center" }}>
-                  {[0,1,2].map(j => (
-                    <div key={j} style={{ width: 7, height: 7, borderRadius: "50%", background: "#C8102E", animation: `typingDot 1.4s ${j*0.22}s ease-in-out infinite` }} />
+                  {[0, 1, 2].map(j => (
+                    <div key={j} style={{ width: 7, height: 7, borderRadius: "50%", background: "#C8102E", animation: `typingDot 1.4s ${j * 0.22}s ease-in-out infinite` }} />
                   ))}
                 </div>
               </div>
