@@ -27,10 +27,10 @@ const PROJECTS = [
 ];
 
 const TEAM = [
-  { name: "Abdinur Issack Abdi", role: "Director & Co-Founder", shares: "300 shares (30%)", initials: "AI", color: "#C8102E", icon: "🏗️", bg: "rgba(200,16,46,0.12)", discipline: "Business & Strategy" },
-  { name: "Fatuma Abdi Jirow", role: "Director & Managing Shareholder", shares: "700 shares (70%)", initials: "FA", color: "#c0392b", icon: "📊", bg: "rgba(192,57,43,0.12)", discipline: "Operations & Finance" },
-  { name: "Eng. Hassan Mohammed", role: "Chief Civil Engineer", initials: "HM", color: "#1a6fa8", icon: "🛣️", bg: "rgba(26,111,168,0.12)", discipline: "Civil Engineering" },
-  { name: "Eng. Amina Osman", role: "Water & Environmental Engineer", initials: "AO", color: "#1e8449", icon: "💧", bg: "rgba(30,132,73,0.12)", discipline: "Water & Environment" },
+  { name: "Abdinur Issack Abdi", role: "Director & Co-Founder", shares: "300 shares (30%)", initials: "AI", color: "#C8102E", icon: "🏗️", bg: "rgba(200,16,46,0.10)", discipline: "Business & Strategy" },
+  { name: "Fatuma Abdi Jirow", role: "Director & Managing Shareholder", shares: "700 shares (70%)", initials: "FA", color: "#c0392b", icon: "📊", bg: "rgba(192,57,43,0.10)", discipline: "Operations & Finance" },
+  { name: "Eng. Hassan Mohammed", role: "Chief Civil Engineer", initials: "HM", color: "#1a6fa8", icon: "🛣️", bg: "rgba(26,111,168,0.10)", discipline: "Civil Engineering" },
+  { name: "Eng. Amina Osman", role: "Water & Environmental Engineer", initials: "AO", color: "#1e8449", icon: "💧", bg: "rgba(30,132,73,0.10)", discipline: "Water & Environment" },
 ];
 
 const QUICK_REPLIES = [
@@ -239,11 +239,12 @@ body,#__next{background:#0A0A0A;color:#F5F5F5;font-family:'Exo 2',sans-serif;ove
 .btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,16,46,0.45);}
 .btn-o{background:transparent;color:#C8102E;border:1px solid #C8102E;padding:13px 32px;border-radius:8px;font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;}
 .btn-o:hover{background:rgba(200,16,46,0.1);transform:translateY(-2px);}
-.nav-mobile-btns{display:none;}
 .stag{display:inline-block;background:rgba(200,16,46,0.13);color:#C8102E;border:1px solid rgba(200,16,46,0.3);padding:6px 16px;border-radius:4px;font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;}
 input,textarea,select{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#F5F5F5;padding:12px 16px;border-radius:8px;font-family:'Exo 2',sans-serif;font-size:14px;width:100%;transition:all 0.3s;outline:none;}
 input:focus,textarea:focus,select:focus{border-color:#C8102E;background:rgba(200,16,46,0.06);box-shadow:0 0 0 3px rgba(200,16,46,0.12);}
 select option{background:#1a1a1a;}
+/* Nav mobile */
+.nav-mobile-btns{display:none;}
 @media(max-width:768px){
   .nav-links{display:none!important;}
   .nav-mobile-btns{display:flex!important;}
@@ -263,118 +264,139 @@ select option{background:#1a1a1a;}
   .btn-p,.btn-o{padding:12px 20px!important;font-size:13px!important;}
 }
 
-/* ── LIGHT MODE ── */
-.light-mode {
-  --bg: #f4f4f4;
-  --bg2: #ffffff;
-  --bg3: #ebebeb;
-  --text: #111111;
-  --text2: #444444;
-  --text3: #666666;
-  --border: rgba(0,0,0,0.1);
-  --glass-bg: rgba(255,255,255,0.7);
-  --glass-border: rgba(0,0,0,0.08);
-  --card-shadow: 0 8px 32px rgba(0,0,0,0.12);
-}
-.dark-mode {
-  --bg: #0A0A0A;
-  --bg2: rgba(20,20,20,0.72);
-  --bg3: #111111;
-  --text: #F5F5F5;
-  --text2: #bbbbbb;
-  --text3: #888888;
-  --border: rgba(255,255,255,0.07);
-  --glass-bg: rgba(20,20,20,0.72);
-  --glass-border: rgba(255,255,255,0.1);
-  --card-shadow: 0 8px 32px rgba(0,0,0,0.4);
-}
-body.light-mode, .light-mode #__next {
-  background: var(--bg) !important;
-  color: var(--text) !important;
-}
-.light-mode .glass {
-  background: var(--glass-bg) !important;
-  border-color: var(--glass-border) !important;
-  box-shadow: var(--card-shadow) !important;
-}
-.light-mode .glass::before { background: rgba(200,16,46,0.02) !important; }
-.light-mode nav { background: rgba(255,255,255,0.92) !important; border-bottom: 1px solid rgba(200,16,46,0.15) !important; }
-.light-mode .stag { background: rgba(200,16,46,0.08) !important; }
-.light-mode input, .light-mode textarea, .light-mode select {
-  background: rgba(0,0,0,0.04) !important;
-  border-color: rgba(0,0,0,0.15) !important;
-  color: #111 !important;
-}
-.light-mode .aria-win {
-  background: linear-gradient(160deg,rgba(255,240,240,0.97),rgba(255,255,255,0.98)) !important;
-  border-color: rgba(200,16,46,0.2) !important;
-}
-.light-mode .aria-msgs { background: transparent; }
-.light-mode .aria-textarea { color: #111 !important; background: rgba(0,0,0,0.05) !important; border-color: rgba(0,0,0,0.15) !important; }
-.light-mode .aria-textarea::placeholder { color: rgba(0,0,0,0.4) !important; }
-.light-mode section { color: var(--text) !important; }
-.light-mode p { color: var(--text2) !important; }
-.light-mode h1,.light-mode h2,.light-mode h3 { color: var(--text) !important; }
-.light-mode footer { background: #e8e8e8 !important; border-top-color: rgba(200,16,46,0.2) !important; }
-.light-mode .bebas { color: var(--text) !important; }
-.light-mode .glass:hover { border-color: rgba(200,16,46,0.3) !important; }
-.light-mode nav button { color: #444 !important; }
-.light-mode nav button[aria-current="page"] { color: #C8102E !important; }
+/* ── DARK/LIGHT MODE ── */
+:root{--red:#C8102E;}
+body.lm,body.lm #__next{background:#f0f0f0!important;color:#111!important;}
+body.dm,body.dm #__next{background:#0A0A0A!important;color:#F5F5F5!important;}
 
-/* ── MOBILE NAV MENU ── */
-.mobile-menu {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  animation: fadeIn 0.25s ease;
+/* Light mode overrides — comprehensive */
+body.lm *{color:#111;}
+body.lm h1,body.lm h2,body.lm h3,body.lm h4{color:#0a0a0a!important;}
+body.lm p{color:#222!important;}
+body.lm span{color:#333;}
+body.lm .bebas{color:#0a0a0a!important;}
+body.lm .stag{background:rgba(200,16,46,0.08)!important;color:#C8102E!important;border-color:rgba(200,16,46,0.25)!important;}
+body.lm [style*="color: #888"],body.lm [style*="color:#888"]{color:#555!important;}
+body.lm [style*="color: #999"],body.lm [style*="color:#999"]{color:#555!important;}
+body.lm [style*="color: #aaa"],body.lm [style*="color:#aaa"]{color:#555!important;}
+body.lm [style*="color: #bbb"],body.lm [style*="color:#bbb"]{color:#333!important;}
+body.lm [style*="color: #777"],body.lm [style*="color:#777"]{color:#444!important;}
+body.lm [style*="color: #666"],body.lm [style*="color:#666"]{color:#444!important;}
+body.lm [style*="color: #555"],body.lm [style*="color:#555"]{color:#333!important;}
+body.lm [style*="color: #444"],body.lm [style*="color:#444"]{color:#222!important;}
+body.lm [style*="color: #F5F5F5"],body.lm [style*="color:#F5F5F5"]{color:#111!important;}
+body.lm [style*="color: #e8e8e8"],body.lm [style*="color:#e8e8e8"]{color:#111!important;}
+body.lm [style*="color: #ccc"],body.lm [style*="color:#ccc"]{color:#333!important;}
+body.lm [style*="color: #ddd"],body.lm [style*="color:#ddd"]{color:#333!important;}
+body.lm [style*="color: #2a2a2a"],body.lm [style*="color:#2a2a2a"]{color:#333!important;}
+body.lm nav{background:rgba(255,255,255,0.97)!important;border-bottom:1px solid rgba(200,16,46,0.18)!important;box-shadow:0 2px 24px rgba(0,0,0,0.1)!important;}
+body.lm nav button{color:#222!important;}
+body.lm nav button[aria-current="page"]{color:#C8102E!important;}
+body.lm .glass{
+  background:rgba(255,255,255,0.82)!important;
+  backdrop-filter:blur(24px) saturate(160%)!important;
+  border:1px solid rgba(200,16,46,0.12)!important;
+  border-top:1px solid rgba(255,255,255,0.95)!important;
+  box-shadow:0 8px 32px rgba(0,0,0,0.1),inset 0 1px 0 rgba(255,255,255,0.9)!important;
 }
-.dark-mode .mobile-menu { background: rgba(8,4,4,0.97); backdrop-filter: blur(30px); }
-.light-mode .mobile-menu { background: rgba(255,252,252,0.97); backdrop-filter: blur(30px); }
-.mobile-menu button {
-  background: none; border: none; cursor: pointer;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 36px; letter-spacing: 3px;
-  transition: color 0.2s, transform 0.2s;
-  padding: 10px 30px; border-radius: 8px; width: 220px; text-align: center;
+body.lm .glass p,body.lm .glass span,body.lm .glass h3,body.lm .glass div{color:#111;}
+body.lm .glass:hover{border-color:rgba(200,16,46,0.35)!important;box-shadow:0 16px 48px rgba(200,16,46,0.12),0 4px 16px rgba(0,0,0,0.06)!important;}
+body.lm section{color:#111!important;}
+body.lm footer{background:#e4e4e4!important;border-top:1px solid rgba(200,16,46,0.2)!important;}
+body.lm footer *{color:#444!important;}
+body.lm footer .bebas{color:#0a0a0a!important;}
+body.lm input,body.lm textarea,body.lm select{background:#fff!important;border:1px solid rgba(0,0,0,0.18)!important;color:#111!important;}
+body.lm select option{background:#fff;color:#111;}
+body.lm input::placeholder,body.lm textarea::placeholder{color:rgba(0,0,0,0.45)!important;}
+body.lm .aria-win{background:rgba(255,250,250,0.99)!important;border:1px solid rgba(200,16,46,0.2)!important;color:#111!important;}
+body.lm .aria-win *{color:#111;}
+body.lm .aria-msgs{background:transparent;}
+body.lm .aria-textarea{color:#111!important;background:rgba(0,0,0,0.05)!important;border:1px solid rgba(0,0,0,0.18)!important;}
+body.lm .aria-textarea::placeholder{color:rgba(0,0,0,0.42)!important;}
+body.lm .theme-btn{background:rgba(0,0,0,0.06)!important;border:1px solid rgba(0,0,0,0.14)!important;}
+body.lm .mob-menu *{color:#111!important;}
+body.lm .mob-link{color:#111!important;}
+body.lm .mob-link.active,body.lm .mob-link:hover{color:#C8102E!important;}
+body.lm [style*="background: rgba(200,16,46,0.04)"],
+body.lm [style*="background:rgba(200,16,46"]{color:#111!important;}
+body.lm [style*="color: #C8102E"],body.lm [style*="color:#C8102E"]{color:#C8102E!important;}
+body.lm [style*="color: #ff8080"]{color:#C8102E!important;}
+/* Hero always dark bg so text stays white */
+body.lm section:first-of-type h1,body.lm section:first-of-type p,body.lm section:first-of-type span{color:#F5F5F5!important;}
+
+/* ── MOBILE FULL-SCREEN MENU ── */
+.mob-menu{
+  position:fixed;top:0;left:0;right:0;bottom:0;z-index:1200;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  animation:fadeIn 0.2s ease;
 }
-.dark-mode .mobile-menu button { color: #F5F5F5; }
-.light-mode .mobile-menu button { color: #111; }
-.mobile-menu button:hover { color: #C8102E !important; transform: scale(1.05); }
-.mobile-menu button.active-page { color: #C8102E !important; }
-.mobile-menu .mob-close {
-  position: absolute; top: 20px; right: 24px;
-  background: rgba(200,16,46,0.1) !important;
-  border: 1px solid rgba(200,16,46,0.3) !important;
-  color: #C8102E !important;
-  width: 40px; height: 40px; border-radius: 50% !important;
-  font-size: 18px !important; font-family: sans-serif !important;
-  display: flex !important; align-items: center; justify-content: center;
-  padding: 0 !important; width: 40px !important;
-  letter-spacing: 0 !important;
+body.dm .mob-menu{background:rgba(6,2,2,0.97);backdrop-filter:blur(24px);}
+body.lm .mob-menu{background:rgba(255,252,252,0.97);backdrop-filter:blur(24px);}
+.mob-menu .mob-link{
+  background:none;border:none;cursor:pointer;padding:12px 40px;border-radius:10px;
+  font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:3px;
+  transition:all 0.18s;width:230px;text-align:center;
 }
+body.dm .mob-link{color:#ddd;}
+body.lm .mob-link{color:#222;}
+.mob-menu .mob-link:hover,.mob-menu .mob-link.active{color:#C8102E!important;background:rgba(200,16,46,0.07);}
+.mob-close-btn{position:absolute;top:18px;right:18px;background:rgba(200,16,46,0.1);border:1px solid rgba(200,16,46,0.3);color:#C8102E;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.mob-close-btn:hover{background:rgba(200,16,46,0.25);}
 
 /* ── ACCESSIBILITY ── */
-:focus-visible { outline: 2px solid #C8102E !important; outline-offset: 2px !important; }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-}
-.skip-link {
-  position: absolute; top: -40px; left: 16px; z-index: 9999;
-  background: #C8102E; color: white; padding: 8px 16px; border-radius: 4px;
-  font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 14px;
-  text-decoration: none; transition: top 0.2s;
-}
-.skip-link:focus { top: 8px; }
+:focus-visible{outline:2px solid #C8102E!important;outline-offset:3px!important;border-radius:4px!important;}
+.skip-link{position:absolute;top:-50px;left:12px;z-index:9999;background:#C8102E;color:#fff;padding:8px 16px;border-radius:4px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;text-decoration:none;transition:top 0.2s;}
+.skip-link:focus{top:8px;}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;}}
 
-/* ── CHATBOT MOBILE FIX ── */
+/* ── CHATBOT MOBILE ── */
+.aria-fab{position:fixed!important;bottom:22px!important;right:22px!important;z-index:3000!important;pointer-events:auto!important;}
 @media(max-width:480px){
-  .aria-fab { bottom: 20px !important; right: 20px !important; z-index: 3000 !important; }
-  .aria-win { z-index: 2999 !important; }
+  .aria-win{right:0!important;bottom:0!important;width:100vw!important;height:92dvh!important;border-radius:20px 20px 0 0!important;animation:chatMobPop 0.3s ease!important;}
+}
+@keyframes chatMobPop{from{transform:translateY(100%);opacity:0;}to{transform:translateY(0);opacity:1;}}
+
+/* ── ENHANCED GLASS CARD EFFECTS ── */
+@keyframes cardFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+@keyframes borderPulse{0%,100%{box-shadow:0 8px 32px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.08);}50%{box-shadow:0 8px 40px rgba(0,0,0,0.5),0 0 24px rgba(200,16,46,0.14),inset 0 1px 0 rgba(255,255,255,0.14);}}
+@keyframes scanShine{0%{left:-80%;}100%{left:130%}}
+
+/* Enhanced glass base */
+.glass{transition:all 0.38s cubic-bezier(0.34,1.1,0.64,1)!important;}
+.glass::after{content:'';position:absolute;top:0;left:-80%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent);transform:skewX(-15deg);transition:none;pointer-events:none;border-radius:inherit;}
+.glass:hover::after{animation:scanShine 0.7s ease forwards;}
+.glass:hover{
+  transform:translateY(-7px) scale(1.015)!important;
+  box-shadow:0 24px 64px rgba(0,0,0,0.55),0 0 0 1px rgba(200,16,46,0.28),0 0 48px rgba(200,16,46,0.06),inset 0 1px 0 rgba(255,255,255,0.18)!important;
+  border-color:rgba(200,16,46,0.38)!important;
+}
+
+/* Project cards — bigger effect */
+.proj-card{overflow:hidden;position:relative;transition:all 0.42s cubic-bezier(0.34,1.15,0.64,1)!important;}
+.proj-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,16,46,0.0),transparent 60%);opacity:0;transition:opacity 0.4s;pointer-events:none;border-radius:16px;z-index:1;}
+.proj-card::after{content:'';position:absolute;top:0;left:-90%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent);transform:skewX(-15deg);pointer-events:none;transition:none;}
+.proj-card:hover{
+  transform:translateY(-12px) scale(1.02)!important;
+  box-shadow:0 36px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(200,16,46,0.35),0 0 60px rgba(200,16,46,0.1)!important;
+  border-color:rgba(200,16,46,0.45)!important;
+}
+.proj-card:hover::before{opacity:1;}
+.proj-card:hover::after{animation:scanShine 0.75s ease forwards;}
+.proj-img{transition:transform 0.65s cubic-bezier(0.34,1.1,0.64,1)!important;}
+.proj-card:hover .proj-img{transform:scale(1.1)!important;}
+
+/* Stat cards float */
+.stat-card{animation:cardFloat 4s ease-in-out infinite;}
+.stat-card:nth-child(2){animation-delay:0.5s;}
+.stat-card:nth-child(3){animation-delay:1s;}
+.stat-card:nth-child(4){animation-delay:1.5s;}
+
+/* Service cards glow on hover */
+.svc-card{transition:all 0.38s cubic-bezier(0.34,1.1,0.64,1)!important;overflow:hidden!important;position:relative!important;}
+.svc-card:hover{
+  transform:translateY(-8px) scale(1.025)!important;
+  box-shadow:0 20px 56px rgba(0,0,0,0.5),0 0 0 1px rgba(200,16,46,0.3),0 0 36px rgba(200,16,46,0.08)!important;
+  border-color:rgba(200,16,46,0.4)!important;
 }
 `;
 
@@ -398,174 +420,91 @@ function Logo({ size = 40 }) {
 }
 
 // ─── NAVBAR ───────────────────────────────────────────────────────────────────
-function Navbar({ page, setPage, theme, toggleTheme }: {
-  page: string; setPage: (p: string) => void;
-  theme: string; toggleTheme: () => void;
+function Navbar({ page, setPage, theme, onTheme }: {
+  page: string; setPage: (p: string) => void; theme: string; onTheme: () => void;
 }) {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const isMob = useIsMobile();
-
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
   }, []);
-
-  // Close menu on page change
-  useEffect(() => { setMobileOpen(false); }, [page]);
-
-  // Lock body scroll when menu open
+  useEffect(() => { setMenuOpen(false); }, [page]);
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [mobileOpen]);
+  }, [menuOpen]);
 
+  const isDark = theme === "dark";
   const navBg = scrolled
-    ? theme === "dark"
-      ? "rgba(8,4,4,0.96)"
-      : "rgba(255,252,252,0.95)"
+    ? isDark ? "rgba(8,4,4,0.95)" : "rgba(255,252,252,0.95)"
     : "transparent";
-
-  const navBorder = scrolled ? "1px solid rgba(200,16,46,0.18)" : "none";
-  const linkColor = theme === "dark" ? "#bbb" : "#444";
-  const themeIcon = theme === "dark" ? "☀️" : "🌙";
+  const linkColor = isDark ? "#bbb" : "#333";
 
   return (
     <>
-      <nav
-        role="navigation"
-        aria-label="Main navigation"
-        style={{
-          position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
-          background: navBg,
-          backdropFilter: scrolled ? "blur(32px) saturate(180%)" : "none",
-          WebkitBackdropFilter: scrolled ? "blur(32px) saturate(180%)" : "none",
-          borderBottom: navBorder, transition: "all 0.4s", padding: "0 5%",
-        }}
-      >
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
-          {/* Logo */}
-          <div onClick={() => setPage("Home")} role="button" tabIndex={0} aria-label="Go to Home" style={{ cursor: "pointer" }}
-            onKeyDown={e => e.key === "Enter" && setPage("Home")}
-          >
+      <a href="#main" className="skip-link">Skip to content</a>
+      <nav role="navigation" aria-label="Main navigation" style={{
+        position:"fixed",top:0,left:0,right:0,zIndex:1100,
+        background: navBg,
+        backdropFilter: scrolled ? "blur(28px) saturate(180%)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(28px) saturate(180%)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(200,16,46,0.18)" : "none",
+        transition:"all 0.4s",padding:"0 5%",
+      }}>
+        <div style={{ maxWidth:1200,margin:"0 auto",display:"flex",alignItems:"center",justifyContent:"space-between",height:72 }}>
+          <div onClick={() => setPage("Home")} style={{ cursor:"pointer" }} tabIndex={0} role="button" aria-label="Home" onKeyDown={e => e.key==="Enter"&&setPage("Home")}>
             <Logo size={38} />
           </div>
 
           {/* Desktop links */}
-          <div className="nav-links" style={{ display: "flex", gap: 4, alignItems: "center" }}>
-            {["Home", "About", "Services", "Portfolio", "Contact"].map(l => (
-              <button
-                key={l} onClick={() => setPage(l)}
-                aria-current={page === l ? "page" : undefined}
-                style={{
-                  background: "none", border: "none",
-                  color: page === l ? "#C8102E" : linkColor,
-                  fontFamily: "'Rajdhani',sans-serif", fontSize: 15, fontWeight: 600,
-                  letterSpacing: 1, padding: "8px 14px", cursor: "pointer",
-                  position: "relative", transition: "color 0.3s",
-                }}
-              >
+          <div className="nav-links" style={{ display:"flex",gap:4,alignItems:"center" }}>
+            {["Home","About","Services","Portfolio","Contact"].map(l => (
+              <button key={l} onClick={() => setPage(l)} aria-current={page===l?"page":undefined}
+                style={{ background:"none",border:"none",color:page===l?"#C8102E":linkColor,fontFamily:"'Rajdhani',sans-serif",fontSize:15,fontWeight:600,letterSpacing:1,padding:"8px 14px",cursor:"pointer",position:"relative",transition:"color 0.3s" }}>
                 {l}
-                {page === l && (
-                  <span style={{
-                    position: "absolute", bottom: 0, left: "20%", width: "60%", height: 2,
-                    background: "#C8102E", borderRadius: 2, display: "block",
-                    transformOrigin: "left", animation: "slideRight 0.3s ease",
-                  }} />
-                )}
+                {page===l && <span style={{ position:"absolute",bottom:0,left:"20%",width:"60%",height:2,background:"#C8102E",borderRadius:2,display:"block",transformOrigin:"left",animation:"slideRight 0.3s ease" }} />}
               </button>
             ))}
-            {/* Theme toggle */}
-            <button
-              onClick={toggleTheme}
-              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-              title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-              style={{
-                background: "rgba(200,16,46,0.1)", border: "1px solid rgba(200,16,46,0.25)",
-                borderRadius: 8, width: 36, height: 36, cursor: "pointer",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 16, marginLeft: 4, transition: "all 0.3s",
-              }}
-            >{themeIcon}</button>
-            <button className="btn-p" style={{ padding: "9px 20px", fontSize: 13, marginLeft: 6 }} onClick={() => setPage("Contact")}>
-              Get Quote
+            <button className="theme-btn" onClick={onTheme} aria-label={`Switch to ${isDark?"light":"dark"} mode`}
+              style={{ background:"rgba(200,16,46,0.1)",border:"1px solid rgba(200,16,46,0.25)",borderRadius:8,width:36,height:36,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",fontSize:16,marginLeft:4,transition:"all 0.3s",flexShrink:0 }}>
+              {isDark?"☀️":"🌙"}
             </button>
+            <button className="btn-p" style={{ padding:"9px 20px",fontSize:13,marginLeft:6 }} onClick={() => setPage("Contact")}>Get Quote</button>
           </div>
 
-          {/* Mobile right side — theme + hamburger */}
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }} className="nav-mobile-btns">
-            <button
-              onClick={toggleTheme}
-              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-              style={{
-                background: "rgba(200,16,46,0.1)", border: "1px solid rgba(200,16,46,0.25)",
-                borderRadius: 8, width: 36, height: 36, cursor: "pointer",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 16, transition: "all 0.3s",
-              }}
-            >{themeIcon}</button>
-            {/* Hamburger */}
-            <button
-              onClick={() => setMobileOpen(true)}
-              aria-label="Open navigation menu"
-              aria-expanded={mobileOpen}
-              style={{
-                background: "none", border: "1px solid rgba(200,16,46,0.3)", borderRadius: 8,
-                width: 40, height: 40, cursor: "pointer", display: "flex",
-                flexDirection: "column", alignItems: "center", justifyContent: "center",
-                gap: 5, padding: "0 10px",
-              }}
-            >
-              <span style={{ width: 20, height: 2, background: "#C8102E", borderRadius: 1, display: "block" }} />
-              <span style={{ width: 14, height: 2, background: "#C8102E", borderRadius: 1, display: "block" }} />
-              <span style={{ width: 20, height: 2, background: "#C8102E", borderRadius: 1, display: "block" }} />
+          {/* Mobile controls */}
+          <div className="nav-mobile-btns" style={{ alignItems:"center",gap:8 }}>
+            <button className="theme-btn" onClick={onTheme} aria-label={`Switch to ${isDark?"light":"dark"} mode`}
+              style={{ background:"rgba(200,16,46,0.1)",border:"1px solid rgba(200,16,46,0.25)",borderRadius:8,width:36,height:36,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",fontSize:16,flexShrink:0 }}>
+              {isDark?"☀️":"🌙"}
+            </button>
+            <button onClick={() => setMenuOpen(true)} aria-label="Open menu" aria-expanded={menuOpen}
+              style={{ background:"none",border:"1px solid rgba(200,16,46,0.3)",borderRadius:8,width:40,height:40,cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:5,padding:"0 10px" }}>
+              <span style={{ width:20,height:2,background:"#C8102E",borderRadius:1,display:"block" }} />
+              <span style={{ width:14,height:2,background:"#C8102E",borderRadius:1,display:"block" }} />
+              <span style={{ width:20,height:2,background:"#C8102E",borderRadius:1,display:"block" }} />
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile full-screen menu */}
-      {mobileOpen && (
-        <div
-          className="mobile-menu"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Navigation menu"
-        >
-          {/* Close button */}
-          <button className="mob-close" onClick={() => setMobileOpen(false)} aria-label="Close menu">✕</button>
-
-          {/* Logo in menu */}
-          <div style={{ marginBottom: 24 }}><Logo size={36} /></div>
-
-          {/* Nav links */}
-          {["Home", "About", "Services", "Portfolio", "Contact"].map(l => (
-            <button
-              key={l}
-              onClick={() => { setPage(l); setMobileOpen(false); }}
-              className={page === l ? "active-page" : ""}
-              aria-current={page === l ? "page" : undefined}
-            >
+      {/* Mobile fullscreen menu */}
+      {menuOpen && (
+        <div className="mob-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+          <button className="mob-close-btn" onClick={() => setMenuOpen(false)} aria-label="Close menu">✕</button>
+          <div style={{ marginBottom:28 }}><Logo size={36} /></div>
+          {["Home","About","Services","Portfolio","Contact"].map(l => (
+            <button key={l} className={`mob-link${page===l?" active":""}`}
+              onClick={() => { setPage(l); setMenuOpen(false); }} aria-current={page===l?"page":undefined}>
               {l}
             </button>
           ))}
-
-          {/* Get Quote CTA */}
-          <button
-            className="btn-p"
-            style={{ marginTop: 16, padding: "14px 40px", fontSize: 15, letterSpacing: 2 }}
-            onClick={() => { setPage("Contact"); setMobileOpen(false); }}
-          >
+          <button className="btn-p" style={{ marginTop:20,padding:"14px 44px",fontSize:15 }} onClick={() => { setPage("Contact"); setMenuOpen(false); }}>
             Get Quote
           </button>
-
-          {/* Social / contact row */}
-          <div style={{ marginTop: 32, display: "flex", gap: 20, opacity: 0.5 }}>
-            <span style={{ fontFamily: "'Rajdhani',sans-serif", fontSize: 12, letterSpacing: 2, color: "#888" }}>
-              +254 722 819 305
-            </span>
-          </div>
+          <p style={{ marginTop:32,fontSize:12,opacity:0.4,fontFamily:"'Rajdhani',sans-serif",letterSpacing:2 }}>+254 722 819 305</p>
         </div>
       )}
     </>
@@ -640,9 +579,9 @@ function HeroCarousel({ setPage }: { setPage: (p: string) => void }) {
     <section style={{ minHeight: "100vh", position: "relative", display: "flex", alignItems: "center", overflow: "hidden" }}>
       {/* BG image — keyed so it re-animates on slide change */}
       <div key={cur} style={{ position: "absolute", inset: 0, zIndex: 0, animation: "fadeIn 0.85s ease" }}>
-        <img src={s.bg} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.55, animation: "heroKen 6s ease forwards" }} />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.15) 100%)" }} />
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "35%", background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)" }} />
+        <img src={s.bg} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.62, animation: "heroKen 6s ease forwards" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.1) 100%)" }} />
+        <div style={{ position: "absolute", bottom:0, left:0, right:0, height:"40%", background:"linear-gradient(to top,rgba(0,0,0,0.75),transparent)" }} />
       </div>
 
       <Particles />
@@ -823,6 +762,7 @@ function Chatbot() {
           box-shadow: 0 32px 80px rgba(0,0,0,0.85), 0 0 0 1px rgba(200,16,46,0.15), inset 0 1px 0 rgba(255,255,255,0.09);
           animation: chatPop 0.38s cubic-bezier(0.34,1.56,0.64,1);
           overflow: hidden;
+          pointer-events: auto;
         }
         @media (max-width: 480px) {
           .aria-win {
@@ -851,7 +791,7 @@ function Chatbot() {
       `}</style>
 
       {/* ── FAB Button ── */}
-      <div className="aria-fab" style={{ position: "fixed", bottom: 24, right: 24, zIndex: 3000 }}>
+      <div className="aria-fab">
         {!open && notif && (
           <>
             <div style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "rgba(200,16,46,0.3)", animation: "ripple 2s ease-out infinite" }} />
@@ -871,7 +811,7 @@ function Chatbot() {
             boxShadow: "0 6px 24px rgba(200,16,46,0.5)",
             transition: "transform 0.2s, box-shadow 0.2s",
             color: "#fff", outline: "none",
-            touchAction: "manipulation",
+            touchAction: "manipulation" as const,
             WebkitTapHighlightColor: "transparent",
           }}
           onMouseEnter={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.transform = "scale(1.1)"}
@@ -1140,7 +1080,7 @@ function HomePage({ setPage }: { setPage: (p: string) => void }) {
       <section style={{ padding: "65px 5%", background: "linear-gradient(180deg,rgba(200,16,46,0.06) 0%,rgba(10,10,10,0.8) 100%)", borderTop: "1px solid rgba(200,16,46,0.15)", borderBottom: "1px solid rgba(200,16,46,0.1)", backdropFilter: "blur(20px)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: isMob ? "repeat(2,1fr)" : "repeat(4,1fr)", gap: 18 }}>
           {([["50+", "Projects Completed", 50], ["5", "Core Services", 5], ["200+", "Skilled Workers", 200], ["6", "Counties Served", 6]] as [string, string, number][]).map(([v, l, n], i) => (
-            <div key={i} className="glass" style={{ padding: "26px 18px", textAlign: "center" }}>
+            <div key={i} className="glass stat-card" style={{ padding: "26px 18px", textAlign: "center" }}>
               <div className="bebas" style={{ fontSize: 58, color: "#C8102E", lineHeight: 1 }}>{count[i]}{v.replace(/\d+/, "")}</div>
               <div style={{ color: "#666", fontFamily: "'Rajdhani',sans-serif", fontSize: 12, letterSpacing: 2, textTransform: "uppercase", marginTop: 5 }}>{l}</div>
             </div>
@@ -1153,7 +1093,7 @@ function HomePage({ setPage }: { setPage: (p: string) => void }) {
           <SH tag="What We Do" title="||Core Services|| We Provide" sub="Comprehensive construction and engineering services tailored for Kenya's growing infrastructure needs" />
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(205px,1fr))", gap: 18 }}>
             {SERVICES.map((s, i) => (
-              <div key={s.id} className="glass glass-shine card-glow" style={{ padding: 24, cursor: "pointer", transition: "all 0.4s", position: "relative", overflow: "hidden", animation: `fadeUp 0.6s ${i * 0.09}s both` }}
+              <div key={s.id} className="glass svc-card" style={{ padding: 24, cursor: "pointer", position: "relative", overflow: "hidden", animation: `fadeUp 0.6s ${i * 0.09}s both` }}
                 onClick={() => setPage("Services")}
                 onMouseEnter={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)"}
                 onMouseLeave={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}
@@ -1291,45 +1231,37 @@ function AboutPage() {
       <section style={{ padding: "65px 5%", background: "rgba(8,8,8,0.5)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <SH tag="Our Team" title="The People Behind ||Abeera||" sub="Led by experienced directors, backed by skilled professionals" />
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: 24 }}>
-            {TEAM.map((m: any, i: number) => (
-              <div key={i} className="glass" style={{ overflow: "hidden", textAlign: "center", transition: "transform 0.3s" }}
-                onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)"}
-                onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}
-              >
-                <div style={{ height: 210, background: m.bg, display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden" }}>
-                  <svg width="100%" height="100%" viewBox="0 0 300 210" style={{ position: "absolute", inset: 0 }} preserveAspectRatio="xMidYMid slice">
-                    <defs><radialGradient id={`rg${i}`} cx="50%" cy="40%" r="60%"><stop offset="0%" stopColor={m.color} stopOpacity="0.15" /><stop offset="100%" stopColor={m.color} stopOpacity="0.02" /></radialGradient></defs>
-                    <rect width="300" height="210" fill={`url(#rg${i})`} />
-                    <circle cx="30" cy="30" r="60" fill={m.color} fillOpacity="0.05" />
-                    <circle cx="270" cy="180" r="80" fill={m.color} fillOpacity="0.05" />
-                    {[0,1,2,3,4,5].map((n: number) => <line key={n} x1={n*60} y1="0" x2={n*60} y2="210" stroke={m.color} strokeOpacity="0.05" strokeWidth="1" />)}
-                    {[0,1,2,3].map((n: number) => <line key={n} x1="0" y1={n*70} x2="300" y2={n*70} stroke={m.color} strokeOpacity="0.05" strokeWidth="1" />)}
-                    <line x1="0" y1="210" x2="210" y2="0" stroke={m.color} strokeOpacity="0.06" strokeWidth="1.5" />
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(225px,1fr))", gap: 24 }}>
+            {TEAM.map((m, i) => (
+              <div key={i} className="glass glass-card-hover" style={{ overflow:"hidden",textAlign:"center" }}>
+                <div style={{ height:210,background:(m as any).bg,display:"flex",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden" }}>
+                  <svg width="100%" height="100%" viewBox="0 0 300 210" style={{ position:"absolute",inset:0 }} preserveAspectRatio="xMidYMid slice">
+                    <defs><radialGradient id={`rg${i}`} cx="50%" cy="40%" r="60%"><stop offset="0%" stopColor={(m as any).color} stopOpacity="0.18"/><stop offset="100%" stopColor={(m as any).color} stopOpacity="0.02"/></radialGradient></defs>
+                    <rect width="300" height="210" fill={`url(#rg${i})`}/>
+                    <circle cx="30" cy="30" r="60" fill={(m as any).color} fillOpacity="0.05"/>
+                    <circle cx="270" cy="180" r="80" fill={(m as any).color} fillOpacity="0.05"/>
+                    {([0,1,2,3,4,5] as number[]).map((n:number)=><line key={n} x1={n*60} y1="0" x2={n*60} y2="210" stroke={(m as any).color} strokeOpacity="0.05" strokeWidth="1"/>)}
+                    {([0,1,2,3] as number[]).map((n:number)=><line key={n} x1="0" y1={n*70} x2="300" y2={n*70} stroke={(m as any).color} strokeOpacity="0.05" strokeWidth="1"/>)}
+                    <line x1="0" y1="210" x2="210" y2="0" stroke={(m as any).color} strokeOpacity="0.07" strokeWidth="1.5"/>
                   </svg>
-                  <div style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
-                    <div style={{ width: 110, height: 110, borderRadius: "50%", border: `2px solid ${m.color}44`, padding: 4, position: "relative" }}>
-                      <svg width="110" height="110" viewBox="0 0 110 110" style={{ position: "absolute", inset: -2, animation: "rotateSlow 20s linear infinite" }}>
-                        <circle cx="55" cy="55" r="52" fill="none" stroke={m.color} strokeWidth="1" strokeOpacity="0.3" strokeDasharray="6 4" />
+                  <div style={{ position:"relative",zIndex:2,display:"flex",flexDirection:"column",alignItems:"center",gap:10 }}>
+                    <div style={{ width:106,height:106,borderRadius:"50%",border:`2px solid ${(m as any).color}44`,padding:4,position:"relative" }}>
+                      <svg width="106" height="106" viewBox="0 0 106 106" style={{ position:"absolute",inset:-2,animation:"rotateSlow 22s linear infinite" }}>
+                        <circle cx="53" cy="53" r="50" fill="none" stroke={(m as any).color} strokeWidth="1" strokeOpacity="0.35" strokeDasharray="6 5"/>
                       </svg>
-                      <div style={{ width: "100%", height: "100%", borderRadius: "50%", background: `linear-gradient(135deg,${m.color}33,${m.color}11)`, border: `1px solid ${m.color}44`, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 2 }}>
-                        <span style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 28, color: m.color, lineHeight: 1, letterSpacing: 2 }}>{m.initials}</span>
-                        <span style={{ fontSize: 16, lineHeight: 1 }}>{m.icon}</span>
+                      <div style={{ width:"100%",height:"100%",borderRadius:"50%",background:`linear-gradient(135deg,${(m as any).color}30,${(m as any).color}10)`,border:`1px solid ${(m as any).color}33`,display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:2 }}>
+                        <span style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:27,color:(m as any).color,lineHeight:1,letterSpacing:2,textShadow:`0 0 20px ${(m as any).color}55` }}>{(m as any).initials}</span>
+                        <span style={{ fontSize:15,lineHeight:1 }}>{(m as any).icon}</span>
                       </div>
                     </div>
-                    <div style={{ background: `${m.color}22`, border: `1px solid ${m.color}44`, borderRadius: 20, padding: "3px 12px", fontSize: 9.5, color: m.color, fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase", whiteSpace: "nowrap" }}>{m.discipline}</div>
+                    <div style={{ background:`${(m as any).color}18`,border:`1px solid ${(m as any).color}40`,borderRadius:20,padding:"3px 12px",fontSize:9.5,color:(m as any).color,fontFamily:"'Rajdhani',sans-serif",fontWeight:700,letterSpacing:1,textTransform:"uppercase",whiteSpace:"nowrap" }}>{(m as any).discipline}</div>
                   </div>
                 </div>
-                <div style={{ padding: "16px 20px 20px" }}>
-                  <div style={{ width: "100%", height: 2, background: `linear-gradient(90deg,transparent,${m.color},transparent)`, marginBottom: 12 }} />
-                  <h3 style={{ fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 17, marginBottom: 4 }}>{m.name}</h3>
-                  <p style={{ color: m.color, fontSize: 11, fontFamily: "'Rajdhani',sans-serif", letterSpacing: 1, textTransform: "uppercase", marginBottom: 4 }}>{m.role}</p>
-                  {m.shares && (
-                    <div style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 20, padding: "3px 10px", marginTop: 4 }}>
-                      <span style={{ width: 6, height: 6, borderRadius: "50%", background: m.color, display: "inline-block" }} />
-                      <span style={{ color: "#777", fontSize: 10, fontFamily: "'Rajdhani',sans-serif" }}>{m.shares}</span>
-                    </div>
-                  )}
+                <div style={{ padding:"16px 20px 20px" }}>
+                  <div style={{ width:"100%",height:2,background:`linear-gradient(90deg,transparent,${(m as any).color},transparent)`,marginBottom:12 }}/>
+                  <h3 style={{ fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:17,marginBottom:4 }}>{m.name}</h3>
+                  <p style={{ color:(m as any).color,fontSize:11,fontFamily:"'Rajdhani',sans-serif",letterSpacing:1,textTransform:"uppercase",marginBottom:4 }}>{m.role}</p>
+                  {m.shares && <div style={{ display:"inline-flex",alignItems:"center",gap:5,background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,255,255,0.08)",borderRadius:20,padding:"3px 10px",marginTop:4 }}><span style={{ width:6,height:6,borderRadius:"50%",background:(m as any).color,display:"inline-block" }}/><span style={{ color:"#777",fontSize:10,fontFamily:"'Rajdhani',sans-serif" }}>{m.shares}</span></div>}
                 </div>
               </div>
             ))}
@@ -1405,7 +1337,7 @@ function PortfolioPage() {
       <section style={{ padding: "0 5% 84px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: isMob ? "1fr" : "repeat(3,1fr)", gap: 22 }}>
           {filtered.map((p, i) => (
-            <div key={i} className="glass" style={{ overflow: "hidden", animation: `fadeUp 0.5s ${i * 0.08}s both`, transition: "transform 0.3s" }} onMouseEnter={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)"} onMouseLeave={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}>
+            <div key={i} className="glass proj-card" style={{ overflow: "hidden", animation: `fadeUp 0.5s ${i * 0.08}s both` }} onMouseEnter={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)"} onMouseLeave={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}>
               <div style={{ height: 220, overflow: "hidden", position: "relative" }}>
                 <img src={p.image} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s" }} onMouseEnter={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLImageElement).style.transform = "scale(1.06)"} onMouseLeave={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"} />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top,rgba(0,0,0,0.6),transparent)" }} />
@@ -1540,28 +1472,35 @@ export default function App() {
   const [page, setPage] = useState("Home");
   const [theme, setTheme] = useState<"dark"|"light">("dark");
   const nav = useCallback((p: string) => { setPage(p); window.scrollTo({ top: 0, behavior: "smooth" }); }, []);
-  const toggleTheme = useCallback(() => setTheme(t => t === "dark" ? "light" : "dark"), []);
-
-  // Persist theme preference
-  useEffect(() => {
-    const saved = localStorage.getItem("abeera-theme") as "dark"|"light"|null;
-    if (saved) setTheme(saved);
+  const toggleTheme = useCallback(() => {
+    setTheme(t => {
+      const next = t === "dark" ? "light" : "dark";
+      document.body.className = next === "dark" ? "dm" : "lm";
+      try { localStorage.setItem("abeera-theme", next); } catch {}
+      return next;
+    });
   }, []);
-  useEffect(() => {
-    localStorage.setItem("abeera-theme", theme);
-  }, [theme]);
 
-  const bg = theme === "dark" ? "#0A0A0A" : "#f4f4f4";
-  const textColor = theme === "dark" ? "#F5F5F5" : "#111111";
+  // Init theme from localStorage
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("abeera-theme") as "dark"|"light"|null;
+      const t = saved || "dark";
+      setTheme(t);
+      document.body.className = t === "dark" ? "dm" : "lm";
+    } catch {
+      document.body.className = "dm";
+    }
+  }, []);
+
+  const bg = theme === "dark" ? "#0A0A0A" : "#f0f0f0";
 
   return (
     <>
       <style>{G}</style>
-      {/* Skip to content — accessibility */}
-      <a href="#main-content" className="skip-link">Skip to content</a>
-      <div className={theme === "dark" ? "dark-mode" : "light-mode"} style={{ minHeight: "100vh", background: bg, color: textColor, transition: "background 0.35s, color 0.35s" }}>
-        <Navbar page={page} setPage={nav} theme={theme} toggleTheme={toggleTheme} />
-        <main id="main-content" key={page} style={{ animation: "fadeIn 0.4s ease" }}>
+      <div style={{ minHeight:"100vh",background:bg,transition:"background 0.35s" }}>
+        <Navbar page={page} setPage={nav} theme={theme} onTheme={toggleTheme} />
+        <main id="main" key={page} style={{ animation:"fadeIn 0.4s ease" }}>
           {page === "Home" && <HomePage setPage={nav} />}
           {page === "About" && <AboutPage />}
           {page === "Services" && <ServicesPage />}
