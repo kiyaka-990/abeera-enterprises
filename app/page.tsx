@@ -239,6 +239,14 @@ body,#__next{background:#0A0A0A;color:#F5F5F5;font-family:'Exo 2',sans-serif;ove
 .btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,16,46,0.45);}
 .btn-o{background:transparent;color:#C8102E;border:1px solid #C8102E;padding:13px 32px;border-radius:8px;font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;}
 .btn-o:hover{background:rgba(200,16,46,0.1);transform:translateY(-2px);}
+/* Filter / tab buttons — dark mode default */
+.filter-btn{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#ccc;}
+.filter-btn:hover{background:rgba(200,16,46,0.15);border-color:rgba(200,16,46,0.3);color:#fff;}
+.filter-btn-active{background:linear-gradient(135deg,#C8102E,#8B0000)!important;border-color:transparent!important;color:#fff!important;}
+/* Light mode filter buttons */
+body.lm .filter-btn{background:rgba(0,0,0,0.07);border:1px solid rgba(0,0,0,0.15);color:#333;}
+body.lm .filter-btn:hover{background:rgba(200,16,46,0.1);border-color:rgba(200,16,46,0.35);color:#C8102E;}
+body.lm .filter-btn-active{background:linear-gradient(135deg,#C8102E,#8B0000)!important;border-color:transparent!important;color:#fff!important;}
 .stag{display:inline-block;background:rgba(200,16,46,0.13);color:#C8102E;border:1px solid rgba(200,16,46,0.3);padding:6px 16px;border-radius:4px;font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;}
 input,textarea,select{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#F5F5F5;padding:12px 16px;border-radius:8px;font-family:'Exo 2',sans-serif;font-size:14px;width:100%;transition:all 0.3s;outline:none;}
 input:focus,textarea:focus,select:focus{border-color:#C8102E;background:rgba(200,16,46,0.06);box-shadow:0 0 0 3px rgba(200,16,46,0.12);}
@@ -387,6 +395,12 @@ body.lm .stat-section{background:rgba(200,16,46,0.04)!important;}
 
 /* Theme btn */
 body.lm .theme-btn{background:rgba(0,0,0,0.06)!important;border:1px solid rgba(0,0,0,0.12)!important;}
+/* Contact info text in light mode */
+body.lm [style*="color: #bbb"]{color:#444!important;}
+body.lm [style*="color: #777"]{color:#555!important;}
+/* Map badge stays dark always */
+body.lm [style*="background: rgba(10,10,10,0.85)"]{background:rgba(10,10,10,0.85)!important;}
+body.lm [style*="background: rgba(10,10,10,0.85)"] *{color:#F5F5F5!important;}
 
 /* ── MOBILE FULL-SCREEN MENU ── */
 .mob-menu{
@@ -475,28 +489,27 @@ function Logo({ size = 40 }) {
   const svgH = s;
   return (
     <div className="logo-inherit" style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer" }}>
-      {/* Brand mark SVG */}
+      {/* Brand mark SVG — uses mask for transparent inner cutout, no white fills */}
       <svg width={svgW} height={svgH} viewBox="0 0 105 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient id="lgA" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#C8102E" />
             <stop offset="100%" stopColor="#8B0000" />
           </linearGradient>
+          <mask id="aMask">
+            <path d="M5 92 L52 4 L99 92 Z" fill="white" />
+            <path d="M52 22 L77 62 L27 62 Z" fill="black" />
+            <path d="M27 71 L77 71 L84 88 L20 88 Z" fill="black" />
+          </mask>
         </defs>
-        {/* Big solid A — filled red triangle with inner triangle cutout */}
-        <path d="M5 92 L52 4 L99 92 Z" fill="url(#lg)" />
-        {/* Inner white cutout to create hollow A effect */}
-        <path d="M52 18 L84 86 L20 86 Z" fill="white" fillOpacity="0.15" />
-        {/* Crossbar of the A */}
-        <rect x="28" y="62" width="48" height="9" fill="url(#lg)" />
-        {/* Inner triangle cutout above crossbar */}
-        <path d="M52 22 L78 62 L26 62 Z" fill="white" />
-        {/* Lower inner fill below crossbar */}
-        <path d="M26 71 L78 71 L86 87 L18 87 Z" fill="white" />
-        {/* Swoosh line 1 — curves from mid-A rightward */}
-        <path d="M60 14 Q82 2 102 22" stroke="#C8102E" strokeWidth="5" strokeLinecap="round" fill="none" />
-        {/* Swoosh line 2 — slightly lower, longer */}
-        <path d="M65 28 Q84 18 104 40" stroke="#8B0000" strokeWidth="3.5" strokeLinecap="round" fill="none" opacity="0.75" />
+        {/* A body — masked for transparent inner cutout */}
+        <path d="M5 92 L52 4 L99 92 Z" fill="url(#lgA)" mask="url(#aMask)" />
+        {/* Crossbar */}
+        <rect x="27" y="61" width="50" height="10" fill="url(#lgA)" />
+        {/* Swoosh 1 */}
+        <path d="M60 12 Q83 0 103 20" stroke="#C8102E" strokeWidth="5" strokeLinecap="round" fill="none"/>
+        {/* Swoosh 2 */}
+        <path d="M65 26 Q85 16 105 38" stroke="#8B0000" strokeWidth="3.5" strokeLinecap="round" fill="none" opacity="0.8"/>
       </svg>
 
       {/* Text block — "A beera" then "Enterprises Limited" */}
@@ -1418,7 +1431,7 @@ function ServicesPage() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "flex", gap: 8, marginBottom: 38, flexWrap: "wrap", justifyContent: "center" }}>
             {SERVICES.map((sv, i) => (
-              <button key={sv.id} onClick={() => setActive(i)} style={{ background: active === i ? "linear-gradient(135deg,#C8102E,#8B0000)" : "rgba(255,255,255,0.05)", border: `1px solid ${active === i ? "transparent" : "rgba(255,255,255,0.1)"}`, color: "#fff", padding: "10px 20px", borderRadius: 8, fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 14, cursor: "pointer", transition: "all 0.3s", display: "flex", alignItems: "center", gap: 7 }}>
+              <button key={sv.id} onClick={() => setActive(i)} className={`filter-btn${active === i ? " filter-btn-active" : ""}`} style={{ padding: "10px 20px", borderRadius: 8, fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 14, cursor: "pointer", transition: "all 0.3s", display: "flex", alignItems: "center", gap: 7 }}>
                 {sv.icon} {sv.title}
               </button>
             ))}
@@ -1463,7 +1476,7 @@ function PortfolioPage() {
         <p style={{ color: "rgba(255,255,255,0.75)", maxWidth: 480, margin: "16px auto 0", lineHeight: 1.7 }}>Completed infrastructure projects transforming communities across Kenya</p>
       </section>
       <div style={{ padding: "0 5% 32px", display: "flex", gap: 8, justifyContent: "center", flexWrap: "wrap" }}>
-        {cats.map(c => <button key={c} onClick={() => setFilter(c)} style={{ background: filter === c ? "linear-gradient(135deg,#C8102E,#8B0000)" : "rgba(255,255,255,0.05)", border: `1px solid ${filter === c ? "transparent" : "rgba(255,255,255,0.1)"}`, color: "#fff", padding: "8px 20px", borderRadius: 6, fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 13, cursor: "pointer", transition: "all 0.3s" }}>{c}</button>)}
+        {cats.map(c => <button key={c} onClick={() => setFilter(c)} className={`filter-btn${filter === c ? " filter-btn-active" : ""}`} style={{ padding: "8px 20px", borderRadius: 6, fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 13, cursor: "pointer", transition: "all 0.3s" }}>{c}</button>)}
       </div>
       <section style={{ padding: "0 5% 84px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: isMob ? "1fr" : "repeat(3,1fr)", gap: 22 }}>
@@ -1512,35 +1525,69 @@ function ContactPage() {
         <h1 className="bebas" style={{ fontSize: "clamp(46px,7vw,84px)", lineHeight: 0.95, color: "#F5F5F5" }}>CONTACT <span style={{ color: "#C8102E" }}>US</span></h1>
         <p style={{ color: "rgba(255,255,255,0.75)", maxWidth: 460, margin: "16px auto 0", lineHeight: 1.7 }}>Ready to start your project? Get in touch for a free consultation and assessment</p>
       </section>
-      <section style={{ padding: "0 5% 84px" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: isMob ? "1fr" : "1fr 1.2fr", gap: isMob ? 28 : 52 }}>
-          <div>
-            <h2 className="bebas" style={{ fontSize: 38, marginBottom: 26 }}>LET'S BUILD <span style={{ color: "#C8102E" }}>TOGETHER</span></h2>
-            {[{ icon: "📍", title: "Registered Office", lines: ["P.O. Box 227, Mandera, Kenya", "Bula Janhuria Street, Bula Building", "Nairobi North District"] }, { icon: "📞", title: "Phone", lines: ["+254 722 819 305"] }, { icon: "✉️", title: "Email", lines: ["abeeraeenterprise@gmail.com"] }, { icon: "⏰", title: "Working Hours", lines: ["Mon–Sat: 7AM – 6PM", "Sunday: Emergency calls only"] }].map((info, i) => (
-              <div key={i} className="glass" style={{ padding: "17px 20px", marginBottom: 13, display: "flex", gap: 17, alignItems: "flex-start" }}>
-                <span style={{ fontSize: 24 }}>{info.icon}</span>
+      <section style={{ padding: "40px 5% 0" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <h2 className="bebas" style={{ fontSize: 38, marginBottom: 24 }}>LET'S BUILD <span style={{ color: "#C8102E" }}>TOGETHER</span></h2>
+
+          {/* Contact info cards */}
+          <div style={{ display: "grid", gridTemplateColumns: isMob ? "1fr 1fr" : "repeat(4,1fr)", gap: 14, marginBottom: 32 }}>
+            {[{ icon: "📍", title: "Office", lines: ["P.O. Box 227, Mandera", "Bula Janhuria Street"] }, { icon: "📞", title: "Phone", lines: ["+254 722 819 305"] }, { icon: "✉️", title: "Email", lines: ["abeeraeenterprise", "@gmail.com"] }, { icon: "⏰", title: "Hours", lines: ["Mon–Sat: 7AM–6PM", "Sun: Emergencies"] }].map((info, i) => (
+              <div key={i} className="glass" style={{ padding: "16px 18px", display: "flex", gap: 12, alignItems: "flex-start" }}>
+                <span style={{ fontSize: 22, flexShrink: 0 }}>{info.icon}</span>
                 <div>
-                  <div style={{ color: "#C8102E", fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 10, letterSpacing: 2, textTransform: "uppercase", marginBottom: 4 }}>{info.title}</div>
-                  {info.lines.map((l, j) => <div key={j} style={{ color: "#bbb", fontSize: 13, lineHeight: 1.6 }}>{l}</div>)}
+                  <div style={{ color: "#C8102E", fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 10, letterSpacing: 2, textTransform: "uppercase", marginBottom: 3 }}>{info.title}</div>
+                  {info.lines.map((l, j) => <div key={j} style={{ color: "#bbb", fontSize: 12, lineHeight: 1.55 }}>{l}</div>)}
                 </div>
               </div>
             ))}
           </div>
-          <div className="glass glass-deep" style={{ padding: 36 }}>
-            <h3 className="bebas" style={{ fontSize: 28, marginBottom: 24 }}>SEND A <span style={{ color: "#C8102E" }}>MESSAGE</span></h3>
-            {sent && <div style={{ background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.3)", borderRadius: 8, padding: "10px 14px", marginBottom: 16, color: "#4ade80", fontSize: 13 }}>✅ Message sent! We'll respond within 24 hours.</div>}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 13, marginBottom: 13 }}>
-              <input placeholder="Your Name *" value={form.name} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setForm((p: any) => ({ ...p, name: e.target.value }))} />
-              <input placeholder="Email Address *" value={form.email} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setForm((p: any) => ({ ...p, email: e.target.value }))} />
+
+          {/* Map + Form side by side */}
+          <div style={{ display: "grid", gridTemplateColumns: isMob ? "1fr" : "1fr 1.1fr", gap: isMob ? 24 : 28, marginBottom: 60 }}>
+
+            {/* Google Map */}
+            <div className="glass" style={{ overflow: "hidden", borderRadius: 16, minHeight: 380, position: "relative" }}>
+              <div style={{ padding: "14px 18px", borderBottom: "1px solid rgba(200,16,46,0.2)", display: "flex", alignItems: "center", gap: 10 }}>
+                <span style={{ fontSize: 16 }}>📍</span>
+                <div>
+                  <div style={{ fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 14, color: "#C8102E", letterSpacing: 1 }}>OUR LOCATION</div>
+                  <div style={{ fontSize: 11, color: "#777" }}>Mandera County, Kenya</div>
+                </div>
+              </div>
+              <iframe
+                title="Abeera Enterprises Location — Mandera, Kenya"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63595.33!2d41.8584!3d3.9366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1782d3a4f0c3c0c3%3A0x5b1b6b1b6b1b6b1b!2sMandera%2C%20Kenya!5e0!3m2!1sen!2ske!4v1710000000000"
+                width="100%"
+                height="320"
+                style={{ border: 0, display: "block" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              {/* Map overlay badge */}
+              <div style={{ position: "absolute", bottom: 12, left: 12, background: "rgba(10,10,10,0.85)", backdropFilter: "blur(8px)", borderRadius: 8, padding: "6px 12px", border: "1px solid rgba(200,16,46,0.3)", display: "flex", alignItems: "center", gap: 6 }}>
+                <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#22c55e", display: "inline-block", animation: "pulse 2s infinite" }} />
+                <span style={{ color: "#F5F5F5", fontSize: 11, fontFamily: "'Rajdhani',sans-serif", fontWeight: 600, letterSpacing: 1 }}>ABEERA ENTERPRISES — MANDERA</span>
+              </div>
             </div>
-            <input placeholder="Phone Number" value={form.phone} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setForm((p: any) => ({ ...p, phone: e.target.value }))} style={{ marginBottom: 13 }} />
-            <select value={form.service} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setForm((p: any) => ({ ...p, service: e.target.value }))} style={{ marginBottom: 13 }}>
-              <option value="">Select Service Type</option>
-              {SERVICES.map(s => <option key={s.id} value={s.id}>{s.title}</option>)}
-            </select>
-            <textarea rows={5} placeholder="Describe your project... *" value={form.message} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setForm((p: any) => ({ ...p, message: e.target.value }))} style={{ marginBottom: 17, resize: "vertical" }} />
-            <button className="btn-p" style={{ width: "100%", fontSize: 15, padding: 14 }} onClick={handleSubmit}>Send Message →</button>
-            <p style={{ color: "#333", fontSize: 11, marginTop: 11, textAlign: "center" }}>Your information is secure and never shared.</p>
+
+            {/* Contact Form */}
+            <div className="glass glass-deep" style={{ padding: isMob ? 22 : 32 }}>
+              <h3 className="bebas" style={{ fontSize: 26, marginBottom: 20 }}>SEND A <span style={{ color: "#C8102E" }}>MESSAGE</span></h3>
+              {sent && <div style={{ background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.3)", borderRadius: 8, padding: "10px 14px", marginBottom: 14, color: "#4ade80", fontSize: 13 }}>✅ Message sent! We'll respond within 24 hours.</div>}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 11, marginBottom: 11 }}>
+                <input placeholder="Your Name *" value={form.name} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setForm((p: any) => ({ ...p, name: e.target.value }))} />
+                <input placeholder="Email Address *" value={form.email} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setForm((p: any) => ({ ...p, email: e.target.value }))} />
+              </div>
+              <input placeholder="Phone Number" value={form.phone} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setForm((p: any) => ({ ...p, phone: e.target.value }))} style={{ marginBottom: 11 }} />
+              <select value={form.service} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setForm((p: any) => ({ ...p, service: e.target.value }))} style={{ marginBottom: 11 }}>
+                <option value="">Select Service Type</option>
+                {SERVICES.map(s => <option key={s.id} value={s.id}>{s.title}</option>)}
+              </select>
+              <textarea rows={4} placeholder="Describe your project... *" value={form.message} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setForm((p: any) => ({ ...p, message: e.target.value }))} style={{ marginBottom: 15, resize: "vertical" }} />
+              <button className="btn-p" style={{ width: "100%", fontSize: 15, padding: 13 }} onClick={handleSubmit}>Send Message →</button>
+              <p style={{ color: "#555", fontSize: 11, marginTop: 10, textAlign: "center" }}>Your information is secure and never shared.</p>
+            </div>
           </div>
         </div>
       </section>
