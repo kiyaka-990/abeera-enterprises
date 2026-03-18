@@ -770,6 +770,50 @@ function HeroCarousel({ setPage }: { setPage: (p: string) => void }) {
   );
 }
 
+// ─── MESSAGE BUBBLE — defined outside Chatbot to keep stable component identity ──
+function renderMsgHtml(text: string): string {
+  return text
+    .replace(/[*][*](.*?)[*][*]/g, '<strong style="color:#ff8080;font-weight:600">$1</strong>')
+    .replace(/\n•/g, '<br/>•')
+    .replace(/\n/g, '<br/>');
+}
+
+function MsgBubble({ m }: { m: Msg }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: m.role === "user" ? "flex-end" : "flex-start" }}>
+      {m.role === "assistant" && (
+        <div style={{ display: "flex", alignItems: "flex-end", gap: 7, marginBottom: 2 }}>
+          <div style={{ width: 28, height: 28, borderRadius: "50%", background: "linear-gradient(135deg,#C8102E,#8B0000)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, flexShrink: 0, boxShadow: "0 2px 8px rgba(200,16,46,0.4)" }}>🤖</div>
+          <div style={{
+            background: "linear-gradient(135deg,rgba(255,255,255,0.09),rgba(255,255,255,0.04))",
+            backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)",
+            border: "1px solid rgba(255,255,255,0.13)",
+            borderTop: "1px solid rgba(255,255,255,0.2)",
+            borderRadius: "4px 16px 16px 16px",
+            padding: "11px 14px",
+            maxWidth: "calc(100% - 50px)",
+            fontSize: 13, lineHeight: 1.7, color: "#e8e8e8",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.07)",
+            wordBreak: "break-word",
+          }} dangerouslySetInnerHTML={{ __html: renderMsgHtml(m.content) }} />
+        </div>
+      )}
+      {m.role === "user" && (
+        <div style={{
+          background: "linear-gradient(135deg,#C8102E,#8B0000)",
+          borderRadius: "16px 4px 16px 16px",
+          padding: "10px 14px",
+          maxWidth: "80%",
+          fontSize: 13, lineHeight: 1.65, color: "#fff",
+          boxShadow: "0 4px 16px rgba(200,16,46,0.35)",
+          wordBreak: "break-word",
+        }}>{m.content}</div>
+      )}
+      {m.time && <span style={{ fontSize: 10, color: "#3a3a3a", marginTop: 3, padding: "0 4px" }}>{m.time}</span>}
+    </div>
+  );
+}
+
 // ─── CHATBOT ──────────────────────────────────────────────────────────────────
 type Msg = { role: string; content: string; time: string };
 
@@ -807,11 +851,17 @@ function Chatbot() {
     }
   }, [msgs, open]);
 
-  // send — plain function, reads refs directly, never stale
+  // All mutable values stored in refs so send() is always fresh
   const loadingRef = useRef(false);
   loadingRef.current = loading;
+  const showQuickRef = useRef(showQuick);
+  showQuickRef.current = showQuick;
 
-  function send(text?: string) {
+  // sendRef — store send in a ref so quick-reply buttons never go stale
+  const sendRef = useRef<(text?: string) => void>(() => {});
+
+  // The actual send logic — uses only refs, never closes over state
+  sendRef.current = (text?: string) => {
     const msg = (text !== undefined ? text : inputRef2.current).trim();
     if (!msg || loadingRef.current) return;
     if (text === undefined) setInput("");
@@ -833,46 +883,10 @@ function Chatbot() {
         time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
       }]);
     }, delay);
-  }
+  };
 
-  const renderMsg = (text: string) => text
-    .replace(/\*\*(.*?)\*\*/g, '<strong style="color:#ff8080;font-weight:600">$1</strong>')
-    .replace(/\n•/g, '<br/>•')
-    .replace(/\n/g, '<br/>');
-
-  const MsgBubble = ({ m }: { m: Msg }) => (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: m.role === "user" ? "flex-end" : "flex-start" }}>
-      {m.role === "assistant" && (
-        <div style={{ display: "flex", alignItems: "flex-end", gap: 7, marginBottom: 2 }}>
-          <div style={{ width: 28, height: 28, borderRadius: "50%", background: "linear-gradient(135deg,#C8102E,#8B0000)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, flexShrink: 0, boxShadow: "0 2px 8px rgba(200,16,46,0.4)" }}>🤖</div>
-          <div style={{
-            background: "linear-gradient(135deg,rgba(255,255,255,0.09),rgba(255,255,255,0.04))",
-            backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)",
-            border: "1px solid rgba(255,255,255,0.13)",
-            borderTop: "1px solid rgba(255,255,255,0.2)",
-            borderRadius: "4px 16px 16px 16px",
-            padding: "11px 14px",
-            maxWidth: "calc(100% - 50px)",
-            fontSize: 13, lineHeight: 1.7, color: "#e8e8e8",
-            boxShadow: "0 4px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.07)",
-            wordBreak: "break-word",
-          }} dangerouslySetInnerHTML={{ __html: renderMsg(m.content) }} />
-        </div>
-      )}
-      {m.role === "user" && (
-        <div style={{
-          background: "linear-gradient(135deg,#C8102E,#8B0000)",
-          borderRadius: "16px 4px 16px 16px",
-          padding: "10px 14px",
-          maxWidth: "80%",
-          fontSize: 13, lineHeight: 1.65, color: "#fff",
-          boxShadow: "0 4px 16px rgba(200,16,46,0.35)",
-          wordBreak: "break-word",
-        }}>{m.content}</div>
-      )}
-      {m.time && <span style={{ fontSize: 10, color: "#3a3a3a", marginTop: 3, padding: "0 4px" }}>{m.time}</span>}
-    </div>
-  );
+  // Stable wrapper — this reference never changes across renders
+  const send = useCallback((text?: string) => sendRef.current(text), []);
 
   return (
     <>
