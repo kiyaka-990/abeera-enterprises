@@ -269,60 +269,124 @@ select option{background:#1a1a1a;}
 body.lm,body.lm #__next{background:#f0f0f0!important;color:#111!important;}
 body.dm,body.dm #__next{background:#0A0A0A!important;color:#F5F5F5!important;}
 
-/* Light mode overrides — comprehensive */
-body.lm *{color:#111;}
-body.lm h1,body.lm h2,body.lm h3,body.lm h4{color:#0a0a0a!important;}
-body.lm p{color:#222!important;}
-body.lm span{color:#333;}
-body.lm .bebas{color:#0a0a0a!important;}
-body.lm .stag{background:rgba(200,16,46,0.08)!important;color:#C8102E!important;border-color:rgba(200,16,46,0.25)!important;}
-body.lm [style*="color: #888"],body.lm [style*="color:#888"]{color:#555!important;}
-body.lm [style*="color: #999"],body.lm [style*="color:#999"]{color:#555!important;}
-body.lm [style*="color: #aaa"],body.lm [style*="color:#aaa"]{color:#555!important;}
-body.lm [style*="color: #bbb"],body.lm [style*="color:#bbb"]{color:#333!important;}
-body.lm [style*="color: #777"],body.lm [style*="color:#777"]{color:#444!important;}
-body.lm [style*="color: #666"],body.lm [style*="color:#666"]{color:#444!important;}
-body.lm [style*="color: #555"],body.lm [style*="color:#555"]{color:#333!important;}
-body.lm [style*="color: #444"],body.lm [style*="color:#444"]{color:#222!important;}
-body.lm [style*="color: #F5F5F5"],body.lm [style*="color:#F5F5F5"]{color:#111!important;}
-body.lm [style*="color: #e8e8e8"],body.lm [style*="color:#e8e8e8"]{color:#111!important;}
-body.lm [style*="color: #ccc"],body.lm [style*="color:#ccc"]{color:#333!important;}
-body.lm [style*="color: #ddd"],body.lm [style*="color:#ddd"]{color:#333!important;}
-body.lm [style*="color: #2a2a2a"],body.lm [style*="color:#2a2a2a"]{color:#333!important;}
-body.lm nav{background:rgba(255,255,255,0.97)!important;border-bottom:1px solid rgba(200,16,46,0.18)!important;box-shadow:0 2px 24px rgba(0,0,0,0.1)!important;}
-body.lm nav button{color:#222!important;}
+/* ── LIGHT MODE — targeted, precise ── */
+
+/* Page bg & base text */
+body.lm{background:#f2f2f2!important;color:#111!important;}
+body.lm div,body.lm section,body.lm main,body.lm article,body.lm aside{color:inherit;}
+
+/* Headings */
+body.lm h1:not(.hero-text),body.lm h2,body.lm h3,body.lm h4{color:#111!important;}
+body.lm .bebas{color:#111!important;}
+body.lm .stag{background:rgba(200,16,46,0.09)!important;color:#C8102E!important;border-color:rgba(200,16,46,0.28)!important;}
+
+/* Dark background sections that have their own dark overlay — keep white text */
+body.lm .hero-section h1,body.lm .hero-section p,body.lm .hero-section span{color:#F5F5F5!important;}
+
+/* Page-level hero banners (About, Contact, Portfolio, Services headers) */
+body.lm .page-hero{background:linear-gradient(180deg,rgba(10,10,10,0.92),rgba(10,10,10,0.85))!important;}
+body.lm .page-hero *{color:#F5F5F5!important;}
+body.lm .page-hero h1{color:#F5F5F5!important;}
+body.lm .page-hero p{color:rgba(255,255,255,0.85)!important;}
+
+/* Nav */
+body.lm nav{background:rgba(255,255,255,0.97)!important;border-bottom:1px solid rgba(200,16,46,0.15)!important;box-shadow:0 2px 20px rgba(0,0,0,0.08)!important;}
+body.lm nav button{color:#333!important;}
 body.lm nav button[aria-current="page"]{color:#C8102E!important;}
+body.lm .logo-text-main{color:#111!important;}
+body.lm .logo-text-sub{color:#C8102E!important;}
+body.dm nav .logo-inherit{color:#F5F5F5!important;}
+body.lm nav .logo-inherit{color:#111!important;}
+
+/* Glass cards */
 body.lm .glass{
-  background:rgba(255,255,255,0.82)!important;
-  backdrop-filter:blur(24px) saturate(160%)!important;
-  border:1px solid rgba(200,16,46,0.12)!important;
-  border-top:1px solid rgba(255,255,255,0.95)!important;
-  box-shadow:0 8px 32px rgba(0,0,0,0.1),inset 0 1px 0 rgba(255,255,255,0.9)!important;
+  background:rgba(255,255,255,0.88)!important;
+  border:1px solid rgba(200,16,46,0.1)!important;
+  border-top:1px solid rgba(255,255,255,0.98)!important;
+  box-shadow:0 4px 24px rgba(0,0,0,0.08),inset 0 1px 0 rgba(255,255,255,0.95)!important;
+  color:#111!important;
 }
-body.lm .glass p,body.lm .glass span,body.lm .glass h3,body.lm .glass div{color:#111;}
-body.lm .glass:hover{border-color:rgba(200,16,46,0.35)!important;box-shadow:0 16px 48px rgba(200,16,46,0.12),0 4px 16px rgba(0,0,0,0.06)!important;}
+body.lm .glass h1,body.lm .glass h2,body.lm .glass h3,
+body.lm .glass p,body.lm .glass span,body.lm .glass div{color:#111!important;}
+/* Keep red accents red */
+body.lm .glass [style*="color: #C8102E"],body.lm .glass [style*="color:#C8102E"],
+body.lm .glass [style*="color: rgb(200"],body.lm [style*="color: #C8102E"]{color:#C8102E!important;}
+body.lm .glass [style*="color: #c0392b"]{color:#c0392b!important;}
+body.lm .glass [style*="color: #1a6fa8"]{color:#1a6fa8!important;}
+body.lm .glass [style*="color: #1e8449"]{color:#1e8449!important;}
+
+/* Muted text in cards */
+body.lm .glass [style*="color: #777"],body.lm .glass [style*="color: #888"],
+body.lm .glass [style*="color: #999"],body.lm .glass [style*="color: #666"],
+body.lm .glass [style*="color: #555"]{color:#555!important;}
+
+/* Section backgrounds */
 body.lm section{color:#111!important;}
-body.lm footer{background:#e4e4e4!important;border-top:1px solid rgba(200,16,46,0.2)!important;}
-body.lm footer *{color:#444!important;}
-body.lm footer .bebas{color:#0a0a0a!important;}
-body.lm input,body.lm textarea,body.lm select{background:#fff!important;border:1px solid rgba(0,0,0,0.18)!important;color:#111!important;}
-body.lm select option{background:#fff;color:#111;}
-body.lm input::placeholder,body.lm textarea::placeholder{color:rgba(0,0,0,0.45)!important;}
-body.lm .aria-win{background:rgba(255,250,250,0.99)!important;border:1px solid rgba(200,16,46,0.2)!important;color:#111!important;}
-body.lm .aria-win *{color:#111;}
-body.lm .aria-msgs{background:transparent;}
-body.lm .aria-textarea{color:#111!important;background:rgba(0,0,0,0.05)!important;border:1px solid rgba(0,0,0,0.18)!important;}
-body.lm .aria-textarea::placeholder{color:rgba(0,0,0,0.42)!important;}
-body.lm .theme-btn{background:rgba(0,0,0,0.06)!important;border:1px solid rgba(0,0,0,0.14)!important;}
-body.lm .mob-menu *{color:#111!important;}
-body.lm .mob-link{color:#111!important;}
-body.lm .mob-link.active,body.lm .mob-link:hover{color:#C8102E!important;}
 body.lm [style*="background: rgba(200,16,46,0.04)"],
-body.lm [style*="background:rgba(200,16,46"]{color:#111!important;}
-body.lm [style*="color: #C8102E"],body.lm [style*="color:#C8102E"]{color:#C8102E!important;}
-body.lm [style*="color: #ff8080"]{color:#C8102E!important;}
-/* Hero always dark bg so text stays white */
-body.lm section:first-of-type h1,body.lm section:first-of-type p,body.lm section:first-of-type span{color:#F5F5F5!important;}
+body.lm [style*="background: rgba(200,16,46,0.06)"]{background:rgba(200,16,46,0.04)!important;}
+
+/* Dark sections with proper contrast */
+body.lm [style*="background: rgba(8,8,8"],
+body.lm [style*="background: rgba(10,10,10"],
+body.lm [style*="background: rgba(0,0,0,0.8"]{
+  background:rgba(245,240,240,0.95)!important;
+  color:#111!important;
+}
+
+/* Muted/secondary text globally */
+body.lm [style*="color: #888"]{color:#555!important;}
+body.lm [style*="color: #999"]{color:#555!important;}
+body.lm [style*="color: #aaa"]{color:#555!important;}
+body.lm [style*="color: #bbb"]{color:#444!important;}
+body.lm [style*="color: #777"]{color:#444!important;}
+body.lm [style*="color: #666"]{color:#444!important;}
+body.lm [style*="color: #555"]{color:#333!important;}
+body.lm [style*="color: #444"]{color:#222!important;}
+body.lm [style*="color: #F5F5F5"]{color:#111!important;}
+body.lm [style*="color: #e8e8e8"]{color:#111!important;}
+body.lm [style*="color: #ccc"]{color:#333!important;}
+body.lm [style*="color: #ddd"]{color:#333!important;}
+body.lm [style*="color: #2a2a2a"]{color:#333!important;}
+/* Keep white text on colored/dark backgrounds */
+body.lm .btn-p{color:#fff!important;}
+body.lm [style*="background: linear-gradient(135deg,#C8102E"]{color:#fff!important;}
+body.lm [style*="background: linear-gradient(135deg, #C8102E"]{color:#fff!important;}
+
+/* Footer */
+body.lm footer{background:#e0e0e0!important;border-top:1px solid rgba(200,16,46,0.18)!important;}
+body.lm footer h4{color:#C8102E!important;}
+body.lm footer div,body.lm footer span,body.lm footer p{color:#444!important;}
+body.lm footer .bebas{color:#111!important;}
+
+/* Forms */
+body.lm input,body.lm textarea,body.lm select{
+  background:#fff!important;border:1px solid rgba(0,0,0,0.15)!important;color:#111!important;
+}
+body.lm input::placeholder,body.lm textarea::placeholder{color:rgba(0,0,0,0.42)!important;}
+body.lm select option{background:#fff!important;color:#111!important;}
+
+/* Chatbot */
+body.lm .aria-win{
+  background:linear-gradient(160deg,rgba(255,248,248,0.99),rgba(255,255,255,0.99))!important;
+  border:1px solid rgba(200,16,46,0.18)!important;
+  color:#111!important;
+}
+body.lm .aria-win h1,body.lm .aria-win p,body.lm .aria-win span,
+body.lm .aria-win div:not([style*="background: linear-gradient(135deg,#C8102E"]){color:#222!important;}
+body.lm .aria-textarea{color:#111!important;background:rgba(0,0,0,0.04)!important;border:1px solid rgba(0,0,0,0.15)!important;}
+body.lm .aria-textarea::placeholder{color:rgba(0,0,0,0.4)!important;}
+body.lm .aria-msgs{background:transparent!important;}
+
+/* Mobile menu */
+body.lm .mob-menu{background:rgba(255,252,252,0.98)!important;}
+body.lm .mob-link{color:#111!important;}
+body.lm .mob-link:hover,body.lm .mob-link.active{color:#C8102E!important;}
+
+/* Stats section */
+body.lm .stat-section{background:rgba(200,16,46,0.04)!important;}
+
+/* Theme btn */
+body.lm .theme-btn{background:rgba(0,0,0,0.06)!important;border:1px solid rgba(0,0,0,0.12)!important;}
 
 /* ── MOBILE FULL-SCREEN MENU ── */
 .mob-menu{
@@ -352,7 +416,7 @@ body.lm .mob-link{color:#222;}
 /* ── CHATBOT MOBILE ── */
 .aria-fab{position:fixed!important;bottom:22px!important;right:22px!important;z-index:3000!important;pointer-events:auto!important;}
 @media(max-width:480px){
-  .aria-win{right:0!important;bottom:0!important;width:100vw!important;height:92dvh!important;border-radius:20px 20px 0 0!important;animation:chatMobPop 0.3s ease!important;}
+  .aria-win{right:0!important;left:0!important;bottom:0!important;width:100vw!important;height:88dvh!important;max-height:88dvh!important;border-radius:18px 18px 0 0!important;}
 }
 @keyframes chatMobPop{from{transform:translateY(100%);opacity:0;}to{transform:translateY(0);opacity:1;}}
 
@@ -402,18 +466,69 @@ body.lm .mob-link{color:#222;}
 
 // ─── LOGO ─────────────────────────────────────────────────────────────────────
 function Logo({ size = 40 }) {
+  // Matches the actual Abeera brand mark:
+  // - Large geometric filled A (red) with inner cutout
+  // - Two curved swoosh lines sweeping right
+  // - "A beera" text with bold A, then "Enterprises Limited" below
+  const s = size;
+  const svgW = s * 1.05;
+  const svgH = s;
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }}>
-      <svg width={size} height={size} viewBox="0 0 100 100" fill="none">
-        <defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#E63946" /><stop offset="100%" stopColor="#8B0000" /></linearGradient></defs>
-        <path d="M10 85 L50 10 L90 85" stroke="url(#lg)" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        <path d="M25 60 L75 60" stroke="url(#lg)" strokeWidth="6" strokeLinecap="round" />
-        <path d="M55 18 Q80 8 92 30" stroke="url(#lg)" strokeWidth="4" strokeLinecap="round" fill="none" opacity="0.85" />
-        <path d="M60 28 Q82 20 90 42" stroke="url(#lg)" strokeWidth="3" strokeLinecap="round" fill="none" opacity="0.5" />
+    <div className="logo-inherit" style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer" }}>
+      {/* Brand mark SVG */}
+      <svg width={svgW} height={svgH} viewBox="0 0 105 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#C8102E" />
+            <stop offset="100%" stopColor="#8B0000" />
+          </linearGradient>
+        </defs>
+        {/* Big solid A — filled red triangle with inner triangle cutout */}
+        <path d="M5 92 L52 4 L99 92 Z" fill="url(#lg)" />
+        {/* Inner white cutout to create hollow A effect */}
+        <path d="M52 18 L84 86 L20 86 Z" fill="white" fillOpacity="0.15" />
+        {/* Crossbar of the A */}
+        <rect x="28" y="62" width="48" height="9" fill="url(#lg)" />
+        {/* Inner triangle cutout above crossbar */}
+        <path d="M52 22 L78 62 L26 62 Z" fill="white" />
+        {/* Lower inner fill below crossbar */}
+        <path d="M26 71 L78 71 L86 87 L18 87 Z" fill="white" />
+        {/* Swoosh line 1 — curves from mid-A rightward */}
+        <path d="M60 14 Q82 2 102 22" stroke="#C8102E" strokeWidth="5" strokeLinecap="round" fill="none"/>
+        {/* Swoosh line 2 — slightly lower, longer */}
+        <path d="M65 28 Q84 18 104 40" stroke="#8B0000" strokeWidth="3.5" strokeLinecap="round" fill="none" opacity="0.75"/>
       </svg>
-      <div>
-        <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: size * 0.54, lineHeight: 1, color: "#F5F5F5", letterSpacing: 2 }}>ABEERA</div>
-        <div style={{ fontFamily: "'Rajdhani',sans-serif", fontSize: size * 0.21, color: "#C8102E", letterSpacing: 3, fontWeight: 700, textTransform: "uppercase" }}>Enterprises Limited</div>
+
+      {/* Text block — "A beera" then "Enterprises Limited" */}
+      <div style={{ lineHeight: 1 }}>
+        <div style={{ display: "flex", alignItems: "baseline", gap: 0, lineHeight: 1 }}>
+          <span style={{
+            fontFamily: "'Georgia', 'Times New Roman', serif",
+            fontSize: s * 0.62,
+            fontWeight: 700,
+            color: "#C8102E",
+            lineHeight: 1,
+            letterSpacing: -1,
+          }}>A</span>
+          <span style={{
+            fontFamily: "'Georgia', 'Times New Roman', serif",
+            fontSize: s * 0.52,
+            fontWeight: 400,
+            color: "inherit",
+            lineHeight: 1,
+            letterSpacing: 0.5,
+          }}>beera</span>
+        </div>
+        <div style={{
+          fontFamily: "'Georgia', 'Times New Roman', serif",
+          fontSize: s * 0.185,
+          color: "inherit",
+          letterSpacing: 1.5,
+          fontWeight: 400,
+          marginTop: 1,
+          opacity: 0.7,
+          textTransform: "uppercase",
+        }}>Enterprises Limited</div>
       </div>
     </div>
   );
@@ -679,27 +794,33 @@ function Chatbot() {
     }
   }, [msgs, open]);
 
-  // send() reads inputRef2.current so it never has a stale closure
-  const send = useCallback((text?: string) => {
+  // send — plain function, reads refs directly, never stale
+  const loadingRef = useRef(false);
+  loadingRef.current = loading;
+
+  function send(text?: string) {
     const msg = (text !== undefined ? text : inputRef2.current).trim();
-    if (!msg || loading) return;
-    if (text === undefined) setInput(""); // only clear textarea when typing
+    if (!msg || loadingRef.current) return;
+    if (text === undefined) setInput("");
     setShowQuick(false);
     setNotif(false);
     const time = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     setMsgs(prev => [...prev, { role: "user", content: msg, time }]);
     setLoading(true);
+    loadingRef.current = true;
     setTyping(true);
+    const delay = 650 + Math.floor(Math.random() * 700);
     setTimeout(() => {
       const reply = ariaRespond(msg);
       setTyping(false);
       setLoading(false);
+      loadingRef.current = false;
       setMsgs(prev => [...prev, {
         role: "assistant", content: reply,
         time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
       }]);
-    }, 700 + Math.random() * 700);
-  }, [loading]);  // inputRef2 is a ref — stable, no need in deps
+    }, delay);
+  }
 
   const renderMsg = (text: string) => text
     .replace(/\*\*(.*?)\*\*/g, '<strong style="color:#ff8080;font-weight:600">$1</strong>')
@@ -747,9 +868,10 @@ function Chatbot() {
         .aria-win {
           position: fixed;
           right: 20px;
-          bottom: 90px;
-          width: 370px;
-          height: 580px;
+          bottom: 86px;
+          width: min(360px, calc(100vw - 32px));
+          height: min(520px, calc(100dvh - 110px));
+          max-height: calc(100dvh - 110px);
           z-index: 2999;
           display: flex;
           flex-direction: column;
@@ -758,24 +880,33 @@ function Chatbot() {
           -webkit-backdrop-filter: blur(40px) saturate(180%);
           border: 1px solid rgba(255,255,255,0.1);
           border-top: 1px solid rgba(255,255,255,0.2);
-          border-radius: 22px;
-          box-shadow: 0 32px 80px rgba(0,0,0,0.85), 0 0 0 1px rgba(200,16,46,0.15), inset 0 1px 0 rgba(255,255,255,0.09);
-          animation: chatPop 0.38s cubic-bezier(0.34,1.56,0.64,1);
+          border-radius: 20px;
+          box-shadow: 0 24px 60px rgba(0,0,0,0.85), 0 0 0 1px rgba(200,16,46,0.15), inset 0 1px 0 rgba(255,255,255,0.09);
+          animation: chatPop 0.35s cubic-bezier(0.34,1.56,0.64,1);
           overflow: hidden;
           pointer-events: auto;
         }
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
           .aria-win {
             right: 0;
+            left: 0;
             bottom: 0;
             width: 100vw;
-            height: 92vh;
-            border-radius: 22px 22px 0 0;
-            animation: chatPopMobile 0.35s ease;
+            height: 88dvh;
+            max-height: 88dvh;
+            border-radius: 18px 18px 0 0;
+            animation: chatPopMobile 0.3s ease;
           }
           .aria-fab {
-            bottom: 16px !important;
-            right: 16px !important;
+            bottom: 18px !important;
+            right: 18px !important;
+          }
+        }
+        @media (max-height: 700px) and (min-width: 601px) {
+          .aria-win {
+            bottom: 80px;
+            height: calc(100dvh - 100px);
+            max-height: calc(100dvh - 100px);
           }
         }
         @keyframes chatPopMobile {
@@ -920,7 +1051,7 @@ function Chatbot() {
           {/* ── TOPICS MENU (always-accessible slide-down panel) ── */}
           {showQuick && (
             <div style={{
-              padding: "8px 10px",
+              padding: "6px 10px",
               background: "rgba(0,0,0,0.35)",
               borderBottom: "1px solid rgba(200,16,46,0.15)",
               flexShrink: 0,
@@ -1177,12 +1308,12 @@ function AboutPage() {
   const isMob = useIsMobile();
   return (
     <div style={{ paddingTop: 100 }}>
-      <section style={{ padding: "65px 5% 45px", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0 }}><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80" alt="" style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.12 }} /><div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg,#0A0A0A 0%,transparent 30%,transparent 70%,#0A0A0A 100%)" }} /></div>
+      <section className="page-hero" style={{ padding: "65px 5% 45px", position: "relative", overflow: "hidden", background: "rgba(10,10,10,0.95)" }}>
+        <div style={{ position: "absolute", inset: 0 }}><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80" alt="" style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.22 }} /><div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg,rgba(10,10,10,0.85) 0%,rgba(10,10,10,0.6) 50%,rgba(10,10,10,0.85) 100%)" }} /></div>
         <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 2, textAlign: "center" }}>
           <span className="stag">About Us</span>
-          <h1 className="bebas" style={{ fontSize: "clamp(48px,7vw,86px)", lineHeight: 0.95 }}>WHO WE <span style={{ color: "#C8102E" }}>ARE</span></h1>
-          <p style={{ color: "#888", maxWidth: 520, margin: "16px auto 0", fontSize: 16, lineHeight: 1.7 }}>A proudly Kenyan construction company committed to nation-building through quality infrastructure</p>
+          <h1 className="bebas" style={{ fontSize: "clamp(48px,7vw,86px)", lineHeight: 0.95, color: "#F5F5F5" }}>WHO WE <span style={{ color: "#C8102E" }}>ARE</span></h1>
+          <p style={{ color: "rgba(255,255,255,0.82)", maxWidth: 520, margin: "16px auto 0", fontSize: 16, lineHeight: 1.7 }}>A proudly Kenyan construction company committed to nation-building through quality infrastructure</p>
         </div>
       </section>
       <section style={{ padding: "65px 5%" }}>
@@ -1279,9 +1410,9 @@ function ServicesPage() {
   const s = SERVICES[active];
   return (
     <div style={{ paddingTop: 100 }}>
-      <section style={{ padding: "55px 5% 36px", textAlign: "center" }}>
+      <section className="page-hero" style={{ padding: "70px 5% 50px", textAlign: "center", background: "rgba(10,10,10,0.95)" }}>
         <span className="stag">What We Offer</span>
-        <h1 className="bebas" style={{ fontSize: "clamp(46px,7vw,84px)", lineHeight: 0.95 }}>OUR <span style={{ color: "#C8102E" }}>SERVICES</span></h1>
+        <h1 className="bebas" style={{ fontSize: "clamp(46px,7vw,84px)", lineHeight: 0.95, color: "#F5F5F5" }}>OUR <span style={{ color: "#C8102E" }}>SERVICES</span></h1>
       </section>
       <section style={{ padding: "0 5% 75px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -1326,10 +1457,10 @@ function PortfolioPage() {
   const filtered = filter === "All" ? PROJECTS : PROJECTS.filter(p => p.category === filter || p.category.includes(filter.replace(" Works", "")));
   return (
     <div style={{ paddingTop: 100 }}>
-      <section style={{ padding: "55px 5% 32px", textAlign: "center" }}>
+      <section className="page-hero" style={{ padding: "70px 5% 48px", textAlign: "center", background: "rgba(10,10,10,0.95)" }}>
         <span className="stag">Our Work</span>
-        <h1 className="bebas" style={{ fontSize: "clamp(46px,7vw,84px)", lineHeight: 0.95 }}>PROJECT <span style={{ color: "#C8102E" }}>PORTFOLIO</span></h1>
-        <p style={{ color: "#888", maxWidth: 480, margin: "16px auto 0", lineHeight: 1.7 }}>Completed infrastructure projects transforming communities across Kenya</p>
+        <h1 className="bebas" style={{ fontSize: "clamp(46px,7vw,84px)", lineHeight: 0.95, color: "#F5F5F5" }}>PROJECT <span style={{ color: "#C8102E" }}>PORTFOLIO</span></h1>
+        <p style={{ color: "rgba(255,255,255,0.75)", maxWidth: 480, margin: "16px auto 0", lineHeight: 1.7 }}>Completed infrastructure projects transforming communities across Kenya</p>
       </section>
       <div style={{ padding: "0 5% 32px", display: "flex", gap: 8, justifyContent: "center", flexWrap: "wrap" }}>
         {cats.map(c => <button key={c} onClick={() => setFilter(c)} style={{ background: filter === c ? "linear-gradient(135deg,#C8102E,#8B0000)" : "rgba(255,255,255,0.05)", border: `1px solid ${filter === c ? "transparent" : "rgba(255,255,255,0.1)"}`, color: "#fff", padding: "8px 20px", borderRadius: 6, fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 13, cursor: "pointer", transition: "all 0.3s" }}>{c}</button>)}
@@ -1376,10 +1507,10 @@ function ContactPage() {
   };
   return (
     <div style={{ paddingTop: 100 }}>
-      <section style={{ padding: "55px 5% 65px", textAlign: "center" }}>
+      <section className="page-hero" style={{ padding: "70px 5% 65px", textAlign: "center", background: "rgba(10,10,10,0.95)" }}>
         <span className="stag">Get In Touch</span>
-        <h1 className="bebas" style={{ fontSize: "clamp(46px,7vw,84px)", lineHeight: 0.95 }}>CONTACT <span style={{ color: "#C8102E" }}>US</span></h1>
-        <p style={{ color: "#888", maxWidth: 460, margin: "16px auto 0", lineHeight: 1.7 }}>Ready to start your project? Get in touch for a free consultation and assessment</p>
+        <h1 className="bebas" style={{ fontSize: "clamp(46px,7vw,84px)", lineHeight: 0.95, color: "#F5F5F5" }}>CONTACT <span style={{ color: "#C8102E" }}>US</span></h1>
+        <p style={{ color: "rgba(255,255,255,0.75)", maxWidth: 460, margin: "16px auto 0", lineHeight: 1.7 }}>Ready to start your project? Get in touch for a free consultation and assessment</p>
       </section>
       <section style={{ padding: "0 5% 84px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: isMob ? "1fr" : "1fr 1.2fr", gap: isMob ? 28 : 52 }}>
@@ -1447,7 +1578,7 @@ function Footer({ setPage }: { setPage: (p: string) => void }) {
           </div>
         </div>
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", paddingTop: 20, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
-          <span style={{ color: "#2a2a2a", fontSize: 12 }}>© 2025 Abeera Enterprises Limited • PVT-BEUXP26A • All rights reserved.</span>
+          <span style={{ color: "#888", fontSize: 12 }}>© 2025 Abeera Enterprises Limited • PVT-BEUXP26A • All rights reserved.</span>
           <span style={{ color: "#C8102E", fontSize: 12, fontFamily: "'Rajdhani',sans-serif" }}>Registered under The Companies Act, 2015</span>
         </div>
       </div>
