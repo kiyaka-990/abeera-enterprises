@@ -3,9 +3,9 @@ import { useState, useEffect, useRef, useCallback } from "react";
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 const HERO_SLIDES = [
-  { bg: "/images/hero2.jpeg", tag: "Building Construction", title: "BUILDING", accent: "KENYA'S", sub: "FUTURE", desc: "From residential homes to commercial complexes — built with precision and pride." },
+  { bg: "/images/hero6.jpeg", tag: "Building Construction", title: "BUILDING", accent: "KENYA'S", sub: "FUTURE", desc: "From residential homes to commercial complexes — built with precision and pride." },
   { bg: "/images/hero3.jpg", tag: "Building Construction", title: "RAISING", accent: "BOLD", sub: "STRUCTURES", desc: "From residential homes to commercial complexes — built with precision and pride." },
-  { bg: "/images/hero4.jpg", tag: "Water Works", title: "BRINGING", accent: "WATER", sub: "TO LIFE", desc: "Boreholes, dams, water pans and pipelines transforming arid communities." },
+  { bg: "/images/hero7.jpg", tag: "Water Works", title: "BRINGING", accent: "WATER", sub: "TO LIFE", desc: "Boreholes, dams, water pans and pipelines transforming arid communities." },
   { bg: "/images/hero5.jpg", tag: "Road Works", title: "BUILDING", accent: "KENYA'S", sub: "ROADS", desc: "World-class highway and rural road construction across Kenya's most challenging terrains." },
 ];
 
@@ -494,9 +494,9 @@ function Logo({ size = 40 }) {
         {/* Lower inner fill below crossbar */}
         <path d="M26 71 L78 71 L86 87 L18 87 Z" fill="white" />
         {/* Swoosh line 1 — curves from mid-A rightward */}
-        <path d="M60 14 Q82 2 102 22" stroke="#C8102E" strokeWidth="5" strokeLinecap="round" fill="none"/>
+        <path d="M60 14 Q82 2 102 22" stroke="#C8102E" strokeWidth="5" strokeLinecap="round" fill="none" />
         {/* Swoosh line 2 — slightly lower, longer */}
-        <path d="M65 28 Q84 18 104 40" stroke="#8B0000" strokeWidth="3.5" strokeLinecap="round" fill="none" opacity="0.75"/>
+        <path d="M65 28 Q84 18 104 40" stroke="#8B0000" strokeWidth="3.5" strokeLinecap="round" fill="none" opacity="0.75" />
       </svg>
 
       {/* Text block — "A beera" then "Enterprises Limited" */}
@@ -561,45 +561,45 @@ function Navbar({ page, setPage, theme, onTheme }: {
     <>
       <a href="#main" className="skip-link">Skip to content</a>
       <nav role="navigation" aria-label="Main navigation" style={{
-        position:"fixed",top:0,left:0,right:0,zIndex:1100,
+        position: "fixed", top: 0, left: 0, right: 0, zIndex: 1100,
         background: navBg,
         backdropFilter: scrolled ? "blur(28px) saturate(180%)" : "none",
         WebkitBackdropFilter: scrolled ? "blur(28px) saturate(180%)" : "none",
         borderBottom: scrolled ? "1px solid rgba(200,16,46,0.18)" : "none",
-        transition:"all 0.4s",padding:"0 5%",
+        transition: "all 0.4s", padding: "0 5%",
       }}>
-        <div style={{ maxWidth:1200,margin:"0 auto",display:"flex",alignItems:"center",justifyContent:"space-between",height:72 }}>
-          <div onClick={() => setPage("Home")} style={{ cursor:"pointer" }} tabIndex={0} role="button" aria-label="Home" onKeyDown={e => e.key==="Enter"&&setPage("Home")}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
+          <div onClick={() => setPage("Home")} style={{ cursor: "pointer" }} tabIndex={0} role="button" aria-label="Home" onKeyDown={e => e.key === "Enter" && setPage("Home")}>
             <Logo size={38} />
           </div>
 
           {/* Desktop links */}
-          <div className="nav-links" style={{ display:"flex",gap:4,alignItems:"center" }}>
-            {["Home","About","Services","Portfolio","Contact"].map(l => (
-              <button key={l} onClick={() => setPage(l)} aria-current={page===l?"page":undefined}
-                style={{ background:"none",border:"none",color:page===l?"#C8102E":linkColor,fontFamily:"'Rajdhani',sans-serif",fontSize:15,fontWeight:600,letterSpacing:1,padding:"8px 14px",cursor:"pointer",position:"relative",transition:"color 0.3s" }}>
+          <div className="nav-links" style={{ display: "flex", gap: 4, alignItems: "center" }}>
+            {["Home", "About", "Services", "Portfolio", "Contact"].map(l => (
+              <button key={l} onClick={() => setPage(l)} aria-current={page === l ? "page" : undefined}
+                style={{ background: "none", border: "none", color: page === l ? "#C8102E" : linkColor, fontFamily: "'Rajdhani',sans-serif", fontSize: 15, fontWeight: 600, letterSpacing: 1, padding: "8px 14px", cursor: "pointer", position: "relative", transition: "color 0.3s" }}>
                 {l}
-                {page===l && <span style={{ position:"absolute",bottom:0,left:"20%",width:"60%",height:2,background:"#C8102E",borderRadius:2,display:"block",transformOrigin:"left",animation:"slideRight 0.3s ease" }} />}
+                {page === l && <span style={{ position: "absolute", bottom: 0, left: "20%", width: "60%", height: 2, background: "#C8102E", borderRadius: 2, display: "block", transformOrigin: "left", animation: "slideRight 0.3s ease" }} />}
               </button>
             ))}
-            <button className="theme-btn" onClick={onTheme} aria-label={`Switch to ${isDark?"light":"dark"} mode`}
-              style={{ background:"rgba(200,16,46,0.1)",border:"1px solid rgba(200,16,46,0.25)",borderRadius:8,width:36,height:36,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",fontSize:16,marginLeft:4,transition:"all 0.3s",flexShrink:0 }}>
-              {isDark?"☀️":"🌙"}
+            <button className="theme-btn" onClick={onTheme} aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+              style={{ background: "rgba(200,16,46,0.1)", border: "1px solid rgba(200,16,46,0.25)", borderRadius: 8, width: 36, height: 36, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, marginLeft: 4, transition: "all 0.3s", flexShrink: 0 }}>
+              {isDark ? "☀️" : "🌙"}
             </button>
-            <button className="btn-p" style={{ padding:"9px 20px",fontSize:13,marginLeft:6 }} onClick={() => setPage("Contact")}>Get Quote</button>
+            <button className="btn-p" style={{ padding: "9px 20px", fontSize: 13, marginLeft: 6 }} onClick={() => setPage("Contact")}>Get Quote</button>
           </div>
 
           {/* Mobile controls */}
-          <div className="nav-mobile-btns" style={{ alignItems:"center",gap:8 }}>
-            <button className="theme-btn" onClick={onTheme} aria-label={`Switch to ${isDark?"light":"dark"} mode`}
-              style={{ background:"rgba(200,16,46,0.1)",border:"1px solid rgba(200,16,46,0.25)",borderRadius:8,width:36,height:36,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",fontSize:16,flexShrink:0 }}>
-              {isDark?"☀️":"🌙"}
+          <div className="nav-mobile-btns" style={{ alignItems: "center", gap: 8 }}>
+            <button className="theme-btn" onClick={onTheme} aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+              style={{ background: "rgba(200,16,46,0.1)", border: "1px solid rgba(200,16,46,0.25)", borderRadius: 8, width: 36, height: 36, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, flexShrink: 0 }}>
+              {isDark ? "☀️" : "🌙"}
             </button>
             <button onClick={() => setMenuOpen(true)} aria-label="Open menu" aria-expanded={menuOpen}
-              style={{ background:"none",border:"1px solid rgba(200,16,46,0.3)",borderRadius:8,width:40,height:40,cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:5,padding:"0 10px" }}>
-              <span style={{ width:20,height:2,background:"#C8102E",borderRadius:1,display:"block" }} />
-              <span style={{ width:14,height:2,background:"#C8102E",borderRadius:1,display:"block" }} />
-              <span style={{ width:20,height:2,background:"#C8102E",borderRadius:1,display:"block" }} />
+              style={{ background: "none", border: "1px solid rgba(200,16,46,0.3)", borderRadius: 8, width: 40, height: 40, cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 5, padding: "0 10px" }}>
+              <span style={{ width: 20, height: 2, background: "#C8102E", borderRadius: 1, display: "block" }} />
+              <span style={{ width: 14, height: 2, background: "#C8102E", borderRadius: 1, display: "block" }} />
+              <span style={{ width: 20, height: 2, background: "#C8102E", borderRadius: 1, display: "block" }} />
             </button>
           </div>
         </div>
@@ -609,17 +609,17 @@ function Navbar({ page, setPage, theme, onTheme }: {
       {menuOpen && (
         <div className="mob-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
           <button className="mob-close-btn" onClick={() => setMenuOpen(false)} aria-label="Close menu">✕</button>
-          <div style={{ marginBottom:28 }}><Logo size={36} /></div>
-          {["Home","About","Services","Portfolio","Contact"].map(l => (
-            <button key={l} className={`mob-link${page===l?" active":""}`}
-              onClick={() => { setPage(l); setMenuOpen(false); }} aria-current={page===l?"page":undefined}>
+          <div style={{ marginBottom: 28 }}><Logo size={36} /></div>
+          {["Home", "About", "Services", "Portfolio", "Contact"].map(l => (
+            <button key={l} className={`mob-link${page === l ? " active" : ""}`}
+              onClick={() => { setPage(l); setMenuOpen(false); }} aria-current={page === l ? "page" : undefined}>
               {l}
             </button>
           ))}
-          <button className="btn-p" style={{ marginTop:20,padding:"14px 44px",fontSize:15 }} onClick={() => { setPage("Contact"); setMenuOpen(false); }}>
+          <button className="btn-p" style={{ marginTop: 20, padding: "14px 44px", fontSize: 15 }} onClick={() => { setPage("Contact"); setMenuOpen(false); }}>
             Get Quote
           </button>
-          <p style={{ marginTop:32,fontSize:12,opacity:0.4,fontFamily:"'Rajdhani',sans-serif",letterSpacing:2 }}>+254 722 819 305</p>
+          <p style={{ marginTop: 32, fontSize: 12, opacity: 0.4, fontFamily: "'Rajdhani',sans-serif", letterSpacing: 2 }}>+254 722 819 305</p>
         </div>
       )}
     </>
@@ -696,7 +696,7 @@ function HeroCarousel({ setPage }: { setPage: (p: string) => void }) {
       <div key={cur} style={{ position: "absolute", inset: 0, zIndex: 0, animation: "fadeIn 0.85s ease" }}>
         <img src={s.bg} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.62, animation: "heroKen 6s ease forwards" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.1) 100%)" }} />
-        <div style={{ position: "absolute", bottom:0, left:0, right:0, height:"40%", background:"linear-gradient(to top,rgba(0,0,0,0.75),transparent)" }} />
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "40%", background: "linear-gradient(to top,rgba(0,0,0,0.75),transparent)" }} />
       </div>
 
       <Particles />
@@ -1364,35 +1364,35 @@ function AboutPage() {
           <SH tag="Our Team" title="The People Behind ||Abeera||" sub="Led by experienced directors, backed by skilled professionals" />
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(225px,1fr))", gap: 24 }}>
             {TEAM.map((m, i) => (
-              <div key={i} className="glass glass-card-hover" style={{ overflow:"hidden",textAlign:"center" }}>
-                <div style={{ height:210,background:(m as any).bg,display:"flex",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden" }}>
-                  <svg width="100%" height="100%" viewBox="0 0 300 210" style={{ position:"absolute",inset:0 }} preserveAspectRatio="xMidYMid slice">
-                    <defs><radialGradient id={`rg${i}`} cx="50%" cy="40%" r="60%"><stop offset="0%" stopColor={(m as any).color} stopOpacity="0.18"/><stop offset="100%" stopColor={(m as any).color} stopOpacity="0.02"/></radialGradient></defs>
-                    <rect width="300" height="210" fill={`url(#rg${i})`}/>
-                    <circle cx="30" cy="30" r="60" fill={(m as any).color} fillOpacity="0.05"/>
-                    <circle cx="270" cy="180" r="80" fill={(m as any).color} fillOpacity="0.05"/>
-                    {([0,1,2,3,4,5] as number[]).map((n:number)=><line key={n} x1={n*60} y1="0" x2={n*60} y2="210" stroke={(m as any).color} strokeOpacity="0.05" strokeWidth="1"/>)}
-                    {([0,1,2,3] as number[]).map((n:number)=><line key={n} x1="0" y1={n*70} x2="300" y2={n*70} stroke={(m as any).color} strokeOpacity="0.05" strokeWidth="1"/>)}
-                    <line x1="0" y1="210" x2="210" y2="0" stroke={(m as any).color} strokeOpacity="0.07" strokeWidth="1.5"/>
+              <div key={i} className="glass glass-card-hover" style={{ overflow: "hidden", textAlign: "center" }}>
+                <div style={{ height: 210, background: (m as any).bg, display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden" }}>
+                  <svg width="100%" height="100%" viewBox="0 0 300 210" style={{ position: "absolute", inset: 0 }} preserveAspectRatio="xMidYMid slice">
+                    <defs><radialGradient id={`rg${i}`} cx="50%" cy="40%" r="60%"><stop offset="0%" stopColor={(m as any).color} stopOpacity="0.18" /><stop offset="100%" stopColor={(m as any).color} stopOpacity="0.02" /></radialGradient></defs>
+                    <rect width="300" height="210" fill={`url(#rg${i})`} />
+                    <circle cx="30" cy="30" r="60" fill={(m as any).color} fillOpacity="0.05" />
+                    <circle cx="270" cy="180" r="80" fill={(m as any).color} fillOpacity="0.05" />
+                    {([0, 1, 2, 3, 4, 5] as number[]).map((n: number) => <line key={n} x1={n * 60} y1="0" x2={n * 60} y2="210" stroke={(m as any).color} strokeOpacity="0.05" strokeWidth="1" />)}
+                    {([0, 1, 2, 3] as number[]).map((n: number) => <line key={n} x1="0" y1={n * 70} x2="300" y2={n * 70} stroke={(m as any).color} strokeOpacity="0.05" strokeWidth="1" />)}
+                    <line x1="0" y1="210" x2="210" y2="0" stroke={(m as any).color} strokeOpacity="0.07" strokeWidth="1.5" />
                   </svg>
-                  <div style={{ position:"relative",zIndex:2,display:"flex",flexDirection:"column",alignItems:"center",gap:10 }}>
-                    <div style={{ width:106,height:106,borderRadius:"50%",border:`2px solid ${(m as any).color}44`,padding:4,position:"relative" }}>
-                      <svg width="106" height="106" viewBox="0 0 106 106" style={{ position:"absolute",inset:-2,animation:"rotateSlow 22s linear infinite" }}>
-                        <circle cx="53" cy="53" r="50" fill="none" stroke={(m as any).color} strokeWidth="1" strokeOpacity="0.35" strokeDasharray="6 5"/>
+                  <div style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
+                    <div style={{ width: 106, height: 106, borderRadius: "50%", border: `2px solid ${(m as any).color}44`, padding: 4, position: "relative" }}>
+                      <svg width="106" height="106" viewBox="0 0 106 106" style={{ position: "absolute", inset: -2, animation: "rotateSlow 22s linear infinite" }}>
+                        <circle cx="53" cy="53" r="50" fill="none" stroke={(m as any).color} strokeWidth="1" strokeOpacity="0.35" strokeDasharray="6 5" />
                       </svg>
-                      <div style={{ width:"100%",height:"100%",borderRadius:"50%",background:`linear-gradient(135deg,${(m as any).color}30,${(m as any).color}10)`,border:`1px solid ${(m as any).color}33`,display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:2 }}>
-                        <span style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:27,color:(m as any).color,lineHeight:1,letterSpacing:2,textShadow:`0 0 20px ${(m as any).color}55` }}>{(m as any).initials}</span>
-                        <span style={{ fontSize:15,lineHeight:1 }}>{(m as any).icon}</span>
+                      <div style={{ width: "100%", height: "100%", borderRadius: "50%", background: `linear-gradient(135deg,${(m as any).color}30,${(m as any).color}10)`, border: `1px solid ${(m as any).color}33`, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 2 }}>
+                        <span style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 27, color: (m as any).color, lineHeight: 1, letterSpacing: 2, textShadow: `0 0 20px ${(m as any).color}55` }}>{(m as any).initials}</span>
+                        <span style={{ fontSize: 15, lineHeight: 1 }}>{(m as any).icon}</span>
                       </div>
                     </div>
-                    <div style={{ background:`${(m as any).color}18`,border:`1px solid ${(m as any).color}40`,borderRadius:20,padding:"3px 12px",fontSize:9.5,color:(m as any).color,fontFamily:"'Rajdhani',sans-serif",fontWeight:700,letterSpacing:1,textTransform:"uppercase",whiteSpace:"nowrap" }}>{(m as any).discipline}</div>
+                    <div style={{ background: `${(m as any).color}18`, border: `1px solid ${(m as any).color}40`, borderRadius: 20, padding: "3px 12px", fontSize: 9.5, color: (m as any).color, fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase", whiteSpace: "nowrap" }}>{(m as any).discipline}</div>
                   </div>
                 </div>
-                <div style={{ padding:"16px 20px 20px" }}>
-                  <div style={{ width:"100%",height:2,background:`linear-gradient(90deg,transparent,${(m as any).color},transparent)`,marginBottom:12 }}/>
-                  <h3 style={{ fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:17,marginBottom:4 }}>{m.name}</h3>
-                  <p style={{ color:(m as any).color,fontSize:11,fontFamily:"'Rajdhani',sans-serif",letterSpacing:1,textTransform:"uppercase",marginBottom:4 }}>{m.role}</p>
-                  {m.shares && <div style={{ display:"inline-flex",alignItems:"center",gap:5,background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,255,255,0.08)",borderRadius:20,padding:"3px 10px",marginTop:4 }}><span style={{ width:6,height:6,borderRadius:"50%",background:(m as any).color,display:"inline-block" }}/><span style={{ color:"#777",fontSize:10,fontFamily:"'Rajdhani',sans-serif" }}>{m.shares}</span></div>}
+                <div style={{ padding: "16px 20px 20px" }}>
+                  <div style={{ width: "100%", height: 2, background: `linear-gradient(90deg,transparent,${(m as any).color},transparent)`, marginBottom: 12 }} />
+                  <h3 style={{ fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 17, marginBottom: 4 }}>{m.name}</h3>
+                  <p style={{ color: (m as any).color, fontSize: 11, fontFamily: "'Rajdhani',sans-serif", letterSpacing: 1, textTransform: "uppercase", marginBottom: 4 }}>{m.role}</p>
+                  {m.shares && <div style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 20, padding: "3px 10px", marginTop: 4 }}><span style={{ width: 6, height: 6, borderRadius: "50%", background: (m as any).color, display: "inline-block" }} /><span style={{ color: "#777", fontSize: 10, fontFamily: "'Rajdhani',sans-serif" }}>{m.shares}</span></div>}
                 </div>
               </div>
             ))}
@@ -1601,13 +1601,13 @@ function useIsMobile() {
 // ─── APP ──────────────────────────────────────────────────────────────────────
 export default function App() {
   const [page, setPage] = useState("Home");
-  const [theme, setTheme] = useState<"dark"|"light">("dark");
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
   const nav = useCallback((p: string) => { setPage(p); window.scrollTo({ top: 0, behavior: "smooth" }); }, []);
   const toggleTheme = useCallback(() => {
     setTheme(t => {
       const next = t === "dark" ? "light" : "dark";
       document.body.className = next === "dark" ? "dm" : "lm";
-      try { localStorage.setItem("abeera-theme", next); } catch {}
+      try { localStorage.setItem("abeera-theme", next); } catch { }
       return next;
     });
   }, []);
@@ -1615,7 +1615,7 @@ export default function App() {
   // Init theme from localStorage
   useEffect(() => {
     try {
-      const saved = localStorage.getItem("abeera-theme") as "dark"|"light"|null;
+      const saved = localStorage.getItem("abeera-theme") as "dark" | "light" | null;
       const t = saved || "dark";
       setTheme(t);
       document.body.className = t === "dark" ? "dm" : "lm";
@@ -1629,9 +1629,9 @@ export default function App() {
   return (
     <>
       <style>{G}</style>
-      <div style={{ minHeight:"100vh",background:bg,transition:"background 0.35s" }}>
+      <div style={{ minHeight: "100vh", background: bg, transition: "background 0.35s" }}>
         <Navbar page={page} setPage={nav} theme={theme} onTheme={toggleTheme} />
-        <main id="main" key={page} style={{ animation:"fadeIn 0.4s ease" }}>
+        <main id="main" key={page} style={{ animation: "fadeIn 0.4s ease" }}>
           {page === "Home" && <HomePage setPage={nav} />}
           {page === "About" && <AboutPage />}
           {page === "Services" && <ServicesPage />}
