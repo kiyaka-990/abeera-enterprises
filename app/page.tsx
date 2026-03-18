@@ -507,9 +507,9 @@ function Logo({ size = 40 }) {
         {/* Crossbar */}
         <rect x="27" y="61" width="50" height="10" fill="url(#lgA)" />
         {/* Swoosh 1 */}
-        <path d="M60 12 Q83 0 103 20" stroke="#C8102E" strokeWidth="5" strokeLinecap="round" fill="none"/>
+        <path d="M60 12 Q83 0 103 20" stroke="#C8102E" strokeWidth="5" strokeLinecap="round" fill="none" />
         {/* Swoosh 2 */}
-        <path d="M65 26 Q85 16 105 38" stroke="#8B0000" strokeWidth="3.5" strokeLinecap="round" fill="none" opacity="0.8"/>
+        <path d="M65 26 Q85 16 105 38" stroke="#8B0000" strokeWidth="3.5" strokeLinecap="round" fill="none" opacity="0.8" />
       </svg>
 
       {/* Text block — "A beera" then "Enterprises Limited" */}
@@ -858,7 +858,7 @@ function Chatbot() {
   showQuickRef.current = showQuick;
 
   // sendRef — store send in a ref so quick-reply buttons never go stale
-  const sendRef = useRef<(text?: string) => void>(() => {});
+  const sendRef = useRef<(text?: string) => void>(() => { });
 
   // The actual send logic — uses only refs, never closes over state
   sendRef.current = (text?: string) => {
@@ -1639,8 +1639,8 @@ function Footer({ setPage }: { setPage: (p: string) => void }) {
           </div>
         </div>
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", paddingTop: 20, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
-          <span style={{ color: "#888", fontSize: 12 }}>© 2025 Abeera Enterprises Limited • PVT-BEUXP26A • All rights reserved.</span>
-          <span style={{ color: "#C8102E", fontSize: 12, fontFamily: "'Rajdhani',sans-serif" }}>Registered under The Companies Act, 2015</span>
+          <span style={{ color: "#888", fontSize: 12 }}>© 2026 Abeera Enterprises Limited • PVT-BEUXP26A • All rights reserved.</span>
+          <span style={{ color: "#C8102E", fontSize: 12, fontFamily: "'Rajdhani',sans-serif" }}>Developed by Asterleigh Systems</span>
         </div>
       </div>
     </footer>
