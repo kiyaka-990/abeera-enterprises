@@ -243,6 +243,23 @@ body,#__next{background:#0A0A0A;color:#F5F5F5;font-family:'Exo 2',sans-serif;ove
 input,textarea,select{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#F5F5F5;padding:12px 16px;border-radius:8px;font-family:'Exo 2',sans-serif;font-size:14px;width:100%;transition:all 0.3s;outline:none;}
 input:focus,textarea:focus,select:focus{border-color:#C8102E;background:rgba(200,16,46,0.06);box-shadow:0 0 0 3px rgba(200,16,46,0.12);}
 select option{background:#1a1a1a;}
+@media(max-width:768px){
+  .nav-links{display:none!important;}
+  .stat-grid{grid-template-columns:repeat(2,1fr)!important;}
+  .two-col{grid-template-columns:1fr!important;}
+  .three-col{grid-template-columns:1fr!important;}
+  .four-col{grid-template-columns:repeat(2,1fr)!important;}
+  .hero-thumb{display:none!important;}
+  .hero-rings{display:none!important;}
+  .about-mosaic{grid-template-columns:1fr 1fr!important;}
+  .footer-grid{grid-template-columns:1fr 1fr!important;}
+}
+@media(max-width:480px){
+  .stat-grid{grid-template-columns:1fr 1fr!important;}
+  .four-col{grid-template-columns:1fr 1fr!important;}
+  .footer-grid{grid-template-columns:1fr!important;}
+  .btn-p,.btn-o{padding:12px 20px!important;font-size:13px!important;}
+}
 `;
 
 // ─── LOGO ─────────────────────────────────────────────────────────────────────
@@ -276,7 +293,7 @@ function Navbar({ page, setPage }: { page: string; setPage: (p: string) => void 
     <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, background: scrolled ? "linear-gradient(180deg,rgba(10,4,4,0.95) 0%,rgba(8,8,8,0.92) 100%)" : "transparent", backdropFilter: scrolled ? "blur(32px) saturate(180%)" : "none", WebkitBackdropFilter: scrolled ? "blur(32px) saturate(180%)" : "none", borderBottom: scrolled ? "1px solid rgba(200,16,46,0.18)" : "none", transition: "all 0.4s", padding: "0 5%" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
         <div onClick={() => setPage("Home")}><Logo size={38} /></div>
-        <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
+        <div className="nav-links" style={{ display: "flex", gap: 4, alignItems: "center" }}>
           {["Home", "About", "Services", "Portfolio", "Contact"].map(l => (
             <button key={l} onClick={() => setPage(l)} style={{ background: "none", border: "none", color: page === l ? "#C8102E" : "#bbb", fontFamily: "'Rajdhani',sans-serif", fontSize: 15, fontWeight: 600, letterSpacing: 1, padding: "8px 14px", cursor: "pointer", position: "relative", transition: "color 0.3s" }}>
               {l}
@@ -366,20 +383,20 @@ function HeroCarousel({ setPage }: { setPage: (p: string) => void }) {
       <Particles />
 
       {/* Rotating rings */}
-      <div style={{ position: "absolute", right: "4%", top: "50%", transform: "translateY(-50%)", width: 460, height: 460, borderRadius: "50%", border: "1px solid rgba(200,16,46,0.12)", animation: "rotateSlow 28s linear infinite", zIndex: 2, pointerEvents: "none" }}>
+      <div className="hero-rings" style={{ position: "absolute", right: "4%", top: "50%", transform: "translateY(-50%)", width: 460, height: 460, borderRadius: "50%", border: "1px solid rgba(200,16,46,0.12)", animation: "rotateSlow 28s linear infinite", zIndex: 2, pointerEvents: "none" }}>
         <div style={{ position: "absolute", inset: 30, borderRadius: "50%", border: "1px solid rgba(200,16,46,0.07)" }} />
         <div style={{ position: "absolute", inset: 60, borderRadius: "50%", border: "1px solid rgba(200,16,46,0.04)" }} />
         <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 10, height: 10, borderRadius: "50%", background: "rgba(200,16,46,0.5)" }} />
       </div>
 
       {/* Content — keyed so it re-animates */}
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 5%", position: "relative", zIndex: 3, paddingTop: 90, width: "100%" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 5%", position: "relative", zIndex: 3, paddingTop: "clamp(60px,12vw,90px)", width: "100%" }}>
         <div style={{ maxWidth: 700 }} key={cur}>
           <div style={{ animation: "slideInLeft 0.6s 0.05s both" }}><span className="stag">{s.tag}</span></div>
-          <h1 className="bebas" style={{ fontSize: "clamp(58px,9.5vw,122px)", lineHeight: 0.9, marginBottom: 20, animation: "slideInLeft 0.7s 0.15s both" }}>
+          <h1 className="bebas" style={{ fontSize: "clamp(44px,9.5vw,122px)", lineHeight: 0.9, marginBottom: 20, animation: "slideInLeft 0.7s 0.15s both" }}>
             {s.title}<br /><span style={{ color: "#C8102E" }}>{s.accent}</span><br />{s.sub}
           </h1>
-          <p style={{ fontSize: 17, color: "#bbb", lineHeight: 1.75, marginBottom: 38, maxWidth: 480, animation: "slideInLeft 0.7s 0.28s both" }}>{s.desc}</p>
+          <p style={{ fontSize: 17, color: "#bbb", lineHeight: 1.75, marginBottom: 38, maxWidth: "min(480px, 90vw)", animation: "slideInLeft 0.7s 0.28s both" }}>{s.desc}</p>
           <div style={{ display: "flex", gap: 14, flexWrap: "wrap", animation: "slideInLeft 0.7s 0.4s both" }}>
             <button className="btn-p" onClick={() => setPage("Portfolio")}>View Projects</button>
             <button className="btn-o" onClick={() => setPage("Contact")}>Get A Quote</button>
@@ -401,7 +418,7 @@ function HeroCarousel({ setPage }: { setPage: (p: string) => void }) {
       </div>
 
       {/* Thumbnail strip */}
-      <div style={{ position: "absolute", right: "2.5%", top: "50%", transform: "translateY(-50%)", zIndex: 4, display: "flex", flexDirection: "column", gap: 10 }}>
+      <div className="hero-thumb" style={{ position: "absolute", right: "2.5%", top: "50%", transform: "translateY(-50%)", zIndex: 4, display: "flex", flexDirection: "column", gap: 10 }}>
         {HERO_SLIDES.map((sl, i) => (
           <div key={i} onClick={() => goTo(i)} style={{ width: 62, height: 42, borderRadius: 7, overflow: "hidden", cursor: "pointer", border: i === cur ? "2px solid #C8102E" : "2px solid rgba(255,255,255,0.1)", transition: "all 0.35s", opacity: i === cur ? 1 : 0.45, transform: i === cur ? "scale(1.1)" : "scale(1)" }}>
             <img src={sl.bg} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
@@ -422,9 +439,15 @@ function HeroCarousel({ setPage }: { setPage: (p: string) => void }) {
 }
 
 // ─── CHATBOT ──────────────────────────────────────────────────────────────────
+type Msg = { role: string; content: string; time: string };
+
 function Chatbot() {
   const [open, setOpen] = useState(false);
-  const [msgs, setMsgs] = useState([{ role: "assistant", content: "Habari! 👋 I'm **ARIA**, Abeera's AI assistant.\n\nI can help with:\n• Our construction services\n• Project quotes & inquiries\n• Company information\n• Water works, roads, buildings\n\nHow can I help you today?", time: "" }]);
+  const [msgs, setMsgs] = useState<Msg[]>([{
+    role: "assistant",
+    content: "Habari! 👋 I'm **ARIA**, Abeera's AI assistant.\n\nI can help with:\n• 🛣️ Roads & civil works\n• 🏗️ Building construction\n• 💧 Water works & boreholes\n• ⚙️ Mechanical & electrical\n• 📋 Quotes & company info\n\nHow can I help you today?",
+    time: ""
+  }]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [showQuick, setShowQuick] = useState(true);
@@ -432,130 +455,284 @@ function Chatbot() {
   const [typing, setTyping] = useState(false);
   const endRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const inputRef2 = useRef(input); // always-current ref for send()
+  inputRef2.current = input;
 
   useEffect(() => {
-    // Set initial time client-side to avoid hydration mismatch
-    setMsgs((prev: any[]) => prev.map((m: any, i: number) => i === 0 ? { ...m, time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) } : m));
-    const t = setTimeout(() => setNotif(true), 4000);
+    setMsgs(prev => prev.map((m, i) => i === 0
+      ? { ...m, time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) }
+      : m));
+    const t = setTimeout(() => setNotif(true), 3500);
     return () => clearTimeout(t);
   }, []);
 
   useEffect(() => {
-    if (open) { setTimeout(() => { endRef.current?.scrollIntoView({ behavior: "smooth" }); inputRef.current?.focus(); }, 100); }
+    if (open) {
+      setTimeout(() => {
+        endRef.current?.scrollIntoView({ behavior: "smooth" });
+        inputRef.current?.focus();
+      }, 150);
+    }
   }, [msgs, open]);
 
-  const send = (text?: string) => {
-    const msg = (text !== undefined ? text : input).trim();
+  // send() reads inputRef2.current so it never has a stale closure
+  const send = useCallback((text?: string) => {
+    const msg = (text !== undefined ? text : inputRef2.current).trim();
     if (!msg || loading) return;
-    setInput("");
+    if (text === undefined) setInput(""); // only clear textarea when typing
     setShowQuick(false);
     setNotif(false);
     const time = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-    setMsgs((prev: any[]) => [...prev, { role: "user", content: msg, time }]);
+    setMsgs(prev => [...prev, { role: "user", content: msg, time }]);
     setLoading(true);
     setTyping(true);
-    // Simulate a natural typing delay (600–1400ms) then respond locally
-    const delay = 600 + Math.random() * 800;
     setTimeout(() => {
       const reply = ariaRespond(msg);
       setTyping(false);
       setLoading(false);
-      setMsgs((prev: any[]) => [...prev, {
-        role: "assistant",
-        content: reply,
+      setMsgs(prev => [...prev, {
+        role: "assistant", content: reply,
         time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
       }]);
-    }, delay);
-  };
+    }, 700 + Math.random() * 700);
+  }, [loading]);  // inputRef2 is a ref — stable, no need in deps
 
-  const render = (text: string) => text
-    .replace(/\*\*(.*?)\*\*/g, '<strong style="color:#ff7070">$1</strong>')
-    .replace(/\n•/g, '<br/>•').replace(/\n/g, '<br/>');
+  const renderMsg = (text: string) => text
+    .replace(/\*\*(.*?)\*\*/g, '<strong style="color:#ff8080;font-weight:600">$1</strong>')
+    .replace(/\n•/g, '<br/>•')
+    .replace(/\n/g, '<br/>');
+
+  const MsgBubble = ({ m }: { m: Msg }) => (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: m.role === "user" ? "flex-end" : "flex-start" }}>
+      {m.role === "assistant" && (
+        <div style={{ display: "flex", alignItems: "flex-end", gap: 7, marginBottom: 2 }}>
+          <div style={{ width: 28, height: 28, borderRadius: "50%", background: "linear-gradient(135deg,#C8102E,#8B0000)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, flexShrink: 0, boxShadow: "0 2px 8px rgba(200,16,46,0.4)" }}>🤖</div>
+          <div style={{
+            background: "linear-gradient(135deg,rgba(255,255,255,0.09),rgba(255,255,255,0.04))",
+            backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)",
+            border: "1px solid rgba(255,255,255,0.13)",
+            borderTop: "1px solid rgba(255,255,255,0.2)",
+            borderRadius: "4px 16px 16px 16px",
+            padding: "11px 14px",
+            maxWidth: "calc(100% - 50px)",
+            fontSize: 13, lineHeight: 1.7, color: "#e8e8e8",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.07)",
+            wordBreak: "break-word",
+          }} dangerouslySetInnerHTML={{ __html: renderMsg(m.content) }} />
+        </div>
+      )}
+      {m.role === "user" && (
+        <div style={{
+          background: "linear-gradient(135deg,#C8102E,#8B0000)",
+          borderRadius: "16px 4px 16px 16px",
+          padding: "10px 14px",
+          maxWidth: "80%",
+          fontSize: 13, lineHeight: 1.65, color: "#fff",
+          boxShadow: "0 4px 16px rgba(200,16,46,0.35)",
+          wordBreak: "break-word",
+        }}>{m.content}</div>
+      )}
+      {m.time && <span style={{ fontSize: 10, color: "#3a3a3a", marginTop: 3, padding: "0 4px" }}>{m.time}</span>}
+    </div>
+  );
 
   return (
     <>
-      {/* FAB */}
-      <div style={{ position: "fixed", bottom: 28, right: 28, zIndex: 2000 }}>
-        {!open && notif && <>
-          <div style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "rgba(200,16,46,0.3)", animation: "ripple 2s 0s infinite" }} />
-          <div style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "rgba(200,16,46,0.2)", animation: "ripple 2s 0.6s infinite" }} />
-          <div style={{ position: "absolute", top: -8, right: -8, background: "#22c55e", color: "#fff", borderRadius: "50%", width: 18, height: 18, fontSize: 10, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, border: "2px solid #0A0A0A", zIndex: 1 }}>1</div>
-        </>}
-        <button onClick={() => { setOpen(p => !p); setNotif(false); }} style={{ width: 58, height: 58, borderRadius: "50%", background: "linear-gradient(135deg,#C8102E,#8B0000)", border: "2px solid rgba(200,16,46,0.4)", cursor: "pointer", fontSize: open ? 18 : 24, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 6px 28px rgba(200,16,46,0.45)", transition: "all 0.3s", color: "#fff" }}
+      {/* ── Responsive CSS injected once ── */}
+      <style>{`
+        .aria-win {
+          position: fixed;
+          right: 20px;
+          bottom: 90px;
+          width: 370px;
+          height: 580px;
+          z-index: 1999;
+          display: flex;
+          flex-direction: column;
+          background: linear-gradient(160deg,rgba(28,6,6,0.93) 0%,rgba(10,10,10,0.97) 60%,rgba(6,3,3,0.95) 100%);
+          backdrop-filter: blur(40px) saturate(180%);
+          -webkit-backdrop-filter: blur(40px) saturate(180%);
+          border: 1px solid rgba(255,255,255,0.1);
+          border-top: 1px solid rgba(255,255,255,0.2);
+          border-radius: 22px;
+          box-shadow: 0 32px 80px rgba(0,0,0,0.85), 0 0 0 1px rgba(200,16,46,0.15), inset 0 1px 0 rgba(255,255,255,0.09);
+          animation: chatPop 0.38s cubic-bezier(0.34,1.56,0.64,1);
+          overflow: hidden;
+        }
+        @media (max-width: 480px) {
+          .aria-win {
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 92vh;
+            border-radius: 22px 22px 0 0;
+            animation: chatPopMobile 0.35s ease;
+          }
+          .aria-fab {
+            bottom: 16px !important;
+            right: 16px !important;
+          }
+        }
+        @keyframes chatPopMobile {
+          from { transform: translateY(100%); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+        .aria-msgs::-webkit-scrollbar { width: 3px; }
+        .aria-msgs::-webkit-scrollbar-thumb { background: rgba(200,16,46,0.4); border-radius: 2px; }
+        .aria-textarea { color: #F5F5F5 !important; }
+        .aria-textarea::placeholder { color: rgba(255,255,255,0.35) !important; }
+        .aria-send-btn:hover { transform: scale(1.05); box-shadow: 0 4px 16px rgba(200,16,46,0.5) !important; }
+        .aria-quick:hover { background: rgba(200,16,46,0.25) !important; color: #fff !important; transform: scale(1.03); }
+      `}</style>
+
+      {/* ── FAB Button ── */}
+      <div className="aria-fab" style={{ position: "fixed", bottom: 24, right: 24, zIndex: 2000 }}>
+        {!open && notif && (
+          <>
+            <div style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "rgba(200,16,46,0.3)", animation: "ripple 2s ease-out infinite" }} />
+            <div style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "rgba(200,16,46,0.15)", animation: "ripple 2s 0.7s ease-out infinite" }} />
+            <div style={{ position: "absolute", top: -6, right: -6, background: "#22c55e", color: "#fff", borderRadius: "50%", width: 17, height: 17, fontSize: 9, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, border: "2px solid #0A0A0A", zIndex: 2, fontFamily: "sans-serif" }}>1</div>
+          </>
+        )}
+        <button
+          onClick={() => { setOpen(p => !p); setNotif(false); }}
+          aria-label="Open ARIA chatbot"
+          style={{
+            width: 56, height: 56, borderRadius: "50%",
+            background: "linear-gradient(135deg,#C8102E,#8B0000)",
+            border: "2px solid rgba(200,16,46,0.5)",
+            cursor: "pointer", fontSize: 22,
+            display: "flex", alignItems: "center", justifyContent: "center",
+            boxShadow: "0 6px 24px rgba(200,16,46,0.5)",
+            transition: "transform 0.2s, box-shadow 0.2s",
+            color: "#fff", outline: "none",
+          }}
           onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = "scale(1.1)"}
           onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = "scale(1)"}
-        >{open ? "✕" : "💬"}</button>
-        {!open && <div style={{ position: "absolute", bottom: "112%", right: 0, whiteSpace: "nowrap", background: "rgba(12,12,12,0.97)", border: "1px solid rgba(200,16,46,0.3)", borderRadius: 10, padding: "8px 14px", fontSize: 13, color: "#F5F5F5", fontFamily: "'Rajdhani',sans-serif", fontWeight: 500, boxShadow: "0 4px 20px rgba(0,0,0,0.5)" }}>💬 Chat with ARIA</div>}
+        >
+          {open ? "✕" : "💬"}
+        </button>
+        {!open && (
+          <div style={{
+            position: "absolute", bottom: "115%", right: 0, whiteSpace: "nowrap",
+            background: "rgba(12,8,8,0.97)", border: "1px solid rgba(200,16,46,0.3)",
+            borderRadius: 10, padding: "7px 13px", fontSize: 12,
+            color: "#F5F5F5", fontFamily: "'Rajdhani',sans-serif", fontWeight: 600,
+            boxShadow: "0 4px 20px rgba(0,0,0,0.5)", pointerEvents: "none",
+          }}>💬 Chat with ARIA</div>
+        )}
       </div>
 
-      {/* Window */}
+      {/* ── Chat Window ── */}
       {open && (
-        <div style={{ position: "fixed", bottom: 96, right: 28, width: 390, height: 600, zIndex: 1999, display: "flex", flexDirection: "column", background: "linear-gradient(160deg,rgba(30,8,8,0.92) 0%,rgba(10,10,10,0.96) 50%,rgba(8,4,4,0.94) 100%)", backdropFilter: "blur(40px) saturate(180%)", WebkitBackdropFilter: "blur(40px) saturate(180%)", border: "1px solid rgba(255,255,255,0.1)", borderTop: "1px solid rgba(255,255,255,0.18)", borderRadius: 22, boxShadow: "0 32px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(200,16,46,0.12), inset 0 1px 0 rgba(255,255,255,0.08)", animation: "chatPop 0.4s cubic-bezier(0.34,1.56,0.64,1)", overflow: "hidden" }}>
+        <div className="aria-win">
 
           {/* Header */}
-          <div style={{ padding: "14px 18px", background: "linear-gradient(135deg,rgba(200,16,46,0.22) 0%,rgba(100,0,0,0.15) 50%,rgba(255,255,255,0.03) 100%)", borderBottom: "1px solid rgba(200,16,46,0.2)", flexShrink: 0, backdropFilter: "blur(10px)" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <div style={{
+            padding: "13px 16px",
+            background: "linear-gradient(135deg,rgba(200,16,46,0.25),rgba(80,0,0,0.18))",
+            borderBottom: "1px solid rgba(200,16,46,0.22)", flexShrink: 0,
+          }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 11 }}>
               <div style={{ position: "relative" }}>
-                <div style={{ width: 42, height: 42, borderRadius: "50%", background: "linear-gradient(135deg,#C8102E,#8B0000)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 19, border: "2px solid rgba(200,16,46,0.4)" }}>🤖</div>
-                <div style={{ position: "absolute", bottom: 1, right: 1, width: 10, height: 10, borderRadius: "50%", background: "#22c55e", border: "2px solid #0A0A0A" }} />
+                <div style={{
+                  width: 40, height: 40, borderRadius: "50%",
+                  background: "linear-gradient(135deg,#C8102E,#8B0000)",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  fontSize: 18, border: "2px solid rgba(200,16,46,0.5)",
+                  boxShadow: "0 2px 12px rgba(200,16,46,0.4)",
+                }}>🤖</div>
+                <div style={{ position: "absolute", bottom: 0, right: 0, width: 11, height: 11, borderRadius: "50%", background: "#22c55e", border: "2px solid #0A0A0A" }} />
               </div>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 16, color: "#F5F5F5" }}>ARIA</div>
-                <div style={{ fontSize: 11, color: "#777", display: "flex", alignItems: "center", gap: 5 }}>
-                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#22c55e", display: "inline-block", animation: "pulse 2s infinite" }} />
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 15, color: "#F5F5F5" }}>ARIA</div>
+                <div style={{ fontSize: 10.5, color: "#888", display: "flex", alignItems: "center", gap: 5 }}>
+                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#22c55e", display: "inline-block", animation: "pulse 2s infinite", flexShrink: 0 }} />
                   Abeera AI Assistant • Always online
                 </div>
               </div>
-              <button onClick={() => setOpen(false)} style={{ background: "none", border: "none", color: "#555", cursor: "pointer", fontSize: 16, padding: 4 }}>✕</button>
+              <button
+                onClick={() => setOpen(false)}
+                style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.1)", color: "#aaa", cursor: "pointer", fontSize: 14, width: 30, height: 30, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, transition: "all 0.2s" }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(200,16,46,0.3)"; (e.currentTarget as HTMLElement).style.color = "#fff"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.07)"; (e.currentTarget as HTMLElement).style.color = "#aaa"; }}
+              >✕</button>
             </div>
           </div>
 
           {/* Messages */}
-          <div style={{ flex: 1, overflowY: "auto", padding: "14px 13px 8px", display: "flex", flexDirection: "column", gap: 9 }}>
-            {msgs.map((m, i) => (
-              <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: m.role === "user" ? "flex-end" : "flex-start", animation: "fadeUp 0.3s ease" }}>
-                {m.role === "assistant" && (
-                  <div style={{ display: "flex", alignItems: "flex-end", gap: 7, marginBottom: 2 }}>
-                    <div style={{ width: 26, height: 26, borderRadius: "50%", background: "linear-gradient(135deg,#C8102E,#8B0000)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, flexShrink: 0 }}>🤖</div>
-                    <div style={{ background: "linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.12)", borderTop: "1px solid rgba(255,255,255,0.18)", borderRadius: "4px 16px 16px 16px", padding: "11px 14px", maxWidth: 282, fontSize: 13, lineHeight: 1.7, color: "#e8e8e8", boxShadow: "0 4px 16px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.06)" }} dangerouslySetInnerHTML={{ __html: render(m.content) }} />
-                  </div>
-                )}
-                {m.role === "user" && (
-                  <div style={{ background: "linear-gradient(135deg,#C8102E,#8B0000)", borderRadius: "16px 4px 16px 16px", padding: "10px 13px", maxWidth: 265, fontSize: 13, lineHeight: 1.65, color: "#fff" }}>{m.content}</div>
-                )}
-                {m.time && <span style={{ fontSize: 10, color: "#383838", marginTop: 2, padding: "0 4px" }}>{m.time}</span>}
-              </div>
-            ))}
+          <div className="aria-msgs" style={{ flex: 1, overflowY: "auto", padding: "14px 12px 8px", display: "flex", flexDirection: "column", gap: 10 }}>
+            {msgs.map((m, i) => <MsgBubble key={i} m={m} />)}
             {typing && (
               <div style={{ display: "flex", alignItems: "flex-end", gap: 7 }}>
-                <div style={{ width: 26, height: 26, borderRadius: "50%", background: "linear-gradient(135deg,#C8102E,#8B0000)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12 }}>🤖</div>
-                <div style={{ background: "linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.12)", borderTop: "1px solid rgba(255,255,255,0.18)", borderRadius: "4px 16px 16px 16px", padding: "12px 18px", display: "flex", gap: 6, alignItems: "center", boxShadow: "0 4px 16px rgba(0,0,0,0.3)" }}>
-                  {[0, 1, 2].map(j => <div key={j} style={{ width: 7, height: 7, borderRadius: "50%", background: "#C8102E", animation: `typingDot 1.4s ${j * 0.2}s infinite` }} />)}
+                <div style={{ width: 28, height: 28, borderRadius: "50%", background: "linear-gradient(135deg,#C8102E,#8B0000)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, flexShrink: 0 }}>🤖</div>
+                <div style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "4px 16px 16px 16px", padding: "12px 16px", display: "flex", gap: 5, alignItems: "center" }}>
+                  {[0, 1, 2].map(j => (
+                    <div key={j} style={{ width: 7, height: 7, borderRadius: "50%", background: "#C8102E", animation: `typingDot 1.4s ${j * 0.22}s ease-in-out infinite` }} />
+                  ))}
                 </div>
               </div>
             )}
-            <div ref={endRef} />
+            <div ref={endRef} style={{ height: 4 }} />
           </div>
 
           {/* Quick replies */}
           {showQuick && msgs.length <= 1 && (
-            <div style={{ padding: "5px 10px 7px", display: "flex", flexWrap: "wrap", gap: 5, borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+            <div style={{ padding: "6px 10px 7px", display: "flex", flexWrap: "wrap", gap: 5, borderTop: "1px solid rgba(255,255,255,0.05)", background: "rgba(0,0,0,0.2)" }}>
               {QUICK_REPLIES.map((q, i) => (
-                <button key={i} onClick={() => send(q.text)} style={{ background: "rgba(200,16,46,0.08)", border: "1px solid rgba(200,16,46,0.22)", color: "#ff7070", padding: "5px 10px", borderRadius: 20, fontSize: 11, fontFamily: "'Rajdhani',sans-serif", fontWeight: 600, cursor: "pointer", transition: "all 0.2s", whiteSpace: "nowrap" }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(200,16,46,0.2)"; (e.currentTarget as HTMLElement).style.color = "#fff"; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(200,16,46,0.08)"; (e.currentTarget as HTMLElement).style.color = "#ff7070"; }}
+                <button
+                  key={i}
+                  className="aria-quick"
+                  onClick={() => send(q.text)}
+                  style={{
+                    background: "rgba(200,16,46,0.1)", border: "1px solid rgba(200,16,46,0.28)",
+                    color: "#ff8080", padding: "5px 11px", borderRadius: 20,
+                    fontSize: 11, fontFamily: "'Rajdhani',sans-serif", fontWeight: 600,
+                    cursor: "pointer", transition: "all 0.2s", whiteSpace: "nowrap",
+                  }}
                 >{q.label}</button>
               ))}
             </div>
           )}
 
-          {/* Input */}
-          <div style={{ padding: "10px 12px 12px", borderTop: "1px solid rgba(255,255,255,0.07)", flexShrink: 0, background: "linear-gradient(0deg,rgba(0,0,0,0.3),transparent)", backdropFilter: "blur(10px)" }}>
+          {/* Input bar */}
+          <div style={{ padding: "9px 11px 11px", borderTop: "1px solid rgba(255,255,255,0.07)", flexShrink: 0, background: "rgba(0,0,0,0.25)" }}>
             <div style={{ display: "flex", gap: 8, alignItems: "flex-end" }}>
-              <textarea ref={inputRef} value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); } }} placeholder="Ask about services, quotes..." rows={1} style={{ flex: 1, fontSize: 13, padding: "10px 13px", borderRadius: 12, resize: "none", minHeight: 40, maxHeight: 100, overflowY: "auto", background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", backdropFilter: "blur(8px)" }} />
-              <button onClick={() => send()} disabled={loading || !input.trim()} style={{ background: input.trim() ? "linear-gradient(135deg,#C8102E,#8B0000)" : "rgba(255,255,255,0.07)", border: "none", borderRadius: 12, width: 42, height: 42, cursor: input.trim() ? "pointer" : "default", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 17, transition: "all 0.3s", flexShrink: 0, color: "#fff" }}>➤</button>
+              <textarea
+                ref={inputRef}
+                className="aria-textarea"
+                value={input}
+                onChange={e => setInput(e.target.value)}
+                onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); } }}
+                placeholder="Ask about services, quotes..."
+                rows={1}
+                style={{
+                  flex: 1, fontSize: 13, padding: "10px 13px", borderRadius: 12,
+                  resize: "none", minHeight: 40, maxHeight: 90, overflowY: "auto",
+                  background: "rgba(255,255,255,0.07)",
+                  border: "1px solid rgba(255,255,255,0.13)",
+                  backdropFilter: "blur(8px)", color: "#F5F5F5",
+                  fontFamily: "'Exo 2',sans-serif",
+                  lineHeight: 1.5,
+                }}
+              />
+              <button
+                className="aria-send-btn"
+                onClick={() => send()}
+                disabled={loading || !input.trim()}
+                style={{
+                  background: input.trim() ? "linear-gradient(135deg,#C8102E,#8B0000)" : "rgba(255,255,255,0.07)",
+                  border: "none", borderRadius: 12, width: 42, height: 42,
+                  cursor: input.trim() ? "pointer" : "default",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  fontSize: 16, transition: "all 0.25s", flexShrink: 0, color: "#fff",
+                  opacity: loading ? 0.5 : 1,
+                }}
+              >➤</button>
             </div>
-            <div style={{ textAlign: "center", marginTop: 6, fontSize: 10, color: "#2a2a2a", fontFamily: "'Rajdhani',sans-serif", letterSpacing: 1 }}>ARIA by ABEERA ENTERPRISES • Always Online</div>
+            <div style={{ textAlign: "center", marginTop: 6, fontSize: 9.5, color: "#282828", fontFamily: "'Rajdhani',sans-serif", letterSpacing: 1 }}>
+              ARIA by ABEERA ENTERPRISES • Always Online
+            </div>
           </div>
         </div>
       )}
@@ -566,6 +743,7 @@ function Chatbot() {
 // ─── HOME PAGE ────────────────────────────────────────────────────────────────
 function HomePage({ setPage }: { setPage: (p: string) => void }) {
   const [count, setCount] = useState([0, 0, 0, 0]);
+  const isMob = useIsMobile();
   useEffect(() => {
     const targets = [50, 5, 200, 6];
     const timers = targets.map((t, i) => setInterval(() => {
@@ -578,7 +756,7 @@ function HomePage({ setPage }: { setPage: (p: string) => void }) {
       <HeroCarousel setPage={setPage} />
       {/* Stats */}
       <section style={{ padding: "65px 5%", background: "linear-gradient(180deg,rgba(200,16,46,0.06) 0%,rgba(10,10,10,0.8) 100%)", borderTop: "1px solid rgba(200,16,46,0.15)", borderBottom: "1px solid rgba(200,16,46,0.1)", backdropFilter: "blur(20px)" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 18 }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: isMob ? "repeat(2,1fr)" : "repeat(4,1fr)", gap: 18 }}>
           {([["50+", "Projects Completed", 50], ["5", "Core Services", 5], ["200+", "Skilled Workers", 200], ["6", "Counties Served", 6]] as [string, string, number][]).map(([v, l, n], i) => (
             <div key={i} className="glass" style={{ padding: "26px 18px", textAlign: "center" }}>
               <div className="bebas" style={{ fontSize: 58, color: "#C8102E", lineHeight: 1 }}>{count[i]}{v.replace(/\d+/, "")}</div>
@@ -611,7 +789,7 @@ function HomePage({ setPage }: { setPage: (p: string) => void }) {
       {/* Why us */}
       <section style={{ padding: "86px 5%", background: "rgba(8,8,8,0.8)", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", right: -80, top: "50%", transform: "translateY(-50%)", width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle,rgba(200,16,46,0.07) 0%,transparent 70%)" }} />
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 65, alignItems: "center" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: isMob ? "1fr" : "1fr 1fr", gap: isMob ? 32 : 65, alignItems: "center" }}>
           <div>
             <SH tag="Why Choose Us" left title="Quality Built on ||Trust|| & Excellence" />
             <p style={{ color: "#888", lineHeight: 1.82, marginBottom: 24, fontSize: 15 }}>Abeera Enterprises combines local expertise with international standards. We operate across Kenya's most challenging terrains, delivering infrastructure that transforms communities.</p>
@@ -636,7 +814,7 @@ function HomePage({ setPage }: { setPage: (p: string) => void }) {
       <section style={{ padding: "86px 5%" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <SH tag="Our Work" title="Recent ||Projects|| & Achievements" sub="Showcasing completed infrastructure projects transforming communities across Kenya" />
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }}>
+          <div style={{ display: "grid", gridTemplateColumns: isMob ? "1fr" : "repeat(3,1fr)", gap: 20 }}>
             {PROJECTS.slice(0, 3).map((p, i) => (
               <div key={i} className="glass" style={{ overflow: "hidden", transition: "transform 0.3s" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}>
                 <div style={{ height: 200, overflow: "hidden", position: "relative" }}>
@@ -674,6 +852,7 @@ function HomePage({ setPage }: { setPage: (p: string) => void }) {
 
 // ─── ABOUT PAGE ───────────────────────────────────────────────────────────────
 function AboutPage() {
+  const isMob = useIsMobile();
   return (
     <div style={{ paddingTop: 100 }}>
       <section style={{ padding: "65px 5% 45px", position: "relative", overflow: "hidden" }}>
@@ -685,7 +864,7 @@ function AboutPage() {
         </div>
       </section>
       <section style={{ padding: "65px 5%" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 65, alignItems: "center" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: isMob ? "1fr" : "1fr 1fr", gap: isMob ? 28 : 65, alignItems: "center" }}>
           <div>
             <span className="stag">Our Story</span>
             <h2 className="bebas" style={{ fontSize: 46, marginBottom: 20 }}>FROM MANDERA TO <span style={{ color: "#C8102E" }}>KENYA</span></h2>
@@ -693,7 +872,7 @@ function AboutPage() {
               <p key={i} style={{ color: "#888", lineHeight: 1.82, marginBottom: 15, fontSize: 14 }}>{txt}</p>
             ))}
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 13 }}>
+          <div style={{ display: "grid", gridTemplateColumns: isMob ? "1fr 1fr" : "1fr 1fr", gap: 13 }}>
             {["photo-1504307651254-35680f356dfd", "photo-1581094794329-c8112a89af12", "photo-1497435334941-8c899ee9e8e9", "photo-1541888946425-d81bb19240f5"].map((id, i) => (
               <img key={i} src={`https://images.unsplash.com/${id}?w=400&q=80`} alt="" style={{ borderRadius: 11, width: "100%", height: 185, objectFit: "cover", marginTop: i % 2 === 1 ? 20 : 0 }} />
             ))}
@@ -752,6 +931,7 @@ function AboutPage() {
 // ─── SERVICES PAGE ────────────────────────────────────────────────────────────
 function ServicesPage() {
   const [active, setActive] = useState(0);
+  const isMob = useIsMobile();
   const s = SERVICES[active];
   return (
     <div style={{ paddingTop: 100 }}>
@@ -768,7 +948,7 @@ function ServicesPage() {
               </button>
             ))}
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 54, alignItems: "center" }}>
+          <div style={{ display: "grid", gridTemplateColumns: isMob ? "1fr" : "1fr 1fr", gap: isMob ? 24 : 54, alignItems: "center" }}>
             <div key={active} style={{ animation: "slideInLeft 0.45s ease" }}>
               <div style={{ fontSize: 44, marginBottom: 13 }}>{s.icon}</div>
               <h2 className="bebas" style={{ fontSize: 48, marginBottom: 13 }}>{s.title.split(" ").map((w, i) => i === 0 ? <span key={i} style={{ color: "#C8102E" }}>{w} </span> : w + " ")}</h2>
@@ -797,6 +977,7 @@ function ServicesPage() {
 // ─── PORTFOLIO PAGE ───────────────────────────────────────────────────────────
 function PortfolioPage() {
   const [filter, setFilter] = useState("All");
+  const isMob = useIsMobile();
   const cats = ["All", "Roads", "Building", "Water Works", "Electrical"];
   const filtered = filter === "All" ? PROJECTS : PROJECTS.filter(p => p.category === filter || p.category.includes(filter.replace(" Works", "")));
   return (
@@ -810,7 +991,7 @@ function PortfolioPage() {
         {cats.map(c => <button key={c} onClick={() => setFilter(c)} style={{ background: filter === c ? "linear-gradient(135deg,#C8102E,#8B0000)" : "rgba(255,255,255,0.05)", border: `1px solid ${filter === c ? "transparent" : "rgba(255,255,255,0.1)"}`, color: "#fff", padding: "8px 20px", borderRadius: 6, fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 13, cursor: "pointer", transition: "all 0.3s" }}>{c}</button>)}
       </div>
       <section style={{ padding: "0 5% 84px" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 22 }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: isMob ? "1fr" : "repeat(3,1fr)", gap: 22 }}>
           {filtered.map((p, i) => (
             <div key={i} className="glass" style={{ overflow: "hidden", animation: `fadeUp 0.5s ${i * 0.08}s both`, transition: "transform 0.3s" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}>
               <div style={{ height: 220, overflow: "hidden", position: "relative" }}>
@@ -831,7 +1012,7 @@ function PortfolioPage() {
         </div>
       </section>
       <section style={{ padding: "50px 5%", background: "linear-gradient(135deg,rgba(200,16,46,0.1),rgba(139,0,0,0.06))", borderTop: "1px solid rgba(200,16,46,0.12)", borderBottom: "1px solid rgba(200,16,46,0.12)" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 18, textAlign: "center" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: isMob ? "repeat(2,1fr)" : "repeat(4,1fr)", gap: 18, textAlign: "center" }}>
           {[["KES 150M+", "Total Project Value"], ["6", "Counties Served"], ["50+", "Projects Done"], ["100%", "Client Satisfaction"]].map(([v, l]) => (
             <div key={l}><div className="bebas" style={{ fontSize: 46, color: "#C8102E" }}>{v}</div><div style={{ color: "#666", fontFamily: "'Rajdhani',sans-serif", fontSize: 11, letterSpacing: 2, textTransform: "uppercase" }}>{l}</div></div>
           ))}
@@ -843,6 +1024,7 @@ function PortfolioPage() {
 
 // ─── CONTACT PAGE ─────────────────────────────────────────────────────────────
 function ContactPage() {
+  const isMob = useIsMobile();
   const [form, setForm] = useState({ name: "", email: "", phone: "", service: "", message: "" });
   const [sent, setSent] = useState(false);
   const handleSubmit = () => {
@@ -856,7 +1038,7 @@ function ContactPage() {
         <p style={{ color: "#888", maxWidth: 460, margin: "16px auto 0", lineHeight: 1.7 }}>Ready to start your project? Get in touch for a free consultation and assessment</p>
       </section>
       <section style={{ padding: "0 5% 84px" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 52 }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: isMob ? "1fr" : "1fr 1.2fr", gap: isMob ? 28 : 52 }}>
           <div>
             <h2 className="bebas" style={{ fontSize: 38, marginBottom: 26 }}>LET'S BUILD <span style={{ color: "#C8102E" }}>TOGETHER</span></h2>
             {[{ icon: "📍", title: "Registered Office", lines: ["P.O. Box 227, Mandera, Kenya", "Bula Janhuria Street, Bula Building", "Nairobi North District"] }, { icon: "📞", title: "Phone", lines: ["+254 722 819 305"] }, { icon: "✉️", title: "Email", lines: ["abeeraeenterprise@gmail.com"] }, { icon: "⏰", title: "Working Hours", lines: ["Mon–Sat: 7AM – 6PM", "Sunday: Emergency calls only"] }].map((info, i) => (
@@ -893,10 +1075,11 @@ function ContactPage() {
 
 // ─── FOOTER ───────────────────────────────────────────────────────────────────
 function Footer({ setPage }: { setPage: (p: string) => void }) {
+  const isMob = useIsMobile();
   return (
     <footer style={{ background: "#040404", borderTop: "1px solid rgba(200,16,46,0.12)", padding: "52px 5% 26px" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1.4fr", gap: 40, marginBottom: 40 }}>
+        <div style={{ display: "grid", gridTemplateColumns: isMob ? "1fr 1fr" : "2fr 1fr 1fr 1.4fr", gap: isMob ? 24 : 40, marginBottom: 40 }}>
           <div>
             <Logo size={38} />
             <p style={{ color: "#444", fontSize: 13, lineHeight: 1.75, marginTop: 13, maxWidth: 260 }}>Premier Kenyan construction and engineering company building the infrastructure that transforms communities.</p>
@@ -921,11 +1104,23 @@ function Footer({ setPage }: { setPage: (p: string) => void }) {
         </div>
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", paddingTop: 20, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
           <span style={{ color: "#2a2a2a", fontSize: 12 }}>© 2025 Abeera Enterprises Limited • PVT-BEUXP26A • All rights reserved.</span>
-          <span style={{ color: "#C8102E", fontSize: 12, fontFamily: "'Rajdhani',sans-serif" }}>Developed by Asterleigh Systems</span>
+          <span style={{ color: "#C8102E", fontSize: 12, fontFamily: "'Rajdhani',sans-serif" }}>Registered under The Companies Act, 2015</span>
         </div>
       </div>
     </footer>
   );
+}
+
+// ─── RESPONSIVE HELPER ───────────────────────────────────────────────────────
+function useIsMobile() {
+  const [mob, setMob] = useState(false);
+  useEffect(() => {
+    const check = () => setMob(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  return mob;
 }
 
 // ─── APP ──────────────────────────────────────────────────────────────────────
