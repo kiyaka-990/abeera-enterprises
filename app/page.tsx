@@ -45,99 +45,99 @@ const QUICK_REPLIES = [
 // ─── LOCAL AI BRAIN — No API needed ──────────────────────────────────────────
 const KB = [
   {
-    patterns: ["hello", "hi", "hey", "habari", "jambo", "hujambo", "salaam", "good morning", "good afternoon", "good evening", "howdy", "sup", "hiya"],
+    patterns: ["hello","hi","hey","habari","jambo","hujambo","salaam","good morning","good afternoon","good evening","howdy","sup","hiya"],
     response: () => `Habari! 👋 Welcome to **Abeera Enterprises Limited**!\n\nI'm **ARIA**, your AI assistant. I'm here to help with:\n• 🛣️ Roads & civil works\n• 🏗️ Building construction\n• 💧 Water works & boreholes\n• ⚙️ Mechanical works\n• ⚡ Electrical & solar\n\nWhat can I help you with today?`,
   },
   {
-    patterns: ["who are you", "what are you", "your name", "introduce yourself", "tell me about yourself", "aria"],
+    patterns: ["who are you","what are you","your name","introduce yourself","tell me about yourself","aria"],
     response: () => `I'm **ARIA** — Abeera Responsive Intelligence Assistant 🤖\n\nI'm the official AI for **Abeera Enterprises Limited**, a premier Kenyan construction company. Ask me about our services, projects, pricing, company info, and more!`,
   },
   {
-    patterns: ["about company", "about abeera", "who is abeera", "what is abeera", "tell me about the company", "company info", "company details", "about you"],
+    patterns: ["about company","about abeera","who is abeera","what is abeera","tell me about the company","company info","company details","about you"],
     response: () => `**Abeera Enterprises Limited** — a premier Kenyan construction & engineering company. 🏢\n\n📋 **Company No:** PVT-BEUXP26A\n📅 **Founded:** 5th June 2023\n📍 **Office:** P.O. Box 227, Mandera, Kenya\n🏙️ **Location:** Bula Janhuria Street, Nairobi North\n\nWe specialise in roads, buildings, water works, mechanical & electrical engineering — especially in arid regions of Kenya.\n\n– ARIA, Abeera AI 🏗️`,
   },
   {
-    patterns: ["registration", "company number", "pvt", "registered", "certificate", "incorporation", "cr12"],
+    patterns: ["registration","company number","pvt","registered","certificate","incorporation","cr12"],
     response: () => `**Official Registration Details:** 📜\n\n• **Company:** Abeera Enterprises Limited\n• **Company Number:** PVT-BEUXP26A\n• **Date:** 5th June 2023\n• **Act:** Companies Act, 2015\n• **Regulator:** Business Registration Service, Kenya\n• **Ref:** OS-ERFDG9Z2\n\nFully compliant & legally registered. ✅`,
   },
   {
-    patterns: ["directors", "owners", "shareholders", "who owns", "founder", "leadership", "management", "abdinur", "fatuma"],
+    patterns: ["directors","owners","shareholders","who owns","founder","leadership","management","abdinur","fatuma"],
     response: () => `Abeera Enterprises is led by two experienced directors: 👥\n\n**1. Abdinur Issack Abdi**\n• Director & Co-Founder | 300 shares (30%)\n\n**2. Fatuma Abdi Jirow**\n• Director & Managing Shareholder | 700 shares (70%)\n\nBoth bring deep regional expertise and a passion for community development. 🌍`,
   },
   {
-    patterns: ["shares", "share capital", "capital", "equity", "ownership structure"],
+    patterns: ["shares","share capital","capital","equity","ownership structure"],
     response: () => `**Share Structure:** 📊\n\n• **Nominal Capital:** KES 100,000\n• **Total Shares:** 1,000 ordinary @ KES 100 each\n• Fatuma Abdi Jirow — 700 shares (70%)\n• Abdinur Issack Abdi — 300 shares (30%)`,
   },
   {
-    patterns: ["contact", "phone", "call", "telephone", "reach you", "get in touch", "number", "email", "address", "location", "where are you", "find you", "office"],
+    patterns: ["contact","phone","call","telephone","reach you","get in touch","number","email","address","location","where are you","find you","office"],
     response: () => `**Contact Abeera Enterprises:** 📞\n\n📱 **Phone:** +254 722 819 305\n✉️ **Email:** abeeraeenterprise@gmail.com\n📍 **Office:** Bula Janhuria Street, Nairobi North\n📮 **Postal:** P.O. Box 227, Mandera, Kenya\n\n⏰ Mon–Sat: 7AM–6PM | Sunday: Emergencies only\n\nWe'd love to hear from you! 🤝`,
   },
   {
-    patterns: ["road", "roads", "highway", "tarmac", "tarmacking", "murram", "culvert", "bridge", "drainage", "pavement", "asphalt", "grading", "road rehabilitation", "road construction", "earthwork"],
+    patterns: ["road","roads","highway","tarmac","tarmacking","murram","culvert","bridge","drainage","pavement","asphalt","grading","road rehabilitation","road construction","earthwork"],
     response: () => `**Roads Construction** — our flagship service! 🛣️\n\nWe deliver:\n• Highway & trunk road construction\n• Road rehabilitation & upgrading\n• Murram/gravel road construction\n• Tarmacking & asphalt paving\n• Bridges & culvert installation\n• Drainage systems & channels\n• Road maintenance contracts\n\nExperience across **Mandera, Wajir, Garissa** and Nairobi region.\n\n📞 **+254 722 819 305** for a quote!`,
   },
   {
-    patterns: ["building", "house", "housing", "residential", "commercial", "office", "school", "hospital", "warehouse", "renovation", "storey", "apartment", "structure"],
+    patterns: ["building","house","housing","residential","commercial","office","school","hospital","warehouse","renovation","storey","apartment","structure"],
     response: () => `**Building Construction** — we build dreams! 🏗️\n\nOur services:\n• Residential houses & apartments\n• Commercial buildings & offices\n• Schools, hospitals & clinics\n• Warehouses & industrial buildings\n• Government & institutional facilities\n• Renovations & interior fit-outs\n\nAll buildings comply with the **Kenya Building Code** and are supervised by qualified engineers.\n\n📞 **+254 722 819 305**`,
   },
   {
-    patterns: ["water", "dam", "pan", "pipeline", "water pan", "irrigation", "water supply", "water tank", "water treatment", "water works", "water project"],
+    patterns: ["water","dam","pan","pipeline","water pan","irrigation","water supply","water tank","water treatment","water works","water project"],
     response: () => `**Water Works** — bringing water to life! 💧\n\nWe specialise in:\n• Water pans for livestock & irrigation\n• Dam construction (earth & masonry)\n• Pipeline systems (distribution & supply)\n• Water treatment plants\n• Irrigation schemes\n• Water storage tanks\n• Community water supply projects\n• Solar-powered pumping systems\n\nExtensive experience in **ASAL regions** (Mandera, Wajir, Garissa, Marsabit).\n\n📞 **+254 722 819 305**`,
   },
   {
-    patterns: ["borehole", "drill", "drilling", "groundwater", "well"],
+    patterns: ["borehole","drill","drilling","groundwater","well"],
     response: () => `**Borehole Drilling Services** 🔩\n\n• Deep borehole drilling (50–300m+)\n• Hydrogeological surveys & siting\n• Borehole casing & development\n• Pump installation (submersible & solar)\n• Water quality testing\n• Borehole rehabilitation\n• Yield testing & documentation\n\nWe use **modern rotary drilling rigs** with proven results in Mandera, Wajir & Marsabit.\n\n📞 **+254 722 819 305** for a drilling assessment!`,
   },
   {
-    patterns: ["mechanical", "generator", "pump", "hvac", "air conditioning", "plant", "machinery", "equipment", "engine", "motor", "compressor"],
+    patterns: ["mechanical","generator","pump","hvac","air conditioning","plant","machinery","equipment","engine","motor","compressor"],
     response: () => `**Mechanical Works** — engineering excellence! ⚙️\n\nOur services:\n• Industrial plant installation\n• Generator installation & commissioning\n• Pumping systems (water, fuel, chemical)\n• HVAC systems\n• Industrial machinery installation\n• Mechanical maintenance contracts\n• Pipework & plumbing\n• Equipment repair & overhauling\n\n📞 **+254 722 819 305**`,
   },
   {
-    patterns: ["electrical", "solar", "power", "electricity", "wiring", "panel", "substation", "transformer", "street light", "backup power", "inverter", "renewable", "pv", "lighting"],
+    patterns: ["electrical","solar","power","electricity","wiring","panel","substation","transformer","street light","backup power","inverter","renewable","pv","lighting"],
     response: () => `**Electrical Works** — powering the future! ⚡\n\nOur services:\n• Power installation & wiring\n• **Solar PV systems** (residential & commercial)\n• Street & security lighting\n• Industrial electrical installations\n• Transformer & substation works\n• Backup power & UPS systems\n• Rural electrification projects\n• Smart building automation\n\nExpert in both **grid-connected & off-grid solar** — perfect for remote areas.\n\n📞 **+254 722 819 305**`,
   },
   {
-    patterns: ["quote", "quotation", "price", "cost", "how much", "pricing", "estimate", "budget", "rates", "charges", "fee", "tender", "bid"],
+    patterns: ["quote","quotation","price","cost","how much","pricing","estimate","budget","rates","charges","fee","tender","bid"],
     response: () => `We provide **free project quotations!** 📋\n\n**How to get a quote:**\n1️⃣ Contact us with project details\n2️⃣ We do a site visit or virtual assessment\n3️⃣ We prepare a detailed BOQ within **3–5 working days**\n\n📞 **+254 722 819 305**\n✉️ abeeraeenterprise@gmail.com\n\nFactors affecting cost: project size, location, materials, timeline.\n\nWe're competitive, transparent and fair! 💪`,
   },
   {
-    patterns: ["project", "portfolio", "past work", "previous work", "completed", "experience", "examples", "achievements"],
+    patterns: ["project","portfolio","past work","previous work","completed","experience","examples","achievements"],
     response: () => `**Recent Projects Showcase:** 🏆\n\n🛣️ Mandera Road Rehabilitation — **KES 45M** (2024)\n💧 Community Borehole Project — **KES 12M** (2024)\n🏗️ Affordable Housing Complex — **KES 28M** (2023)\n⚡ Solar Street Lighting (200 lights) — **KES 8M** (2024)\n💧 Water Pan, Wajir — **KES 18M** (2023)\n🏗️ Industrial Warehouse 5,000sqm — **KES 35M** (2023)\n\n**Total: KES 150M+ across 6 counties** 📍`,
   },
   {
-    patterns: ["services", "what do you do", "what do you offer", "your work", "offerings", "capabilities", "specialise", "specialize"],
+    patterns: ["services","what do you do","what do you offer","your work","offerings","capabilities","specialise","specialize"],
     response: () => `**Abeera Enterprises** — 5 core service lines: 🏗️\n\n1️⃣ 🛣️ **Roads Construction** — highways, murram, bridges\n2️⃣ 🏗️ **Building Construction** — residential, commercial, institutional\n3️⃣ 💧 **Water Works** — boreholes, dams, pans, pipelines\n4️⃣ ⚙️ **Mechanical Works** — plant, generators, HVAC\n5️⃣ ⚡ **Electrical Works** — solar, wiring, substations\n\nAll delivered by **qualified engineers** across Kenya.\n\nWhich service interests you?`,
   },
   {
-    patterns: ["mandera", "wajir", "garissa", "nairobi", "kenya", "counties", "where do you work", "coverage", "area", "region", "operate", "asal", "northern kenya"],
+    patterns: ["mandera","wajir","garissa","nairobi","kenya","counties","where do you work","coverage","area","region","operate","asal","northern kenya"],
     response: () => `We operate **across Kenya!** 🌍\n\n**Primary regions:**\n• Mandera County (home base)\n• Wajir County\n• Garissa County\n• Marsabit County\n• Nairobi & environs\n• Other counties on project basis\n\nWe have **special expertise in ASAL regions** — challenging terrains that require our experience and dedication. 💪`,
   },
   {
-    patterns: ["timeline", "how long", "duration", "deadline", "when", "time frame", "completion", "delivery", "schedule"],
+    patterns: ["timeline","how long","duration","deadline","when","time frame","completion","delivery","schedule"],
     response: () => `**Project Timelines** — we deliver on time! ⏱️\n\n• **Small projects** (borehole, small building): 2–8 weeks\n• **Medium projects** (road section, medium build): 2–6 months\n• **Large projects** (major roads, dams, complexes): 6–24 months\n\nWe provide:\n✅ Detailed Gantt charts\n✅ Weekly progress reports\n✅ Milestone-based billing\n\n📞 **+254 722 819 305** for your specific timeline!`,
   },
   {
-    patterns: ["quality", "standard", "certified", "warranty", "guarantee", "workmanship", "materials", "specification"],
+    patterns: ["quality","standard","certified","warranty","guarantee","workmanship","materials","specification"],
     response: () => `Quality is non-negotiable at **Abeera Enterprises!** 🏆\n\n✅ Kenya Building Code compliance\n✅ Certified, tested materials only\n✅ Licensed engineers on every project\n✅ Regular quality inspections\n✅ Defects liability period on all works\n✅ ISO-aligned quality management\n\nOur team: Registered Civil Engineers, Water Engineers, Certified Electricians, Licensed Mechanical Engineers.\n\nWe don't cut corners. Ever. 💪`,
   },
   {
-    patterns: ["job", "career", "employment", "vacancy", "hire", "work for", "internship", "cv", "resume", "apply", "recruitment"],
+    patterns: ["job","career","employment","vacancy","hire","work for","internship","cv","resume","apply","recruitment"],
     response: () => `Interested in joining **Abeera Enterprises?** 💼\n\nWe hire:\n• Civil & Structural Engineers\n• Water & Environmental Engineers\n• Electrical & Mechanical Engineers\n• Project Managers & Site Supervisors\n• Quantity Surveyors\n• Skilled artisans & labourers\n\n📧 Send CV to: **abeeraeenterprise@gmail.com**\n📞 Call: **+254 722 819 305**\n\nWe prioritise **local talent** from the communities we serve! 🌍`,
   },
   {
-    patterns: ["partner", "partnership", "subcontract", "joint venture", "collaborate", "jv", "supplier", "vendor"],
+    patterns: ["partner","partnership","subcontract","joint venture","collaborate","jv","supplier","vendor"],
     response: () => `We welcome **partnerships!** 🤝\n\nOpen to:\n• Joint Ventures (JV) on large projects\n• Subcontracting arrangements\n• Supplier partnerships\n• NGO & donor project collaboration\n• Government framework contracts\n\nExperience with County Governments, national agencies, international NGOs & private developers.\n\n📞 **+254 722 819 305** | ✉️ abeeraeenterprise@gmail.com`,
   },
   {
-    patterns: ["complaint", "problem", "issue", "concern", "unhappy", "disappointed", "bad", "poor", "wrong", "delay"],
+    patterns: ["complaint","problem","issue","concern","unhappy","disappointed","bad","poor","wrong","delay"],
     response: () => `We're sorry to hear you have a concern. 😔 We take all feedback seriously.\n\nPlease contact our management directly:\n\n📞 **+254 722 819 305**\n✉️ **abeeraeenterprise@gmail.com**\n\nOr write to: The Directors, Abeera Enterprises Limited, P.O. Box 227, Mandera, Kenya.\n\nWe resolve issues **promptly and professionally.** 🤝`,
   },
   {
-    patterns: ["habari", "jambo", "asante", "karibu", "huduma", "ujenzi", "barabara", "maji", "umeme", "kampuni"],
+    patterns: ["habari","jambo","asante","karibu","huduma","ujenzi","barabara","maji","umeme","kampuni"],
     response: () => `Karibu sana! 🇰🇪\n\n**Abeera Enterprises** inatoa:\n🛣️ Ujenzi wa Barabara\n🏗️ Ujenzi wa Majengo\n💧 Kazi za Maji (visima, mabwawa)\n⚙️ Kazi za Mitambo\n⚡ Kazi za Umeme na Sola\n\n📞 **+254 722 819 305**\n✉️ abeeraeenterprise@gmail.com\n\nTuko tayari kukusaidia! 💪`,
   },
   {
-    patterns: ["thank", "thanks", "okay", "ok", "great", "perfect", "awesome", "bye", "goodbye", "noted", "understood"],
+    patterns: ["thank","thanks","okay","ok","great","perfect","awesome","bye","goodbye","noted","understood"],
     response: () => {
       const r = [
         `You're welcome! 😊 Feel free to reach out anytime.\n📞 **+254 722 819 305** | **Abeera Enterprises — Building Kenya's Future!** 🏗️`,
@@ -309,7 +309,7 @@ function Navbar({ page, setPage }: { page: string; setPage: (p: string) => void 
 
 // ─── PARTICLES ────────────────────────────────────────────────────────────────
 function Particles() {
-  const [pts, setPts] = useState<{ id: number; left: number; delay: number; dur: number; size: number; op: number }[]>([]);
+  const [pts, setPts] = useState<{id:number;left:number;delay:number;dur:number;size:number;op:number}[]>([]);
   useEffect(() => {
     setPts(Array.from({ length: 18 }, (_, i) => ({
       id: i, left: Math.random() * 100, delay: Math.random() * 12,
@@ -607,8 +607,8 @@ function Chatbot() {
             transition: "transform 0.2s, box-shadow 0.2s",
             color: "#fff", outline: "none",
           }}
-          onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = "scale(1.1)"}
-          onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = "scale(1)"}
+          onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "scale(1.1)"}
+          onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "scale(1)"}
         >
           {open ? "✕" : "💬"}
         </button>
@@ -627,48 +627,141 @@ function Chatbot() {
       {open && (
         <div className="aria-win">
 
-          {/* Header */}
+          {/* ── HEADER ── */}
           <div style={{
-            padding: "13px 16px",
-            background: "linear-gradient(135deg,rgba(200,16,46,0.25),rgba(80,0,0,0.18))",
-            borderBottom: "1px solid rgba(200,16,46,0.22)", flexShrink: 0,
+            padding: "12px 14px",
+            background: "linear-gradient(135deg,rgba(200,16,46,0.28),rgba(70,0,0,0.2))",
+            borderBottom: "1px solid rgba(200,16,46,0.25)", flexShrink: 0,
           }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 11 }}>
-              <div style={{ position: "relative" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              {/* Avatar */}
+              <div style={{ position: "relative", flexShrink: 0 }}>
                 <div style={{
-                  width: 40, height: 40, borderRadius: "50%",
+                  width: 38, height: 38, borderRadius: "50%",
                   background: "linear-gradient(135deg,#C8102E,#8B0000)",
                   display: "flex", alignItems: "center", justifyContent: "center",
-                  fontSize: 18, border: "2px solid rgba(200,16,46,0.5)",
+                  fontSize: 17, border: "2px solid rgba(200,16,46,0.5)",
                   boxShadow: "0 2px 12px rgba(200,16,46,0.4)",
                 }}>🤖</div>
-                <div style={{ position: "absolute", bottom: 0, right: 0, width: 11, height: 11, borderRadius: "50%", background: "#22c55e", border: "2px solid #0A0A0A" }} />
+                <div style={{ position: "absolute", bottom: 0, right: 0, width: 10, height: 10, borderRadius: "50%", background: "#22c55e", border: "2px solid #0A0A0A" }} />
               </div>
+              {/* Name */}
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 15, color: "#F5F5F5" }}>ARIA</div>
-                <div style={{ fontSize: 10.5, color: "#888", display: "flex", alignItems: "center", gap: 5 }}>
-                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#22c55e", display: "inline-block", animation: "pulse 2s infinite", flexShrink: 0 }} />
-                  Abeera AI Assistant • Always online
+                <div style={{ fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 15, color: "#F5F5F5", lineHeight: 1.2 }}>ARIA</div>
+                <div style={{ fontSize: 10, color: "#888", display: "flex", alignItems: "center", gap: 4 }}>
+                  <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#22c55e", display: "inline-block", animation: "pulse 2s infinite", flexShrink: 0 }} />
+                  Always online
                 </div>
               </div>
-              <button
-                onClick={() => setOpen(false)}
-                style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.1)", color: "#aaa", cursor: "pointer", fontSize: 14, width: 30, height: 30, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, transition: "all 0.2s" }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(200,16,46,0.3)"; (e.currentTarget as HTMLElement).style.color = "#fff"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.07)"; (e.currentTarget as HTMLElement).style.color = "#aaa"; }}
-              >✕</button>
+              {/* Header action buttons */}
+              <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                {/* Topics menu toggle */}
+                <button
+                  onClick={() => setShowQuick(p => !p)}
+                  title="Show topics menu"
+                  style={{
+                    background: showQuick ? "rgba(200,16,46,0.3)" : "rgba(255,255,255,0.07)",
+                    border: showQuick ? "1px solid rgba(200,16,46,0.5)" : "1px solid rgba(255,255,255,0.1)",
+                    color: showQuick ? "#ff8080" : "#aaa", cursor: "pointer",
+                    fontSize: 13, width: 30, height: 30, borderRadius: 8,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    flexShrink: 0, transition: "all 0.2s", fontFamily: "sans-serif",
+                  }}
+                  onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.background = "rgba(200,16,46,0.25)"}
+                  onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.background = showQuick ? "rgba(200,16,46,0.3)" : "rgba(255,255,255,0.07)"}
+                >☰</button>
+                {/* Restart conversation */}
+                <button
+                  onClick={() => {
+                    setMsgs([{
+                      role: "assistant",
+                      content: "Chat restarted! 🔄 How can I help you?\n\n• 🛣️ Roads & civil works\n• 🏗️ Building construction\n• 💧 Water works & boreholes\n• ⚙️ Mechanical & electrical\n• 📋 Quotes & company info",
+                      time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+                    }]);
+                    setInput("");
+                    setShowQuick(true);
+                    setLoading(false);
+                    setTyping(false);
+                  }}
+                  title="Restart conversation"
+                  style={{
+                    background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.1)",
+                    color: "#aaa", cursor: "pointer", fontSize: 13, width: 30, height: 30,
+                    borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center",
+                    flexShrink: 0, transition: "all 0.2s",
+                  }}
+                  onMouseEnter={(e: React.MouseEvent<HTMLElement>) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,200,0,0.15)"; (e.currentTarget as HTMLElement).style.color = "#ffd700"; }}
+                  onMouseLeave={(e: React.MouseEvent<HTMLElement>) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.07)"; (e.currentTarget as HTMLElement).style.color = "#aaa"; }}
+                >↺</button>
+                {/* Close */}
+                <button
+                  onClick={() => setOpen(false)}
+                  title="Close chat"
+                  style={{
+                    background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.1)",
+                    color: "#aaa", cursor: "pointer", fontSize: 14, width: 30, height: 30,
+                    borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center",
+                    flexShrink: 0, transition: "all 0.2s",
+                  }}
+                  onMouseEnter={(e: React.MouseEvent<HTMLElement>) => { (e.currentTarget as HTMLElement).style.background = "rgba(200,16,46,0.3)"; (e.currentTarget as HTMLElement).style.color = "#fff"; }}
+                  onMouseLeave={(e: React.MouseEvent<HTMLElement>) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.07)"; (e.currentTarget as HTMLElement).style.color = "#aaa"; }}
+                >✕</button>
+              </div>
             </div>
           </div>
 
-          {/* Messages */}
-          <div className="aria-msgs" style={{ flex: 1, overflowY: "auto", padding: "14px 12px 8px", display: "flex", flexDirection: "column", gap: 10 }}>
+          {/* ── TOPICS MENU (always-accessible slide-down panel) ── */}
+          {showQuick && (
+            <div style={{
+              padding: "8px 10px",
+              background: "rgba(0,0,0,0.35)",
+              borderBottom: "1px solid rgba(200,16,46,0.15)",
+              flexShrink: 0,
+              animation: "fadeIn 0.2s ease",
+            }}>
+              <div style={{ fontSize: 9.5, color: "#C8102E", fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, letterSpacing: 2, marginBottom: 7, textTransform: "uppercase" }}>
+                Quick Topics
+              </div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
+                {QUICK_REPLIES.map((q, i) => (
+                  <button
+                    key={i}
+                    className="aria-quick"
+                    onClick={() => { send(q.text); setShowQuick(false); }}
+                    style={{
+                      background: "rgba(200,16,46,0.1)", border: "1px solid rgba(200,16,46,0.28)",
+                      color: "#ff8080", padding: "5px 11px", borderRadius: 20,
+                      fontSize: 11, fontFamily: "'Rajdhani',sans-serif", fontWeight: 600,
+                      cursor: "pointer", transition: "all 0.18s", whiteSpace: "nowrap",
+                    }}
+                  >{q.label}</button>
+                ))}
+              </div>
+              {/* Quick contact row */}
+              <div style={{ display: "flex", gap: 8, marginTop: 7 }}>
+                <a href="tel:+254722819305" style={{ textDecoration: "none", flex: 1 }}>
+                  <div style={{ background: "rgba(34,197,94,0.12)", border: "1px solid rgba(34,197,94,0.25)", borderRadius: 8, padding: "6px 10px", textAlign: "center", fontSize: 11, color: "#4ade80", fontFamily: "'Rajdhani',sans-serif", fontWeight: 600, cursor: "pointer" }}>
+                    📞 Call Us
+                  </div>
+                </a>
+                <a href="mailto:abeeraeenterprise@gmail.com" style={{ textDecoration: "none", flex: 1 }}>
+                  <div style={{ background: "rgba(200,16,46,0.1)", border: "1px solid rgba(200,16,46,0.25)", borderRadius: 8, padding: "6px 10px", textAlign: "center", fontSize: 11, color: "#ff8080", fontFamily: "'Rajdhani',sans-serif", fontWeight: 600, cursor: "pointer" }}>
+                    ✉️ Email Us
+                  </div>
+                </a>
+              </div>
+            </div>
+          )}
+
+          {/* ── MESSAGES ── */}
+          <div className="aria-msgs" style={{ flex: 1, overflowY: "auto", padding: "12px 11px 6px", display: "flex", flexDirection: "column", gap: 10 }}>
             {msgs.map((m, i) => <MsgBubble key={i} m={m} />)}
             {typing && (
               <div style={{ display: "flex", alignItems: "flex-end", gap: 7 }}>
                 <div style={{ width: 28, height: 28, borderRadius: "50%", background: "linear-gradient(135deg,#C8102E,#8B0000)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, flexShrink: 0 }}>🤖</div>
-                <div style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "4px 16px 16px 16px", padding: "12px 16px", display: "flex", gap: 5, alignItems: "center" }}>
-                  {[0, 1, 2].map(j => (
-                    <div key={j} style={{ width: 7, height: 7, borderRadius: "50%", background: "#C8102E", animation: `typingDot 1.4s ${j * 0.22}s ease-in-out infinite` }} />
+                <div style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "4px 16px 16px 16px", padding: "11px 15px", display: "flex", gap: 5, alignItems: "center" }}>
+                  {[0,1,2].map(j => (
+                    <div key={j} style={{ width: 7, height: 7, borderRadius: "50%", background: "#C8102E", animation: `typingDot 1.4s ${j*0.22}s ease-in-out infinite` }} />
                   ))}
                 </div>
               </div>
@@ -676,62 +769,84 @@ function Chatbot() {
             <div ref={endRef} style={{ height: 4 }} />
           </div>
 
-          {/* Quick replies */}
-          {showQuick && msgs.length <= 1 && (
-            <div style={{ padding: "6px 10px 7px", display: "flex", flexWrap: "wrap", gap: 5, borderTop: "1px solid rgba(255,255,255,0.05)", background: "rgba(0,0,0,0.2)" }}>
-              {QUICK_REPLIES.map((q, i) => (
+          {/* ── INPUT BAR ── */}
+          <div style={{ padding: "8px 10px 10px", borderTop: "1px solid rgba(255,255,255,0.07)", flexShrink: 0, background: "rgba(0,0,0,0.28)" }}>
+            {/* Topics toggle pill row above input */}
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 7 }}>
+              <button
+                onClick={() => setShowQuick(p => !p)}
+                style={{
+                  background: "none", border: "none", cursor: "pointer",
+                  color: showQuick ? "#C8102E" : "#555",
+                  fontSize: 11, fontFamily: "'Rajdhani',sans-serif", fontWeight: 600,
+                  letterSpacing: 1, display: "flex", alignItems: "center", gap: 4,
+                  transition: "color 0.2s", padding: "2px 0",
+                }}
+              >
+                <span style={{ fontSize: 13 }}>{showQuick ? "▲" : "▼"}</span>
+                {showQuick ? "HIDE TOPICS" : "☰ SHOW TOPICS"}
+              </button>
+              {msgs.length > 1 && (
                 <button
-                  key={i}
-                  className="aria-quick"
-                  onClick={() => send(q.text)}
-                  style={{
-                    background: "rgba(200,16,46,0.1)", border: "1px solid rgba(200,16,46,0.28)",
-                    color: "#ff8080", padding: "5px 11px", borderRadius: 20,
-                    fontSize: 11, fontFamily: "'Rajdhani',sans-serif", fontWeight: 600,
-                    cursor: "pointer", transition: "all 0.2s", whiteSpace: "nowrap",
+                  onClick={() => {
+                    setMsgs([{
+                      role: "assistant",
+                      content: "Restarted! ✨ What can I help you with?\n\n• 🛣️ Roads & civil works\n• 🏗️ Building construction\n• 💧 Water works & boreholes\n• ⚙️ Mechanical & electrical\n• 📋 Quotes & info",
+                      time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+                    }]);
+                    setInput("");
+                    setShowQuick(true);
+                    setLoading(false);
+                    setTyping(false);
                   }}
-                >{q.label}</button>
-              ))}
+                  style={{
+                    background: "none", border: "none", cursor: "pointer",
+                    color: "#555", fontSize: 11, fontFamily: "'Rajdhani',sans-serif",
+                    fontWeight: 600, letterSpacing: 1, display: "flex", alignItems: "center",
+                    gap: 4, transition: "color 0.2s", padding: "2px 0",
+                  }}
+                  onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.color = "#ffd700"}
+                  onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.color = "#555"}
+                >↺ NEW CHAT</button>
+              )}
             </div>
-          )}
-
-          {/* Input bar */}
-          <div style={{ padding: "9px 11px 11px", borderTop: "1px solid rgba(255,255,255,0.07)", flexShrink: 0, background: "rgba(0,0,0,0.25)" }}>
-            <div style={{ display: "flex", gap: 8, alignItems: "flex-end" }}>
+            {/* Textarea + send */}
+            <div style={{ display: "flex", gap: 7, alignItems: "flex-end" }}>
               <textarea
                 ref={inputRef}
                 className="aria-textarea"
                 value={input}
                 onChange={e => setInput(e.target.value)}
                 onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); } }}
-                placeholder="Ask about services, quotes..."
+                placeholder="Type a message or pick a topic above…"
                 rows={1}
                 style={{
-                  flex: 1, fontSize: 13, padding: "10px 13px", borderRadius: 12,
-                  resize: "none", minHeight: 40, maxHeight: 90, overflowY: "auto",
+                  flex: 1, fontSize: 13, padding: "9px 12px", borderRadius: 12,
+                  resize: "none", minHeight: 38, maxHeight: 85, overflowY: "auto",
                   background: "rgba(255,255,255,0.07)",
-                  border: "1px solid rgba(255,255,255,0.13)",
-                  backdropFilter: "blur(8px)", color: "#F5F5F5",
-                  fontFamily: "'Exo 2',sans-serif",
-                  lineHeight: 1.5,
+                  border: "1px solid rgba(255,255,255,0.12)",
+                  color: "#F5F5F5", fontFamily: "'Exo 2',sans-serif", lineHeight: 1.5,
+                  outline: "none",
                 }}
               />
               <button
                 className="aria-send-btn"
                 onClick={() => send()}
                 disabled={loading || !input.trim()}
+                title="Send message"
                 style={{
-                  background: input.trim() ? "linear-gradient(135deg,#C8102E,#8B0000)" : "rgba(255,255,255,0.07)",
-                  border: "none", borderRadius: 12, width: 42, height: 42,
+                  background: input.trim() ? "linear-gradient(135deg,#C8102E,#8B0000)" : "rgba(255,255,255,0.06)",
+                  border: "none", borderRadius: 12, width: 40, height: 40,
                   cursor: input.trim() ? "pointer" : "default",
                   display: "flex", alignItems: "center", justifyContent: "center",
-                  fontSize: 16, transition: "all 0.25s", flexShrink: 0, color: "#fff",
+                  fontSize: 16, transition: "all 0.22s", flexShrink: 0, color: "#fff",
                   opacity: loading ? 0.5 : 1,
+                  boxShadow: input.trim() ? "0 4px 14px rgba(200,16,46,0.4)" : "none",
                 }}
               >➤</button>
             </div>
-            <div style={{ textAlign: "center", marginTop: 6, fontSize: 9.5, color: "#282828", fontFamily: "'Rajdhani',sans-serif", letterSpacing: 1 }}>
-              ARIA by ABEERA ENTERPRISES • Always Online
+            <div style={{ textAlign: "center", marginTop: 5, fontSize: 9, color: "#242424", fontFamily: "'Rajdhani',sans-serif", letterSpacing: 1 }}>
+              ARIA by ABEERA ENTERPRISES
             </div>
           </div>
         </div>
@@ -773,8 +888,8 @@ function HomePage({ setPage }: { setPage: (p: string) => void }) {
             {SERVICES.map((s, i) => (
               <div key={s.id} className="glass glass-shine card-glow" style={{ padding: 24, cursor: "pointer", transition: "all 0.4s", position: "relative", overflow: "hidden", animation: `fadeUp 0.6s ${i * 0.09}s both` }}
                 onClick={() => setPage("Services")}
-                onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)"}
-                onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}
+                onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)"}
+                onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}
               >
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: `linear-gradient(90deg,${s.color},transparent)` }} />
                 <div style={{ fontSize: 32, marginBottom: 12 }}>{s.icon}</div>
@@ -816,9 +931,9 @@ function HomePage({ setPage }: { setPage: (p: string) => void }) {
           <SH tag="Our Work" title="Recent ||Projects|| & Achievements" sub="Showcasing completed infrastructure projects transforming communities across Kenya" />
           <div style={{ display: "grid", gridTemplateColumns: isMob ? "1fr" : "repeat(3,1fr)", gap: 20 }}>
             {PROJECTS.slice(0, 3).map((p, i) => (
-              <div key={i} className="glass" style={{ overflow: "hidden", transition: "transform 0.3s" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}>
+              <div key={i} className="glass" style={{ overflow: "hidden", transition: "transform 0.3s" }} onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)"} onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}>
                 <div style={{ height: 200, overflow: "hidden", position: "relative" }}>
-                  <img src={p.image} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s" }} onMouseEnter={e => (e.currentTarget as HTMLImageElement).style.transform = "scale(1.07)"} onMouseLeave={e => (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"} />
+                  <img src={p.image} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s" }} onMouseEnter={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLImageElement).style.transform = "scale(1.07)"} onMouseLeave={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"} />
                   <div style={{ position: "absolute", top: 10, right: 10, background: "rgba(200,16,46,0.9)", padding: "3px 10px", borderRadius: 4, fontSize: 10, fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, letterSpacing: 1 }}>{p.category}</div>
                 </div>
                 <div style={{ padding: "16px 20px" }}>
@@ -897,7 +1012,7 @@ function AboutPage() {
           <SH tag="Our Values" title="Principles That ||Drive|| Us" sub="The core values guiding every decision at Abeera Enterprises" />
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(185px,1fr))", gap: 20 }}>
             {[["🏆", "Quality", "We never compromise on material quality or construction standards"], ["🤝", "Integrity", "Transparent dealings with clients, partners, and communities"], ["⏱️", "Timeliness", "On-time delivery is a commitment, not just a promise"], ["💡", "Innovation", "Embracing new technologies and modern construction methods"], ["🌍", "Community", "Prioritising local employment and community development"]].map(([icon, title, desc]) => (
-              <div key={title} className="glass" style={{ padding: 24, textAlign: "center", transition: "transform 0.3s" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}>
+              <div key={title} className="glass" style={{ padding: 24, textAlign: "center", transition: "transform 0.3s" }} onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)"} onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}>
                 <div style={{ fontSize: 36, marginBottom: 13 }}>{icon}</div>
                 <h3 style={{ fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 17, color: "#C8102E", marginBottom: 7 }}>{title}</h3>
                 <p style={{ color: "#666", fontSize: 12, lineHeight: 1.6 }}>{desc}</p>
@@ -993,9 +1108,9 @@ function PortfolioPage() {
       <section style={{ padding: "0 5% 84px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: isMob ? "1fr" : "repeat(3,1fr)", gap: 22 }}>
           {filtered.map((p, i) => (
-            <div key={i} className="glass" style={{ overflow: "hidden", animation: `fadeUp 0.5s ${i * 0.08}s both`, transition: "transform 0.3s" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}>
+            <div key={i} className="glass" style={{ overflow: "hidden", animation: `fadeUp 0.5s ${i * 0.08}s both`, transition: "transform 0.3s" }} onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)"} onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}>
               <div style={{ height: 220, overflow: "hidden", position: "relative" }}>
-                <img src={p.image} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s" }} onMouseEnter={e => (e.currentTarget as HTMLImageElement).style.transform = "scale(1.06)"} onMouseLeave={e => (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"} />
+                <img src={p.image} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s" }} onMouseEnter={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLImageElement).style.transform = "scale(1.06)"} onMouseLeave={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"} />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top,rgba(0,0,0,0.6),transparent)" }} />
                 <div style={{ position: "absolute", top: 11, left: 11, background: "rgba(200,16,46,0.9)", padding: "3px 10px", borderRadius: 4, fontSize: 10, fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, letterSpacing: 1 }}>{p.category}</div>
               </div>
@@ -1086,7 +1201,7 @@ function Footer({ setPage }: { setPage: (p: string) => void }) {
           </div>
           <div>
             <h4 style={{ fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 12, letterSpacing: 2, color: "#C8102E", textTransform: "uppercase", marginBottom: 16 }}>Navigate</h4>
-            {["Home", "About", "Services", "Portfolio", "Contact"].map((l: string) => <div key={l} onClick={() => setPage(l)} style={{ color: "#444", fontSize: 13, marginBottom: 8, cursor: "pointer", transition: "color 0.3s" }} onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#F5F5F5"} onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#444"}>{l}</div>)}
+            {["Home", "About", "Services", "Portfolio", "Contact"].map((l: string) => <div key={l} onClick={() => setPage(l)} style={{ color: "#444", fontSize: 13, marginBottom: 8, cursor: "pointer", transition: "color 0.3s" }} onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.color = "#F5F5F5"} onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.color = "#444"}>{l}</div>)}
           </div>
           <div>
             <h4 style={{ fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 12, letterSpacing: 2, color: "#C8102E", textTransform: "uppercase", marginBottom: 16 }}>Services</h4>
