@@ -239,12 +239,14 @@ body,#__next{background:#0A0A0A;color:#F5F5F5;font-family:'Exo 2',sans-serif;ove
 .btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,16,46,0.45);}
 .btn-o{background:transparent;color:#C8102E;border:1px solid #C8102E;padding:13px 32px;border-radius:8px;font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;}
 .btn-o:hover{background:rgba(200,16,46,0.1);transform:translateY(-2px);}
+.nav-mobile-btns{display:none;}
 .stag{display:inline-block;background:rgba(200,16,46,0.13);color:#C8102E;border:1px solid rgba(200,16,46,0.3);padding:6px 16px;border-radius:4px;font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;}
 input,textarea,select{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#F5F5F5;padding:12px 16px;border-radius:8px;font-family:'Exo 2',sans-serif;font-size:14px;width:100%;transition:all 0.3s;outline:none;}
 input:focus,textarea:focus,select:focus{border-color:#C8102E;background:rgba(200,16,46,0.06);box-shadow:0 0 0 3px rgba(200,16,46,0.12);}
 select option{background:#1a1a1a;}
 @media(max-width:768px){
   .nav-links{display:none!important;}
+  .nav-mobile-btns{display:flex!important;}
   .stat-grid{grid-template-columns:repeat(2,1fr)!important;}
   .two-col{grid-template-columns:1fr!important;}
   .three-col{grid-template-columns:1fr!important;}
@@ -259,6 +261,120 @@ select option{background:#1a1a1a;}
   .four-col{grid-template-columns:1fr 1fr!important;}
   .footer-grid{grid-template-columns:1fr!important;}
   .btn-p,.btn-o{padding:12px 20px!important;font-size:13px!important;}
+}
+
+/* ── LIGHT MODE ── */
+.light-mode {
+  --bg: #f4f4f4;
+  --bg2: #ffffff;
+  --bg3: #ebebeb;
+  --text: #111111;
+  --text2: #444444;
+  --text3: #666666;
+  --border: rgba(0,0,0,0.1);
+  --glass-bg: rgba(255,255,255,0.7);
+  --glass-border: rgba(0,0,0,0.08);
+  --card-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+.dark-mode {
+  --bg: #0A0A0A;
+  --bg2: rgba(20,20,20,0.72);
+  --bg3: #111111;
+  --text: #F5F5F5;
+  --text2: #bbbbbb;
+  --text3: #888888;
+  --border: rgba(255,255,255,0.07);
+  --glass-bg: rgba(20,20,20,0.72);
+  --glass-border: rgba(255,255,255,0.1);
+  --card-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+body.light-mode, .light-mode #__next {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+.light-mode .glass {
+  background: var(--glass-bg) !important;
+  border-color: var(--glass-border) !important;
+  box-shadow: var(--card-shadow) !important;
+}
+.light-mode .glass::before { background: rgba(200,16,46,0.02) !important; }
+.light-mode nav { background: rgba(255,255,255,0.92) !important; border-bottom: 1px solid rgba(200,16,46,0.15) !important; }
+.light-mode .stag { background: rgba(200,16,46,0.08) !important; }
+.light-mode input, .light-mode textarea, .light-mode select {
+  background: rgba(0,0,0,0.04) !important;
+  border-color: rgba(0,0,0,0.15) !important;
+  color: #111 !important;
+}
+.light-mode .aria-win {
+  background: linear-gradient(160deg,rgba(255,240,240,0.97),rgba(255,255,255,0.98)) !important;
+  border-color: rgba(200,16,46,0.2) !important;
+}
+.light-mode .aria-msgs { background: transparent; }
+.light-mode .aria-textarea { color: #111 !important; background: rgba(0,0,0,0.05) !important; border-color: rgba(0,0,0,0.15) !important; }
+.light-mode .aria-textarea::placeholder { color: rgba(0,0,0,0.4) !important; }
+.light-mode section { color: var(--text) !important; }
+.light-mode p { color: var(--text2) !important; }
+.light-mode h1,.light-mode h2,.light-mode h3 { color: var(--text) !important; }
+.light-mode footer { background: #e8e8e8 !important; border-top-color: rgba(200,16,46,0.2) !important; }
+.light-mode .bebas { color: var(--text) !important; }
+.light-mode .glass:hover { border-color: rgba(200,16,46,0.3) !important; }
+.light-mode nav button { color: #444 !important; }
+.light-mode nav button[aria-current="page"] { color: #C8102E !important; }
+
+/* ── MOBILE NAV MENU ── */
+.mobile-menu {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  animation: fadeIn 0.25s ease;
+}
+.dark-mode .mobile-menu { background: rgba(8,4,4,0.97); backdrop-filter: blur(30px); }
+.light-mode .mobile-menu { background: rgba(255,252,252,0.97); backdrop-filter: blur(30px); }
+.mobile-menu button {
+  background: none; border: none; cursor: pointer;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px; letter-spacing: 3px;
+  transition: color 0.2s, transform 0.2s;
+  padding: 10px 30px; border-radius: 8px; width: 220px; text-align: center;
+}
+.dark-mode .mobile-menu button { color: #F5F5F5; }
+.light-mode .mobile-menu button { color: #111; }
+.mobile-menu button:hover { color: #C8102E !important; transform: scale(1.05); }
+.mobile-menu button.active-page { color: #C8102E !important; }
+.mobile-menu .mob-close {
+  position: absolute; top: 20px; right: 24px;
+  background: rgba(200,16,46,0.1) !important;
+  border: 1px solid rgba(200,16,46,0.3) !important;
+  color: #C8102E !important;
+  width: 40px; height: 40px; border-radius: 50% !important;
+  font-size: 18px !important; font-family: sans-serif !important;
+  display: flex !important; align-items: center; justify-content: center;
+  padding: 0 !important; width: 40px !important;
+  letter-spacing: 0 !important;
+}
+
+/* ── ACCESSIBILITY ── */
+:focus-visible { outline: 2px solid #C8102E !important; outline-offset: 2px !important; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+.skip-link {
+  position: absolute; top: -40px; left: 16px; z-index: 9999;
+  background: #C8102E; color: white; padding: 8px 16px; border-radius: 4px;
+  font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 14px;
+  text-decoration: none; transition: top 0.2s;
+}
+.skip-link:focus { top: 8px; }
+
+/* ── CHATBOT MOBILE FIX ── */
+@media(max-width:480px){
+  .aria-fab { bottom: 20px !important; right: 20px !important; z-index: 3000 !important; }
+  .aria-win { z-index: 2999 !important; }
 }
 `;
 
@@ -282,28 +398,177 @@ function Logo({ size = 40 }) {
 }
 
 // ─── NAVBAR ───────────────────────────────────────────────────────────────────
-function Navbar({ page, setPage }: { page: string; setPage: (p: string) => void }) {
+function Navbar({ page, setPage, theme, toggleTheme }: {
+  page: string; setPage: (p: string) => void;
+  theme: string; toggleTheme: () => void;
+}) {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const isMob = useIsMobile();
+
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
   }, []);
+
+  // Close menu on page change
+  useEffect(() => { setMobileOpen(false); }, [page]);
+
+  // Lock body scroll when menu open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
+  const navBg = scrolled
+    ? theme === "dark"
+      ? "rgba(8,4,4,0.96)"
+      : "rgba(255,252,252,0.95)"
+    : "transparent";
+
+  const navBorder = scrolled ? "1px solid rgba(200,16,46,0.18)" : "none";
+  const linkColor = theme === "dark" ? "#bbb" : "#444";
+  const themeIcon = theme === "dark" ? "☀️" : "🌙";
+
   return (
-    <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, background: scrolled ? "linear-gradient(180deg,rgba(10,4,4,0.95) 0%,rgba(8,8,8,0.92) 100%)" : "transparent", backdropFilter: scrolled ? "blur(32px) saturate(180%)" : "none", WebkitBackdropFilter: scrolled ? "blur(32px) saturate(180%)" : "none", borderBottom: scrolled ? "1px solid rgba(200,16,46,0.18)" : "none", transition: "all 0.4s", padding: "0 5%" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
-        <div onClick={() => setPage("Home")}><Logo size={38} /></div>
-        <div className="nav-links" style={{ display: "flex", gap: 4, alignItems: "center" }}>
+    <>
+      <nav
+        role="navigation"
+        aria-label="Main navigation"
+        style={{
+          position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
+          background: navBg,
+          backdropFilter: scrolled ? "blur(32px) saturate(180%)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(32px) saturate(180%)" : "none",
+          borderBottom: navBorder, transition: "all 0.4s", padding: "0 5%",
+        }}
+      >
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
+          {/* Logo */}
+          <div onClick={() => setPage("Home")} role="button" tabIndex={0} aria-label="Go to Home" style={{ cursor: "pointer" }}
+            onKeyDown={e => e.key === "Enter" && setPage("Home")}
+          >
+            <Logo size={38} />
+          </div>
+
+          {/* Desktop links */}
+          <div className="nav-links" style={{ display: "flex", gap: 4, alignItems: "center" }}>
+            {["Home", "About", "Services", "Portfolio", "Contact"].map(l => (
+              <button
+                key={l} onClick={() => setPage(l)}
+                aria-current={page === l ? "page" : undefined}
+                style={{
+                  background: "none", border: "none",
+                  color: page === l ? "#C8102E" : linkColor,
+                  fontFamily: "'Rajdhani',sans-serif", fontSize: 15, fontWeight: 600,
+                  letterSpacing: 1, padding: "8px 14px", cursor: "pointer",
+                  position: "relative", transition: "color 0.3s",
+                }}
+              >
+                {l}
+                {page === l && (
+                  <span style={{
+                    position: "absolute", bottom: 0, left: "20%", width: "60%", height: 2,
+                    background: "#C8102E", borderRadius: 2, display: "block",
+                    transformOrigin: "left", animation: "slideRight 0.3s ease",
+                  }} />
+                )}
+              </button>
+            ))}
+            {/* Theme toggle */}
+            <button
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+              title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+              style={{
+                background: "rgba(200,16,46,0.1)", border: "1px solid rgba(200,16,46,0.25)",
+                borderRadius: 8, width: 36, height: 36, cursor: "pointer",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontSize: 16, marginLeft: 4, transition: "all 0.3s",
+              }}
+            >{themeIcon}</button>
+            <button className="btn-p" style={{ padding: "9px 20px", fontSize: 13, marginLeft: 6 }} onClick={() => setPage("Contact")}>
+              Get Quote
+            </button>
+          </div>
+
+          {/* Mobile right side — theme + hamburger */}
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }} className="nav-mobile-btns">
+            <button
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+              style={{
+                background: "rgba(200,16,46,0.1)", border: "1px solid rgba(200,16,46,0.25)",
+                borderRadius: 8, width: 36, height: 36, cursor: "pointer",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontSize: 16, transition: "all 0.3s",
+              }}
+            >{themeIcon}</button>
+            {/* Hamburger */}
+            <button
+              onClick={() => setMobileOpen(true)}
+              aria-label="Open navigation menu"
+              aria-expanded={mobileOpen}
+              style={{
+                background: "none", border: "1px solid rgba(200,16,46,0.3)", borderRadius: 8,
+                width: 40, height: 40, cursor: "pointer", display: "flex",
+                flexDirection: "column", alignItems: "center", justifyContent: "center",
+                gap: 5, padding: "0 10px",
+              }}
+            >
+              <span style={{ width: 20, height: 2, background: "#C8102E", borderRadius: 1, display: "block" }} />
+              <span style={{ width: 14, height: 2, background: "#C8102E", borderRadius: 1, display: "block" }} />
+              <span style={{ width: 20, height: 2, background: "#C8102E", borderRadius: 1, display: "block" }} />
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile full-screen menu */}
+      {mobileOpen && (
+        <div
+          className="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
+        >
+          {/* Close button */}
+          <button className="mob-close" onClick={() => setMobileOpen(false)} aria-label="Close menu">✕</button>
+
+          {/* Logo in menu */}
+          <div style={{ marginBottom: 24 }}><Logo size={36} /></div>
+
+          {/* Nav links */}
           {["Home", "About", "Services", "Portfolio", "Contact"].map(l => (
-            <button key={l} onClick={() => setPage(l)} style={{ background: "none", border: "none", color: page === l ? "#C8102E" : "#bbb", fontFamily: "'Rajdhani',sans-serif", fontSize: 15, fontWeight: 600, letterSpacing: 1, padding: "8px 14px", cursor: "pointer", position: "relative", transition: "color 0.3s" }}>
+            <button
+              key={l}
+              onClick={() => { setPage(l); setMobileOpen(false); }}
+              className={page === l ? "active-page" : ""}
+              aria-current={page === l ? "page" : undefined}
+            >
               {l}
-              {page === l && <span style={{ position: "absolute", bottom: 0, left: "20%", width: "60%", height: 2, background: "#C8102E", borderRadius: 2, display: "block", transformOrigin: "left", animation: "slideRight 0.3s ease" }} />}
             </button>
           ))}
-          <button className="btn-p" style={{ padding: "9px 20px", fontSize: 13, marginLeft: 8 }} onClick={() => setPage("Contact")}>Get Quote</button>
+
+          {/* Get Quote CTA */}
+          <button
+            className="btn-p"
+            style={{ marginTop: 16, padding: "14px 40px", fontSize: 15, letterSpacing: 2 }}
+            onClick={() => { setPage("Contact"); setMobileOpen(false); }}
+          >
+            Get Quote
+          </button>
+
+          {/* Social / contact row */}
+          <div style={{ marginTop: 32, display: "flex", gap: 20, opacity: 0.5 }}>
+            <span style={{ fontFamily: "'Rajdhani',sans-serif", fontSize: 12, letterSpacing: 2, color: "#888" }}>
+              +254 722 819 305
+            </span>
+          </div>
         </div>
-      </div>
-    </nav>
+      )}
+    </>
   );
 }
 
@@ -375,9 +640,9 @@ function HeroCarousel({ setPage }: { setPage: (p: string) => void }) {
     <section style={{ minHeight: "100vh", position: "relative", display: "flex", alignItems: "center", overflow: "hidden" }}>
       {/* BG image — keyed so it re-animates on slide change */}
       <div key={cur} style={{ position: "absolute", inset: 0, zIndex: 0, animation: "fadeIn 0.85s ease" }}>
-        <img src={s.bg} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.28, animation: "heroKen 6s ease forwards" }} />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(8,8,8,0.93) 0%,rgba(100,0,0,0.25) 50%,rgba(8,8,8,0.88) 100%)" }} />
-        <div className="grid-tex" style={{ position: "absolute", inset: 0, opacity: 0.35 }} />
+        <img src={s.bg} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.55, animation: "heroKen 6s ease forwards" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.15) 100%)" }} />
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "35%", background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)" }} />
       </div>
 
       <Particles />
@@ -546,7 +811,7 @@ function Chatbot() {
           bottom: 90px;
           width: 370px;
           height: 580px;
-          z-index: 1999;
+          z-index: 2999;
           display: flex;
           flex-direction: column;
           background: linear-gradient(160deg,rgba(28,6,6,0.93) 0%,rgba(10,10,10,0.97) 60%,rgba(6,3,3,0.95) 100%);
@@ -586,7 +851,7 @@ function Chatbot() {
       `}</style>
 
       {/* ── FAB Button ── */}
-      <div className="aria-fab" style={{ position: "fixed", bottom: 24, right: 24, zIndex: 2000 }}>
+      <div className="aria-fab" style={{ position: "fixed", bottom: 24, right: 24, zIndex: 3000 }}>
         {!open && notif && (
           <>
             <div style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "rgba(200,16,46,0.3)", animation: "ripple 2s ease-out infinite" }} />
@@ -606,6 +871,8 @@ function Chatbot() {
             boxShadow: "0 6px 24px rgba(200,16,46,0.5)",
             transition: "transform 0.2s, box-shadow 0.2s",
             color: "#fff", outline: "none",
+            touchAction: "manipulation",
+            WebkitTapHighlightColor: "transparent",
           }}
           onMouseEnter={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.transform = "scale(1.1)"}
           onMouseLeave={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.transform = "scale(1)"}
@@ -917,7 +1184,7 @@ function HomePage({ setPage }: { setPage: (p: string) => void }) {
             <button className="btn-p" style={{ marginTop: 20 }} onClick={() => setPage("About")}>About Us</button>
           </div>
           <div style={{ position: "relative" }}>
-            <img src="/images/hero2.jpeg" alt="" style={{ width: "100%", borderRadius: 16, filter: "brightness(0.76)" }} />
+            <img src="/images/about1.jpg" alt="" style={{ width: "100%", borderRadius: 16, filter: "brightness(0.76)" }} />
             <div style={{ position: "absolute", bottom: -16, left: -16, background: "linear-gradient(135deg,#C8102E,#8B0000)", padding: "18px 26px", borderRadius: 12, boxShadow: "0 14px 36px rgba(0,0,0,0.5)" }}>
               <div className="bebas" style={{ fontSize: 42, color: "#fff", lineHeight: 1 }}>2+</div>
               <div style={{ color: "rgba(255,255,255,0.8)", fontSize: 11, fontFamily: "'Rajdhani',sans-serif", letterSpacing: 1 }}>Years of Excellence</div>
@@ -1030,81 +1297,37 @@ function AboutPage() {
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)"}
                 onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}
               >
-                {/* SVG Avatar — no real photos */}
                 <div style={{ height: 210, background: m.bg, display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden" }}>
-                  {/* Background geometric pattern */}
                   <svg width="100%" height="100%" viewBox="0 0 300 210" style={{ position: "absolute", inset: 0 }} preserveAspectRatio="xMidYMid slice">
-                    <defs>
-                      <radialGradient id={`rg${i}`} cx="50%" cy="40%" r="60%">
-                        <stop offset="0%" stopColor={m.color} stopOpacity="0.12" />
-                        <stop offset="100%" stopColor={m.color} stopOpacity="0.02" />
-                      </radialGradient>
-                    </defs>
+                    <defs><radialGradient id={`rg${i}`} cx="50%" cy="40%" r="60%"><stop offset="0%" stopColor={m.color} stopOpacity="0.15" /><stop offset="100%" stopColor={m.color} stopOpacity="0.02" /></radialGradient></defs>
                     <rect width="300" height="210" fill={`url(#rg${i})`} />
-                    {/* Decorative circles */}
-                    <circle cx="30" cy="30" r="60" fill={m.color} fillOpacity="0.04" />
+                    <circle cx="30" cy="30" r="60" fill={m.color} fillOpacity="0.05" />
                     <circle cx="270" cy="180" r="80" fill={m.color} fillOpacity="0.05" />
-                    <circle cx="260" cy="20" r="40" fill={m.color} fillOpacity="0.04" />
-                    {/* Grid lines */}
-                    {[0, 1, 2, 3, 4, 5].map((n: number) => (
-                      <line key={n} x1={n * 60} y1="0" x2={n * 60} y2="210" stroke={m.color} strokeOpacity="0.05" strokeWidth="1" />
-                    ))}
-                    {[0, 1, 2, 3].map((n: number) => (
-                      <line key={n} x1="0" y1={n * 70} x2="300" y2={n * 70} stroke={m.color} strokeOpacity="0.05" strokeWidth="1" />
-                    ))}
-                    {/* Diagonal accent lines */}
+                    {[0,1,2,3,4,5].map((n: number) => <line key={n} x1={n*60} y1="0" x2={n*60} y2="210" stroke={m.color} strokeOpacity="0.05" strokeWidth="1" />)}
+                    {[0,1,2,3].map((n: number) => <line key={n} x1="0" y1={n*70} x2="300" y2={n*70} stroke={m.color} strokeOpacity="0.05" strokeWidth="1" />)}
                     <line x1="0" y1="210" x2="210" y2="0" stroke={m.color} strokeOpacity="0.06" strokeWidth="1.5" />
-                    <line x1="90" y1="210" x2="300" y2="0" stroke={m.color} strokeOpacity="0.04" strokeWidth="1" />
                   </svg>
-
-                  {/* Avatar circle */}
                   <div style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
-                    {/* Outer ring */}
-                    <div style={{ width: 110, height: 110, borderRadius: "50%", border: `2px solid ${m.color}`, padding: 4, position: "relative" }}>
-                      {/* Spinning dashed ring */}
+                    <div style={{ width: 110, height: 110, borderRadius: "50%", border: `2px solid ${m.color}44`, padding: 4, position: "relative" }}>
                       <svg width="110" height="110" viewBox="0 0 110 110" style={{ position: "absolute", inset: -2, animation: "rotateSlow 20s linear infinite" }}>
                         <circle cx="55" cy="55" r="52" fill="none" stroke={m.color} strokeWidth="1" strokeOpacity="0.3" strokeDasharray="6 4" />
                       </svg>
-                      {/* Inner filled circle */}
-                      <div style={{
-                        width: "100%", height: "100%", borderRadius: "50%",
-                        background: `linear-gradient(135deg, ${m.color}33, ${m.color}11)`,
-                        border: `1px solid ${m.color}44`,
-                        display: "flex", alignItems: "center", justifyContent: "center",
-                        flexDirection: "column", gap: 2,
-                        backdropFilter: "blur(10px)",
-                      }}>
-                        {/* Initials */}
-                        <span style={{
-                          fontFamily: "'Bebas Neue', sans-serif",
-                          fontSize: 28, color: m.color, lineHeight: 1, letterSpacing: 2,
-                          textShadow: `0 0 20px ${m.color}66`,
-                        }}>{m.initials}</span>
-                        {/* Discipline icon */}
+                      <div style={{ width: "100%", height: "100%", borderRadius: "50%", background: `linear-gradient(135deg,${m.color}33,${m.color}11)`, border: `1px solid ${m.color}44`, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 2 }}>
+                        <span style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 28, color: m.color, lineHeight: 1, letterSpacing: 2 }}>{m.initials}</span>
                         <span style={{ fontSize: 16, lineHeight: 1 }}>{m.icon}</span>
                       </div>
                     </div>
-                    {/* Discipline badge */}
-                    <div style={{
-                      background: `${m.color}22`,
-                      border: `1px solid ${m.color}44`,
-                      borderRadius: 20, padding: "3px 12px",
-                      fontSize: 9.5, color: m.color,
-                      fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, letterSpacing: 1,
-                      textTransform: "uppercase", whiteSpace: "nowrap",
-                    }}>{m.discipline}</div>
+                    <div style={{ background: `${m.color}22`, border: `1px solid ${m.color}44`, borderRadius: 20, padding: "3px 12px", fontSize: 9.5, color: m.color, fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase", whiteSpace: "nowrap" }}>{m.discipline}</div>
                   </div>
                 </div>
-
-                {/* Info */}
                 <div style={{ padding: "16px 20px 20px" }}>
                   <div style={{ width: "100%", height: 2, background: `linear-gradient(90deg,transparent,${m.color},transparent)`, marginBottom: 12 }} />
-                  <h3 style={{ fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 17, marginBottom: 4, color: "#F5F5F5" }}>{m.name}</h3>
+                  <h3 style={{ fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 17, marginBottom: 4 }}>{m.name}</h3>
                   <p style={{ color: m.color, fontSize: 11, fontFamily: "'Rajdhani',sans-serif", letterSpacing: 1, textTransform: "uppercase", marginBottom: 4 }}>{m.role}</p>
                   {m.shares && (
                     <div style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 20, padding: "3px 10px", marginTop: 4 }}>
                       <span style={{ width: 6, height: 6, borderRadius: "50%", background: m.color, display: "inline-block" }} />
-                      <span style={{ color: "#777", fontSize: 10, fontFamily: "'Rajdhani',sans-serif", letterSpacing: 0.5 }}>{m.shares}</span>
+                      <span style={{ color: "#777", fontSize: 10, fontFamily: "'Rajdhani',sans-serif" }}>{m.shares}</span>
                     </div>
                   )}
                 </div>
@@ -1315,13 +1538,30 @@ function useIsMobile() {
 // ─── APP ──────────────────────────────────────────────────────────────────────
 export default function App() {
   const [page, setPage] = useState("Home");
+  const [theme, setTheme] = useState<"dark"|"light">("dark");
   const nav = useCallback((p: string) => { setPage(p); window.scrollTo({ top: 0, behavior: "smooth" }); }, []);
+  const toggleTheme = useCallback(() => setTheme(t => t === "dark" ? "light" : "dark"), []);
+
+  // Persist theme preference
+  useEffect(() => {
+    const saved = localStorage.getItem("abeera-theme") as "dark"|"light"|null;
+    if (saved) setTheme(saved);
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("abeera-theme", theme);
+  }, [theme]);
+
+  const bg = theme === "dark" ? "#0A0A0A" : "#f4f4f4";
+  const textColor = theme === "dark" ? "#F5F5F5" : "#111111";
+
   return (
     <>
       <style>{G}</style>
-      <div style={{ minHeight: "100vh", background: "#0A0A0A" }}>
-        <Navbar page={page} setPage={nav} />
-        <main key={page} style={{ animation: "fadeIn 0.4s ease" }}>
+      {/* Skip to content — accessibility */}
+      <a href="#main-content" className="skip-link">Skip to content</a>
+      <div className={theme === "dark" ? "dark-mode" : "light-mode"} style={{ minHeight: "100vh", background: bg, color: textColor, transition: "background 0.35s, color 0.35s" }}>
+        <Navbar page={page} setPage={nav} theme={theme} toggleTheme={toggleTheme} />
+        <main id="main-content" key={page} style={{ animation: "fadeIn 0.4s ease" }}>
           {page === "Home" && <HomePage setPage={nav} />}
           {page === "About" && <AboutPage />}
           {page === "Services" && <ServicesPage />}
