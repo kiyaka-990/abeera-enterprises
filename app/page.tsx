@@ -1255,7 +1255,7 @@ function HomePage({ setPage }: { setPage: (p: string) => void }) {
             <button className="btn-p" style={{ marginTop: 20 }} onClick={() => setPage("About")}>About Us</button>
           </div>
           <div style={{ position: "relative" }}>
-            <img src="/images/about1.jpg" alt="" style={{ width: "100%", borderRadius: 16, filter: "brightness(0.76)" }} />
+            <img src="/images/hero2.jpeg" alt="" style={{ width: "100%", borderRadius: 16, filter: "brightness(0.76)" }} />
             <div style={{ position: "absolute", bottom: -16, left: -16, background: "linear-gradient(135deg,#C8102E,#8B0000)", padding: "18px 26px", borderRadius: 12, boxShadow: "0 14px 36px rgba(0,0,0,0.5)" }}>
               <div className="bebas" style={{ fontSize: 42, color: "#fff", lineHeight: 1 }}>2+</div>
               <div style={{ color: "rgba(255,255,255,0.8)", fontSize: 11, fontFamily: "'Rajdhani',sans-serif", letterSpacing: 1 }}>Years of Excellence</div>
