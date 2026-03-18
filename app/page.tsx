@@ -607,8 +607,8 @@ function Chatbot() {
             transition: "transform 0.2s, box-shadow 0.2s",
             color: "#fff", outline: "none",
           }}
-          onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "scale(1.1)"}
-          onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "scale(1)"}
+          onMouseEnter={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.transform = "scale(1.1)"}
+          onMouseLeave={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.transform = "scale(1)"}
         >
           {open ? "✕" : "💬"}
         </button>
@@ -667,8 +667,8 @@ function Chatbot() {
                     display: "flex", alignItems: "center", justifyContent: "center",
                     flexShrink: 0, transition: "all 0.2s", fontFamily: "sans-serif",
                   }}
-                  onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.background = "rgba(200,16,46,0.25)"}
-                  onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.background = showQuick ? "rgba(200,16,46,0.3)" : "rgba(255,255,255,0.07)"}
+                  onMouseEnter={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.background = "rgba(200,16,46,0.25)"}
+                  onMouseLeave={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.background = showQuick ? "rgba(200,16,46,0.3)" : "rgba(255,255,255,0.07)"}
                 >☰</button>
                 {/* Restart conversation */}
                 <button
@@ -805,8 +805,8 @@ function Chatbot() {
                     fontWeight: 600, letterSpacing: 1, display: "flex", alignItems: "center",
                     gap: 4, transition: "color 0.2s", padding: "2px 0",
                   }}
-                  onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.color = "#ffd700"}
-                  onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.color = "#555"}
+                  onMouseEnter={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.color = "#ffd700"}
+                  onMouseLeave={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.color = "#555"}
                 >↺ NEW CHAT</button>
               )}
             </div>
@@ -888,8 +888,8 @@ function HomePage({ setPage }: { setPage: (p: string) => void }) {
             {SERVICES.map((s, i) => (
               <div key={s.id} className="glass glass-shine card-glow" style={{ padding: 24, cursor: "pointer", transition: "all 0.4s", position: "relative", overflow: "hidden", animation: `fadeUp 0.6s ${i * 0.09}s both` }}
                 onClick={() => setPage("Services")}
-                onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)"}
-                onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}
+                onMouseEnter={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)"}
+                onMouseLeave={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}
               >
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: `linear-gradient(90deg,${s.color},transparent)` }} />
                 <div style={{ fontSize: 32, marginBottom: 12 }}>{s.icon}</div>
@@ -931,7 +931,7 @@ function HomePage({ setPage }: { setPage: (p: string) => void }) {
           <SH tag="Our Work" title="Recent ||Projects|| & Achievements" sub="Showcasing completed infrastructure projects transforming communities across Kenya" />
           <div style={{ display: "grid", gridTemplateColumns: isMob ? "1fr" : "repeat(3,1fr)", gap: 20 }}>
             {PROJECTS.slice(0, 3).map((p, i) => (
-              <div key={i} className="glass" style={{ overflow: "hidden", transition: "transform 0.3s" }} onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)"} onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}>
+              <div key={i} className="glass" style={{ overflow: "hidden", transition: "transform 0.3s" }} onMouseEnter={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)"} onMouseLeave={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}>
                 <div style={{ height: 200, overflow: "hidden", position: "relative" }}>
                   <img src={p.image} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s" }} onMouseEnter={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLImageElement).style.transform = "scale(1.07)"} onMouseLeave={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"} />
                   <div style={{ position: "absolute", top: 10, right: 10, background: "rgba(200,16,46,0.9)", padding: "3px 10px", borderRadius: 4, fontSize: 10, fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, letterSpacing: 1 }}>{p.category}</div>
@@ -1012,7 +1012,7 @@ function AboutPage() {
           <SH tag="Our Values" title="Principles That ||Drive|| Us" sub="The core values guiding every decision at Abeera Enterprises" />
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(185px,1fr))", gap: 20 }}>
             {[["🏆", "Quality", "We never compromise on material quality or construction standards"], ["🤝", "Integrity", "Transparent dealings with clients, partners, and communities"], ["⏱️", "Timeliness", "On-time delivery is a commitment, not just a promise"], ["💡", "Innovation", "Embracing new technologies and modern construction methods"], ["🌍", "Community", "Prioritising local employment and community development"]].map(([icon, title, desc]) => (
-              <div key={title} className="glass" style={{ padding: 24, textAlign: "center", transition: "transform 0.3s" }} onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)"} onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}>
+              <div key={title} className="glass" style={{ padding: 24, textAlign: "center", transition: "transform 0.3s" }} onMouseEnter={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)"} onMouseLeave={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}>
                 <div style={{ fontSize: 36, marginBottom: 13 }}>{icon}</div>
                 <h3 style={{ fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 17, color: "#C8102E", marginBottom: 7 }}>{title}</h3>
                 <p style={{ color: "#666", fontSize: 12, lineHeight: 1.6 }}>{desc}</p>
@@ -1108,7 +1108,7 @@ function PortfolioPage() {
       <section style={{ padding: "0 5% 84px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: isMob ? "1fr" : "repeat(3,1fr)", gap: 22 }}>
           {filtered.map((p, i) => (
-            <div key={i} className="glass" style={{ overflow: "hidden", animation: `fadeUp 0.5s ${i * 0.08}s both`, transition: "transform 0.3s" }} onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)"} onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}>
+            <div key={i} className="glass" style={{ overflow: "hidden", animation: `fadeUp 0.5s ${i * 0.08}s both`, transition: "transform 0.3s" }} onMouseEnter={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)"} onMouseLeave={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}>
               <div style={{ height: 220, overflow: "hidden", position: "relative" }}>
                 <img src={p.image} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s" }} onMouseEnter={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLImageElement).style.transform = "scale(1.06)"} onMouseLeave={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"} />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top,rgba(0,0,0,0.6),transparent)" }} />
@@ -1201,7 +1201,7 @@ function Footer({ setPage }: { setPage: (p: string) => void }) {
           </div>
           <div>
             <h4 style={{ fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 12, letterSpacing: 2, color: "#C8102E", textTransform: "uppercase", marginBottom: 16 }}>Navigate</h4>
-            {["Home", "About", "Services", "Portfolio", "Contact"].map((l: string) => <div key={l} onClick={() => setPage(l)} style={{ color: "#444", fontSize: 13, marginBottom: 8, cursor: "pointer", transition: "color 0.3s" }} onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.color = "#F5F5F5"} onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => (e.currentTarget as HTMLElement).style.color = "#444"}>{l}</div>)}
+            {["Home", "About", "Services", "Portfolio", "Contact"].map((l: string) => <div key={l} onClick={() => setPage(l)} style={{ color: "#444", fontSize: 13, marginBottom: 8, cursor: "pointer", transition: "color 0.3s" }} onMouseEnter={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.color = "#F5F5F5"} onMouseLeave={(e: React.MouseEvent<HTMLElement>) => (e.currentTarget as HTMLElement).style.color = "#444"}>{l}</div>)}
           </div>
           <div>
             <h4 style={{ fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 12, letterSpacing: 2, color: "#C8102E", textTransform: "uppercase", marginBottom: 16 }}>Services</h4>
