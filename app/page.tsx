@@ -27,10 +27,10 @@ const PROJECTS = [
 ];
 
 const TEAM = [
-  { name: "Abdinur Issack Abdi", role: "Director & Co-Founder", shares: "300 shares (30%)", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80" },
-  { name: "Fatuma Abdi Jirow", role: "Director & Managing Shareholder", shares: "700 shares (70%)", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&q=80" },
-  { name: "Eng. Hassan Mohammed", role: "Chief Civil Engineer", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&q=80" },
-  { name: "Eng. Amina Osman", role: "Water & Environmental Engineer", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&q=80" },
+  { name: "Abdinur Issack Abdi", role: "Director & Co-Founder", shares: "300 shares (30%)", initials: "AI", color: "#C8102E", icon: "🏗️", bg: "rgba(200,16,46,0.12)", discipline: "Business & Strategy" },
+  { name: "Fatuma Abdi Jirow", role: "Director & Managing Shareholder", shares: "700 shares (70%)", initials: "FA", color: "#c0392b", icon: "📊", bg: "rgba(192,57,43,0.12)", discipline: "Operations & Finance" },
+  { name: "Eng. Hassan Mohammed", role: "Chief Civil Engineer", initials: "HM", color: "#1a6fa8", icon: "🛣️", bg: "rgba(26,111,168,0.12)", discipline: "Civil Engineering" },
+  { name: "Eng. Amina Osman", role: "Water & Environmental Engineer", initials: "AO", color: "#1e8449", icon: "💧", bg: "rgba(30,132,73,0.12)", discipline: "Water & Environment" },
 ];
 
 const QUICK_REPLIES = [
@@ -917,7 +917,7 @@ function HomePage({ setPage }: { setPage: (p: string) => void }) {
             <button className="btn-p" style={{ marginTop: 20 }} onClick={() => setPage("About")}>About Us</button>
           </div>
           <div style={{ position: "relative" }}>
-            <img src="/images/about1.jpg" alt="" style={{ width: "100%", borderRadius: 16, filter: "brightness(0.76)" }} />
+            <img src="/images/hero2.jpeg" alt="" style={{ width: "100%", borderRadius: 16, filter: "brightness(0.76)" }} />
             <div style={{ position: "absolute", bottom: -16, left: -16, background: "linear-gradient(135deg,#C8102E,#8B0000)", padding: "18px 26px", borderRadius: 12, boxShadow: "0 14px 36px rgba(0,0,0,0.5)" }}>
               <div className="bebas" style={{ fontSize: 42, color: "#fff", lineHeight: 1 }}>2+</div>
               <div style={{ color: "rgba(255,255,255,0.8)", fontSize: 11, fontFamily: "'Rajdhani',sans-serif", letterSpacing: 1 }}>Years of Excellence</div>
@@ -1024,15 +1024,89 @@ function AboutPage() {
       <section style={{ padding: "65px 5%", background: "rgba(8,8,8,0.5)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <SH tag="Our Team" title="The People Behind ||Abeera||" sub="Led by experienced directors, backed by skilled professionals" />
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(225px,1fr))", gap: 24 }}>
-            {TEAM.map((m, i) => (
-              <div key={i} className="glass" style={{ overflow: "hidden", textAlign: "center" }}>
-                <div style={{ height: 205, overflow: "hidden" }}><img src={m.image} alt={m.name} style={{ width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(22%)" }} /></div>
-                <div style={{ padding: "17px 20px" }}>
-                  <div style={{ width: "100%", height: 2, background: "linear-gradient(90deg,transparent,#C8102E,transparent)", marginBottom: 13 }} />
-                  <h3 style={{ fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 16, marginBottom: 3 }}>{m.name}</h3>
-                  <p style={{ color: "#C8102E", fontSize: 11, fontFamily: "'Rajdhani',sans-serif", letterSpacing: 1 }}>{m.role}</p>
-                  {m.shares && <p style={{ color: "#444", fontSize: 10, marginTop: 4 }}>{m.shares}</p>}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: 24 }}>
+            {TEAM.map((m: any, i: number) => (
+              <div key={i} className="glass" style={{ overflow: "hidden", textAlign: "center", transition: "transform 0.3s" }}
+                onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)"}
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = "translateY(0)"}
+              >
+                {/* SVG Avatar — no real photos */}
+                <div style={{ height: 210, background: m.bg, display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden" }}>
+                  {/* Background geometric pattern */}
+                  <svg width="100%" height="100%" viewBox="0 0 300 210" style={{ position: "absolute", inset: 0 }} preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                      <radialGradient id={`rg${i}`} cx="50%" cy="40%" r="60%">
+                        <stop offset="0%" stopColor={m.color} stopOpacity="0.12" />
+                        <stop offset="100%" stopColor={m.color} stopOpacity="0.02" />
+                      </radialGradient>
+                    </defs>
+                    <rect width="300" height="210" fill={`url(#rg${i})`} />
+                    {/* Decorative circles */}
+                    <circle cx="30" cy="30" r="60" fill={m.color} fillOpacity="0.04" />
+                    <circle cx="270" cy="180" r="80" fill={m.color} fillOpacity="0.05" />
+                    <circle cx="260" cy="20" r="40" fill={m.color} fillOpacity="0.04" />
+                    {/* Grid lines */}
+                    {[0, 1, 2, 3, 4, 5].map((n: number) => (
+                      <line key={n} x1={n * 60} y1="0" x2={n * 60} y2="210" stroke={m.color} strokeOpacity="0.05" strokeWidth="1" />
+                    ))}
+                    {[0, 1, 2, 3].map((n: number) => (
+                      <line key={n} x1="0" y1={n * 70} x2="300" y2={n * 70} stroke={m.color} strokeOpacity="0.05" strokeWidth="1" />
+                    ))}
+                    {/* Diagonal accent lines */}
+                    <line x1="0" y1="210" x2="210" y2="0" stroke={m.color} strokeOpacity="0.06" strokeWidth="1.5" />
+                    <line x1="90" y1="210" x2="300" y2="0" stroke={m.color} strokeOpacity="0.04" strokeWidth="1" />
+                  </svg>
+
+                  {/* Avatar circle */}
+                  <div style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
+                    {/* Outer ring */}
+                    <div style={{ width: 110, height: 110, borderRadius: "50%", border: `2px solid ${m.color}`, padding: 4, position: "relative" }}>
+                      {/* Spinning dashed ring */}
+                      <svg width="110" height="110" viewBox="0 0 110 110" style={{ position: "absolute", inset: -2, animation: "rotateSlow 20s linear infinite" }}>
+                        <circle cx="55" cy="55" r="52" fill="none" stroke={m.color} strokeWidth="1" strokeOpacity="0.3" strokeDasharray="6 4" />
+                      </svg>
+                      {/* Inner filled circle */}
+                      <div style={{
+                        width: "100%", height: "100%", borderRadius: "50%",
+                        background: `linear-gradient(135deg, ${m.color}33, ${m.color}11)`,
+                        border: `1px solid ${m.color}44`,
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                        flexDirection: "column", gap: 2,
+                        backdropFilter: "blur(10px)",
+                      }}>
+                        {/* Initials */}
+                        <span style={{
+                          fontFamily: "'Bebas Neue', sans-serif",
+                          fontSize: 28, color: m.color, lineHeight: 1, letterSpacing: 2,
+                          textShadow: `0 0 20px ${m.color}66`,
+                        }}>{m.initials}</span>
+                        {/* Discipline icon */}
+                        <span style={{ fontSize: 16, lineHeight: 1 }}>{m.icon}</span>
+                      </div>
+                    </div>
+                    {/* Discipline badge */}
+                    <div style={{
+                      background: `${m.color}22`,
+                      border: `1px solid ${m.color}44`,
+                      borderRadius: 20, padding: "3px 12px",
+                      fontSize: 9.5, color: m.color,
+                      fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, letterSpacing: 1,
+                      textTransform: "uppercase", whiteSpace: "nowrap",
+                    }}>{m.discipline}</div>
+                  </div>
+                </div>
+
+                {/* Info */}
+                <div style={{ padding: "16px 20px 20px" }}>
+                  <div style={{ width: "100%", height: 2, background: `linear-gradient(90deg,transparent,${m.color},transparent)`, marginBottom: 12 }} />
+                  <h3 style={{ fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: 17, marginBottom: 4, color: "#F5F5F5" }}>{m.name}</h3>
+                  <p style={{ color: m.color, fontSize: 11, fontFamily: "'Rajdhani',sans-serif", letterSpacing: 1, textTransform: "uppercase", marginBottom: 4 }}>{m.role}</p>
+                  {m.shares && (
+                    <div style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 20, padding: "3px 10px", marginTop: 4 }}>
+                      <span style={{ width: 6, height: 6, borderRadius: "50%", background: m.color, display: "inline-block" }} />
+                      <span style={{ color: "#777", fontSize: 10, fontFamily: "'Rajdhani',sans-serif", letterSpacing: 0.5 }}>{m.shares}</span>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
