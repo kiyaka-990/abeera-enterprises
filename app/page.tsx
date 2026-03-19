@@ -18,10 +18,10 @@ const SERVICES = [
 ];
 
 const PROJECTS = [
-  { title: "Mandera County Road Rehabilitation", category: "Roads", year: "2024", value: "KES 45M", image: "/images/road.jpg", desc: "30km road rehabilitation with drainage improvements in Mandera County" },
+  { title: "Mandera County Road Rehabilitation", category: "Roads", year: "2024", value: "KES 45M", image: "/images/project1.jpeg", desc: "30km road rehabilitation with drainage improvements in Mandera County" },
   { title: "Community Water Borehole Project", category: "Water Works", year: "2024", value: "KES 12M", image: "/images/project2.jpg", desc: "5 deep boreholes with solar-powered pumping for rural communities" },
   { title: "Affordable Housing Complex", category: "Building", year: "2023", value: "KES 28M", image: "/images/hero3.jpg", desc: "40-unit residential complex with modern amenities in Nairobi" },
-  { title: "Solar Street Lighting Installation", category: "Electrical", year: "2024", value: "KES 8M", image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80", desc: "200 solar street lights along major county roads" },
+  { title: "Solar Street Lighting Installation", category: "Electrical", year: "2024", value: "KES 8M", image: "/images/project6.jpg", desc: "200 solar street lights along major county roads" },
   { title: "Water Pan Construction — Wajir", category: "Water Works", year: "2023", value: "KES 18M", image: "/images/project4.jpg", desc: "Large-capacity water pan for livestock and irrigation needs" },
   { title: "Industrial Warehouse Build", category: "Building", year: "2023", value: "KES 35M", image: "/images/project5.jpg", desc: "5,000sqm industrial warehouse with mechanical and electrical fit-out" },
 ];
