@@ -6,7 +6,7 @@ const HERO_SLIDES = [
   { bg: "/images/hero6.jpeg", tag: "Building Construction", title: "BUILDING", accent: "KENYA'S", sub: "FUTURE", desc: "From residential homes to commercial complexes — built with precision and pride." },
   { bg: "/images/hero3.jpg", tag: "Building Construction", title: "RAISING", accent: "BOLD", sub: "STRUCTURES", desc: "From residential homes to commercial complexes — built with precision and pride." },
   { bg: "/images/hero4.jpg", tag: "Water Works", title: "BRINGING", accent: "WATER", sub: "TO LIFE", desc: "Boreholes, dams, water pans and pipelines transforming arid communities." },
-  { bg: "/images/hero5.jpg", tag: "Road Works", title: "BUILDING", accent: "KENYA'S", sub: "ROADS", desc: "World-class highway and rural road construction across Kenya's most challenging terrains." },
+  { bg: "/images/hero8.jpeg", tag: "Road Works", title: "BUILDING", accent: "KENYA'S", sub: "ROADS", desc: "World-class highway and rural road construction across Kenya's most challenging terrains." },
 ];
 
 const SERVICES = [
