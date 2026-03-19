@@ -23,7 +23,7 @@ const PROJECTS = [
   { title: "Affordable Housing Complex", category: "Building", year: "2023", value: "KES 28M", image: "/images/hero3.jpg", desc: "40-unit residential complex with modern amenities in Nairobi" },
   { title: "Solar Street Lighting Installation", category: "Electrical", year: "2024", value: "KES 8M", image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80", desc: "200 solar street lights along major county roads" },
   { title: "Water Pan Construction — Wajir", category: "Water Works", year: "2023", value: "KES 18M", image: "/images/project4.jpg", desc: "Large-capacity water pan for livestock and irrigation needs" },
-  { title: "Industrial Warehouse Build", category: "Building", year: "2023", value: "KES 35M", image: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80", desc: "5,000sqm industrial warehouse with mechanical and electrical fit-out" },
+  { title: "Industrial Warehouse Build", category: "Building", year: "2023", value: "KES 35M", image: "/images/project5.jpg", desc: "5,000sqm industrial warehouse with mechanical and electrical fit-out" },
 ];
 
 const TEAM = [
