@@ -3,9 +3,9 @@ import { useState, useEffect, useRef, useCallback } from "react";
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 const HERO_SLIDES = [
-  { bg: "/images/hero9.jpeg", tag: "Building Construction", title: "BUILDING", accent: "KENYA'S", sub: "FUTURE", desc: "From residential homes to commercial complexes — built with precision and pride." },
+  { bg: "/images/hero6.jpeg", tag: "Building Construction", title: "BUILDING", accent: "KENYA'S", sub: "FUTURE", desc: "From residential homes to commercial complexes — built with precision and pride." },
   { bg: "/images/hero3.jpg", tag: "Building Construction", title: "RAISING", accent: "BOLD", sub: "STRUCTURES", desc: "From residential homes to commercial complexes — built with precision and pride." },
-  { bg: "/images/hero4.jpg", tag: "Water Works", title: "BRINGING", accent: "WATER", sub: "TO LIFE", desc: "Boreholes, dams, water pans and pipelines transforming arid communities." },
+  { bg: "/images/hero7.jpg", tag: "Water Works", title: "BRINGING", accent: "WATER", sub: "TO LIFE", desc: "Boreholes, dams, water pans and pipelines transforming arid communities." },
   { bg: "/images/hero5.jpg", tag: "Road Works", title: "BUILDING", accent: "KENYA'S", sub: "ROADS", desc: "World-class highway and rural road construction across Kenya's most challenging terrains." },
 ];
 
@@ -18,12 +18,12 @@ const SERVICES = [
 ];
 
 const PROJECTS = [
-  { title: "Mandera County Road Rehabilitation", category: "Roads", year: "2024", value: "KES 45M", image: "/images/project1.jpeg", desc: "30km road rehabilitation with drainage improvements in Mandera County" },
+  { title: "Mandera County Road Rehabilitation", category: "Roads", year: "2024", value: "KES 45M", image: "/images/road.jpg", desc: "30km road rehabilitation with drainage improvements in Mandera County" },
   { title: "Community Water Borehole Project", category: "Water Works", year: "2024", value: "KES 12M", image: "/images/project2.jpg", desc: "5 deep boreholes with solar-powered pumping for rural communities" },
   { title: "Affordable Housing Complex", category: "Building", year: "2023", value: "KES 28M", image: "/images/hero3.jpg", desc: "40-unit residential complex with modern amenities in Nairobi" },
-  { title: "Solar Street Lighting Installation", category: "Electrical", year: "2024", value: "KES 8M", image: "/images/project6.jpg", desc: "200 solar street lights along major county roads" },
+  { title: "Solar Street Lighting Installation", category: "Electrical", year: "2024", value: "KES 8M", image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80", desc: "200 solar street lights along major county roads" },
   { title: "Water Pan Construction — Wajir", category: "Water Works", year: "2023", value: "KES 18M", image: "/images/project4.jpg", desc: "Large-capacity water pan for livestock and irrigation needs" },
-  { title: "Industrial Warehouse Build", category: "Building", year: "2023", value: "KES 35M", image: "/images/project5.jpg", desc: "5,000sqm industrial warehouse with mechanical and electrical fit-out" },
+  { title: "Industrial Warehouse Build", category: "Building", year: "2023", value: "KES 35M", image: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80", desc: "5,000sqm industrial warehouse with mechanical and electrical fit-out" },
 ];
 
 const TEAM = [
@@ -428,9 +428,9 @@ body.lm .mob-link{color:#222;}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;}}
 
 /* ── CHATBOT MOBILE ── */
-.aria-fab{position:fixed!important;bottom:22px!important;right:22px!important;z-index:3000!important;pointer-events:auto!important;}
+
 @media(max-width:480px){
-  .aria-win{right:0!important;left:0!important;bottom:0!important;width:100vw!important;height:88dvh!important;max-height:88dvh!important;border-radius:18px 18px 0 0!important;}
+  
 }
 @keyframes chatMobPop{from{transform:translateY(100%);opacity:0;}to{transform:translateY(0);opacity:1;}}
 
@@ -476,6 +476,36 @@ body.lm .mob-link{color:#222;}
   box-shadow:0 20px 56px rgba(0,0,0,0.5),0 0 0 1px rgba(200,16,46,0.3),0 0 36px rgba(200,16,46,0.08)!important;
   border-color:rgba(200,16,46,0.4)!important;
 }
+/* ── CHATBOT ── */
+.aria-fab{position:fixed!important;bottom:22px!important;right:22px!important;z-index:9999!important;pointer-events:auto!important;}
+.aria-win{
+  position:fixed;right:20px;bottom:86px;
+  width:min(360px, calc(100vw - 32px));
+  height:min(520px, calc(100dvh - 110px));
+  max-height:calc(100dvh - 110px);
+  z-index:9998;display:flex;flex-direction:column;
+  background:linear-gradient(160deg,rgba(28,6,6,0.93) 0%,rgba(10,10,10,0.97) 60%,rgba(6,3,3,0.95) 100%);
+  backdrop-filter:blur(40px) saturate(180%);
+  -webkit-backdrop-filter:blur(40px) saturate(180%);
+  border:1px solid rgba(255,255,255,0.1);
+  border-top:1px solid rgba(255,255,255,0.2);
+  border-radius:20px;
+  box-shadow:0 24px 60px rgba(0,0,0,0.85),0 0 0 1px rgba(200,16,46,0.15),inset 0 1px 0 rgba(255,255,255,0.09);
+  animation:chatPop 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  overflow:hidden;pointer-events:auto;
+}
+@media(max-width:600px){
+  .aria-win{right:0;left:0;bottom:0;width:100vw!important;height:88dvh!important;max-height:88dvh!important;border-radius:18px 18px 0 0;animation:chatMobPop 0.3s ease;}
+}
+@media(max-height:700px) and (min-width:601px){
+  .aria-win{bottom:80px;height:calc(100dvh - 100px);max-height:calc(100dvh - 100px);}
+}
+@keyframes chatMobPop{from{transform:translateY(100%);opacity:0;}to{transform:translateY(0);opacity:1;}}
+.aria-msgs::-webkit-scrollbar{width:3px;}
+.aria-msgs::-webkit-scrollbar-thumb{background:rgba(200,16,46,0.4);border-radius:2px;}
+.aria-textarea{color:#F5F5F5!important;}
+.aria-textarea::placeholder{color:rgba(255,255,255,0.35)!important;}
+.aria-quick:hover{background:rgba(200,16,46,0.25)!important;color:#fff!important;}
 `;
 
 // ─── LOGO ─────────────────────────────────────────────────────────────────────
@@ -507,9 +537,9 @@ function Logo({ size = 40 }) {
         {/* Crossbar */}
         <rect x="27" y="61" width="50" height="10" fill="url(#lgA)" />
         {/* Swoosh 1 */}
-        <path d="M60 12 Q83 0 103 20" stroke="#C8102E" strokeWidth="5" strokeLinecap="round" fill="none" />
+        <path d="M60 12 Q83 0 103 20" stroke="#C8102E" strokeWidth="5" strokeLinecap="round" fill="none"/>
         {/* Swoosh 2 */}
-        <path d="M65 26 Q85 16 105 38" stroke="#8B0000" strokeWidth="3.5" strokeLinecap="round" fill="none" opacity="0.8" />
+        <path d="M65 26 Q85 16 105 38" stroke="#8B0000" strokeWidth="3.5" strokeLinecap="round" fill="none" opacity="0.8"/>
       </svg>
 
       {/* Text block — "A beera" then "Enterprises Limited" */}
@@ -858,7 +888,7 @@ function Chatbot() {
   showQuickRef.current = showQuick;
 
   // sendRef — store send in a ref so quick-reply buttons never go stale
-  const sendRef = useRef<(text?: string) => void>(() => { });
+  const sendRef = useRef<(text?: string) => void>(() => {});
 
   // The actual send logic — uses only refs, never closes over state
   sendRef.current = (text?: string) => {
@@ -890,66 +920,8 @@ function Chatbot() {
 
   return (
     <>
-      {/* ── Responsive CSS injected once ── */}
-      <style>{`
-        .aria-win {
-          position: fixed;
-          right: 20px;
-          bottom: 86px;
-          width: min(360px, calc(100vw - 32px));
-          height: min(520px, calc(100dvh - 110px));
-          max-height: calc(100dvh - 110px);
-          z-index: 2999;
-          display: flex;
-          flex-direction: column;
-          background: linear-gradient(160deg,rgba(28,6,6,0.93) 0%,rgba(10,10,10,0.97) 60%,rgba(6,3,3,0.95) 100%);
-          backdrop-filter: blur(40px) saturate(180%);
-          -webkit-backdrop-filter: blur(40px) saturate(180%);
-          border: 1px solid rgba(255,255,255,0.1);
-          border-top: 1px solid rgba(255,255,255,0.2);
-          border-radius: 20px;
-          box-shadow: 0 24px 60px rgba(0,0,0,0.85), 0 0 0 1px rgba(200,16,46,0.15), inset 0 1px 0 rgba(255,255,255,0.09);
-          animation: chatPop 0.35s cubic-bezier(0.34,1.56,0.64,1);
-          overflow: hidden;
-          pointer-events: auto;
-        }
-        @media (max-width: 600px) {
-          .aria-win {
-            right: 0;
-            left: 0;
-            bottom: 0;
-            width: 100vw;
-            height: 88dvh;
-            max-height: 88dvh;
-            border-radius: 18px 18px 0 0;
-            animation: chatPopMobile 0.3s ease;
-          }
-          .aria-fab {
-            bottom: 18px !important;
-            right: 18px !important;
-          }
-        }
-        @media (max-height: 700px) and (min-width: 601px) {
-          .aria-win {
-            bottom: 80px;
-            height: calc(100dvh - 100px);
-            max-height: calc(100dvh - 100px);
-          }
-        }
-        @keyframes chatPopMobile {
-          from { transform: translateY(100%); opacity: 0; }
-          to { transform: translateY(0); opacity: 1; }
-        }
-        .aria-msgs::-webkit-scrollbar { width: 3px; }
-        .aria-msgs::-webkit-scrollbar-thumb { background: rgba(200,16,46,0.4); border-radius: 2px; }
-        .aria-textarea { color: #F5F5F5 !important; }
-        .aria-textarea::placeholder { color: rgba(255,255,255,0.35) !important; }
-        .aria-send-btn:hover { transform: scale(1.05); box-shadow: 0 4px 16px rgba(200,16,46,0.5) !important; }
-        .aria-quick:hover { background: rgba(200,16,46,0.25) !important; color: #fff !important; transform: scale(1.03); }
-      `}</style>
-
       {/* ── FAB Button ── */}
-      <div className="aria-fab">
+      <div className="aria-fab" style={{ position:"fixed", bottom:22, right:22, zIndex:9999, pointerEvents:"auto" }}>
         {!open && notif && (
           <>
             <div style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "rgba(200,16,46,0.3)", animation: "ripple 2s ease-out infinite" }} />
@@ -1639,8 +1611,8 @@ function Footer({ setPage }: { setPage: (p: string) => void }) {
           </div>
         </div>
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", paddingTop: 20, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
-          <span style={{ color: "#888", fontSize: 12 }}>© 2026 Abeera Enterprises Limited • PVT-BEUXP26A • All rights reserved.</span>
-          <span style={{ color: "#C8102E", fontSize: 12, fontFamily: "'Rajdhani',sans-serif" }}>Developed by Asterleigh Systems</span>
+          <span style={{ color: "#888", fontSize: 12 }}>© 2025 Abeera Enterprises Limited • PVT-BEUXP26A • All rights reserved.</span>
+          <span style={{ color: "#C8102E", fontSize: 12, fontFamily: "'Rajdhani',sans-serif" }}>Registered under The Companies Act, 2015</span>
         </div>
       </div>
     </footer>
