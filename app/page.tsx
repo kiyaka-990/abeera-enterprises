@@ -3,9 +3,9 @@ import { useState, useEffect, useRef, useCallback } from "react";
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 const HERO_SLIDES = [
-  { bg: "/images/hero6.jpeg", tag: "Building Construction", title: "BUILDING", accent: "KENYA'S", sub: "FUTURE", desc: "From residential homes to commercial complexes — built with precision and pride." },
+  { bg: "/images/hero9.jpeg", tag: "Building Construction", title: "BUILDING", accent: "KENYA'S", sub: "FUTURE", desc: "From residential homes to commercial complexes — built with precision and pride." },
   { bg: "/images/hero3.jpg", tag: "Building Construction", title: "RAISING", accent: "BOLD", sub: "STRUCTURES", desc: "From residential homes to commercial complexes — built with precision and pride." },
-  { bg: "/images/hero7.jpg", tag: "Water Works", title: "BRINGING", accent: "WATER", sub: "TO LIFE", desc: "Boreholes, dams, water pans and pipelines transforming arid communities." },
+  { bg: "/images/hero4.jpg", tag: "Water Works", title: "BRINGING", accent: "WATER", sub: "TO LIFE", desc: "Boreholes, dams, water pans and pipelines transforming arid communities." },
   { bg: "/images/hero5.jpg", tag: "Road Works", title: "BUILDING", accent: "KENYA'S", sub: "ROADS", desc: "World-class highway and rural road construction across Kenya's most challenging terrains." },
 ];
 
@@ -537,9 +537,9 @@ function Logo({ size = 40 }) {
         {/* Crossbar */}
         <rect x="27" y="61" width="50" height="10" fill="url(#lgA)" />
         {/* Swoosh 1 */}
-        <path d="M60 12 Q83 0 103 20" stroke="#C8102E" strokeWidth="5" strokeLinecap="round" fill="none"/>
+        <path d="M60 12 Q83 0 103 20" stroke="#C8102E" strokeWidth="5" strokeLinecap="round" fill="none" />
         {/* Swoosh 2 */}
-        <path d="M65 26 Q85 16 105 38" stroke="#8B0000" strokeWidth="3.5" strokeLinecap="round" fill="none" opacity="0.8"/>
+        <path d="M65 26 Q85 16 105 38" stroke="#8B0000" strokeWidth="3.5" strokeLinecap="round" fill="none" opacity="0.8" />
       </svg>
 
       {/* Text block — "A beera" then "Enterprises Limited" */}
@@ -888,7 +888,7 @@ function Chatbot() {
   showQuickRef.current = showQuick;
 
   // sendRef — store send in a ref so quick-reply buttons never go stale
-  const sendRef = useRef<(text?: string) => void>(() => {});
+  const sendRef = useRef<(text?: string) => void>(() => { });
 
   // The actual send logic — uses only refs, never closes over state
   sendRef.current = (text?: string) => {
@@ -921,7 +921,7 @@ function Chatbot() {
   return (
     <>
       {/* ── FAB Button ── */}
-      <div className="aria-fab" style={{ position:"fixed", bottom:22, right:22, zIndex:9999, pointerEvents:"auto" }}>
+      <div className="aria-fab" style={{ position: "fixed", bottom: 22, right: 22, zIndex: 9999, pointerEvents: "auto" }}>
         {!open && notif && (
           <>
             <div style={{ position: "absolute", inset: 0, borderRadius: "50%", background: "rgba(200,16,46,0.3)", animation: "ripple 2s ease-out infinite" }} />
